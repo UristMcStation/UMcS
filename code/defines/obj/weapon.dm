@@ -41,36 +41,44 @@
 	throw_range = 2
 	w_class = 1.0
 	var/access = list()
+	var/cash_value = 1
 	access = access_crate_cash
 
 /obj/item/weapon/spacecash/c10
 	icon_state = "spacecash10"
 	access = access_crate_cash
 	desc = "It's worth 10 credits."
+	cash_value = 10
 /obj/item/weapon/spacecash/c20
 	icon_state = "spacecash20"
 	access = access_crate_cash
 	desc = "It's worth 20 credits."
+	cash_value = 20
 /obj/item/weapon/spacecash/c50
 	icon_state = "spacecash50"
 	access = access_crate_cash
 	desc = "It's worth 50 credits."
+	cash_value = 50
 /obj/item/weapon/spacecash/c100
 	icon_state = "spacecash100"
 	access = access_crate_cash
 	desc = "It's worth 100 credits."
+	cash_value = 100
 /obj/item/weapon/spacecash/c200
 	icon_state = "spacecash200"
 	access = access_crate_cash
 	desc = "It's worth 200 credits."
+	cash_value = 200
 /obj/item/weapon/spacecash/c500
 	icon_state = "spacecash500"
 	access = access_crate_cash
 	desc = "It's worth 500 credits."
+	cash_value = 500
 /obj/item/weapon/spacecash/c1000
 	icon_state = "spacecash1000"
 	access = access_crate_cash
 	desc = "It's worth 1000 credits."
+	cash_value = 1000
 
 /obj/item/weapon/bananapeel
 	name = "banana peel"
