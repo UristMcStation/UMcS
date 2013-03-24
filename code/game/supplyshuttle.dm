@@ -133,6 +133,8 @@ var/list/mechtoys = list(
 	var/points_per_slip = 2
 	var/points_per_crate = 5
 	var/plasma_per_point = 5 // 2 plasma for 1 point
+	var/cash_per_point = 25
+
 	//control
 	var/ordernum
 	var/list/shoppinglist = list()
@@ -233,6 +235,7 @@ var/list/mechtoys = list(
 		if(!shuttle)	return
 
 		var/plasma_count = 0
+		var/cash_count = 0
 
 		for(var/atom/movable/MA in shuttle)
 			if(MA.anchored)	continue
@@ -256,10 +259,18 @@ var/list/mechtoys = list(
 					if(istype(A, /obj/item/stack/sheet/mineral/plasma))
 						var/obj/item/stack/sheet/mineral/plasma/P = A
 						plasma_count += P.amount
+					//Sell space cash
+					if(istype(A, /obj/item/weapon/spacecash))
+						var/obj/item/weapon/spacecash/C = A
+						cash_count += C.cash_value
+
 			del(MA)
 
 		if(plasma_count)
 			points += Floor(plasma_count / plasma_per_point)
+		if(cash_count)
+			points += Floor(cash_count / cash_per_point)
+
 
 	//Buyin
 	proc/buy()
