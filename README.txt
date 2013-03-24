@@ -1,8 +1,6 @@
-tgstation13 v1.0 - 6 October 2010
+Urist McStation - March 2013
 
-Website: http://nanotrasen.com
-Code: https://github.com/tgstation/-tg-station
-IRC: irc://irc.rizon.net/tgstation13
+Most of this readme is from /tg/station's code, and since nothing is sigificantly different in this codebase this readme will be too.
 
 ================================================================================
 INSTALLATION
