@@ -1,10 +1,11 @@
 // BEGIN_INTERNALS
 /*
 MAP_ICON_TYPE: 0
+WINDOW: code\game\gamemodes\derelict\wreck.dm;maps\tgstation.2.1.2.dmm
 LAST_COMPILE_VERSION: 498.1158
-WINDOW: code\game\gamemodes\derelict\wreck.dm
-DIR: code code\game code\game\gamemodes code\game\gamemodes\derelict code\modules code\modules\events 
-FILE: code\game\gamemodes\derelict\wreck.dm
+UPDATE_OBJ_TREE: ON
+DIR: code code\game\gamemodes code\game\gamemodes\derelict code\modules code\modules\events maps 
+FILE: maps\tgstation.2.1.2.dmm
 LAST_COMPILE_TIME: 1364162559
 AUTO_FILE_DIR: ON
 */
