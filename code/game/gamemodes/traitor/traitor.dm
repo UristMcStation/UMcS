@@ -19,7 +19,7 @@
 	var/const/waittime_h = 1800 //upper bound on time before intercept arrives (in tenths of seconds)
 
 	var/traitors_possible = 4 //hard limit on traitors if scaling is turned off
-	var/const/traitor_scaling_coeff = 5.0 //how much does the amount of players get divided by to determine traitors
+	var/const/traitor_scaling_coeff = 4.0 //how much does the amount of players get divided by to determine traitors //Reduced from 5 to 4 to make traitor rounds more interesting
 
 
 /datum/game_mode/traitor/announce()
@@ -160,7 +160,7 @@
 		killer.mind.store_memory("<b>Code Response</b>: [syndicate_code_response]")
 	else
 		killer << "Unfortunately, the Syndicate did not provide you with a code response."
-	killer << "Use the code words in the order provided, during regular conversation, to identify other agents. Proceed with caution, however, as everyone is a potential foe."
+	killer << "Use the code words provided, during regular conversation, to identify other agents. Proceed with caution, however, as everyone is a potential foe." //Removed "in the order" in this phrase
 	//End code phrase.
 
 
@@ -272,5 +272,5 @@
 			traitor_mob.mind.store_memory("<b>Code Response</b>: [syndicate_code_response]")
 		else
 			traitor_mob << "Unfortunately, the Syndicate did not provide you with a code response."
-		traitor_mob << "Use the code words in the order provided, during regular conversation, to identify other agents. Proceed with caution, however, as everyone is a potential foe."
+		traitor_mob << "Use the code words provided, during regular conversation, to identify other agents. Proceed with caution, however, as everyone is a potential foe." //Removed "in the order provided" from this line.
 	//End code phrase.

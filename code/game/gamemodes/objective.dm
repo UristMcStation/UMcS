@@ -285,6 +285,13 @@ datum/objective/steal
 		"the hypospray" = /obj/item/weapon/reagent_containers/hypospray,
 		"the captain's pinpointer" = /obj/item/weapon/pinpointer,
 		"an ablative armor vest" = /obj/item/clothing/suit/armor/laserproof,
+		"the Championship Belt!" = /obj/item/weapon/item/storage/belt/champion,
+		"a double-barreled shotgun" = /obj/item/weapon/gun/projectile/shotgun/doublebarrel,
+		"an ID console circuitboard" = /obj/item/weapon/circuitboard/card,
+		"a Teleporter circuitboard" = /obj/item/weapon/circuitboard/teleport,
+		"a loyalty implant" = /obj/item/weapon/implant/loyalty,
+		"a straight jacket" = /obj/item/clothing/suit/straight_jacket,
+		"a handheld syringe gun" = /obj/item/weapon/gun/syringe,
 	)
 
 	var/global/possible_items_special[] = list(
