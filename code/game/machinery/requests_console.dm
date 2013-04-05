@@ -377,7 +377,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	return
 
 					//err... hacking code, which has no reason for existing... but anyway... it's supposed to unlock priority 3 messanging on that console (EXTREME priority...) the code for that actually exists.
-/obj/machinery/requests_console/attackby(var/obj/item/weapon/O as obj, var/mob/user as mob)
+/obj/machinery/requests_console/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	/*
 	if (istype(O, /obj/item/weapon/crowbar))
 		if(open)
@@ -400,13 +400,23 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		else
 			user << "You can't do much with that."*/
 
-	if (istype(O, /obj/item/weapon/card/id))
+	if (istype(O, /obj/item/weapon/card/id) || istype(O, /obj/item/device/pda))
 		if(screen == 9)
-			var/obj/item/weapon/card/id/T = O
+			var/obj/item/weapon/card/id/T
+			if (istype(O, /obj/item/device/pda))
+				var/obj/item/device/pda/U = O
+				T = U.id
+			else
+				T = O
 			msgVerified = text("<font color='green'><b>Verified by [T.registered_name] ([T.assignment])</b></font>")
 			updateUsrDialog()
 		if(screen == 10)
-			var/obj/item/weapon/card/id/ID = O
+			var/obj/item/weapon/card/id/ID
+			if (istype(O,/obj/item/device/pda))
+				var/obj/item/device/pda/V = O
+				ID = V.id
+			else
+				ID = O
 			if (access_RC_announce in ID.GetAccess())
 				announceAuth = 1
 			else
