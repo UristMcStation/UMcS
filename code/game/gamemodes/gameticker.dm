@@ -88,7 +88,7 @@ var/global/datum/controller/gameticker/ticker
 		current_state = GAME_STATE_PREGAME
 		job_master.ResetOccupations()
 		if(retry_count>=max_retries)
-			world << "<B>Retry count exceeded.Reverting to secret rotation.</B>
+			world << "<B>Retry count exceeded.Reverting to secret rotation.</B>"
 			retry_count = 0
 			master_mode = "secret"
 		return 0
