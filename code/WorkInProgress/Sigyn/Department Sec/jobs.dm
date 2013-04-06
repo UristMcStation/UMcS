@@ -87,6 +87,7 @@ var/list/sec_departments = list("engineering", "supply", "medical", "science")
 		L.implanted = 1
 		return 1
 
+/*
 /obj/item/device/radio/headset/headset_sec/department/New()
 	wires = new(src)
 	secure_radio_connections = new
@@ -94,22 +95,35 @@ var/list/sec_departments = list("engineering", "supply", "medical", "science")
 	if(radio_controller)
 		initialize()
 	recalculateChannels()
+*/
 
 /obj/item/device/radio/headset/headset_sec/department/engi
-	keyslot1 = new /obj/item/device/encryptionkey/headset_sec
-	keyslot2 = new /obj/item/device/encryptionkey/headset_eng
+	New()
+		..()
+		keyslot1 = new /obj/item/device/encryptionkey/headset_sec
+		keyslot2 = new /obj/item/device/encryptionkey/headset_eng
+		recalculateChannels()
 
 /obj/item/device/radio/headset/headset_sec/department/supply
-	keyslot1 = new /obj/item/device/encryptionkey/headset_sec
-	keyslot2 = new /obj/item/device/encryptionkey/headset_cargo
+	New()
+		..()
+		keyslot1 = new /obj/item/device/encryptionkey/headset_sec
+		keyslot2 = new /obj/item/device/encryptionkey/headset_cargo
+		recalculateChannels()
 
 /obj/item/device/radio/headset/headset_sec/department/med
-	keyslot1 = new /obj/item/device/encryptionkey/headset_sec
-	keyslot2 = new /obj/item/device/encryptionkey/headset_med
+	New()
+		..()
+		keyslot1 = new /obj/item/device/encryptionkey/headset_sec
+		keyslot2 = new /obj/item/device/encryptionkey/headset_med
+		recalculateChannels()
 
 /obj/item/device/radio/headset/headset_sec/department/sci
-	keyslot1 = new /obj/item/device/encryptionkey/headset_sec
-	keyslot2 = new /obj/item/device/encryptionkey/headset_sci
+	New()
+		..()
+		keyslot1 = new /obj/item/device/encryptionkey/headset_sec
+		keyslot2 = new /obj/item/device/encryptionkey/headset_sci
+		recalculateChannels()
 
 /obj/item/clothing/under/rank/security/cargo/New()
 	var/obj/item/clothing/tie/armband/cargo/A		= new /obj/item/clothing/tie/armband/cargo
