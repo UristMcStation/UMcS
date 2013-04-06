@@ -1,12 +1,10 @@
 // BEGIN_INTERNALS
 /*
 MAP_ICON_TYPE: 0
-WINDOW: code\game\gamemodes\derelict\wreck.dm;code\game\gamemodes\traitor\traitor.dm;code\game\gamemodes\objective.dm;maps\tgstation.2.1.2.dmm
+WINDOW: code\game\gamemodes\derelict\wreck.dm;code\game\gamemodes\traitor\traitor.dm;code\game\gamemodes\objective.dm
 LAST_COMPILE_VERSION: 498.1158
-UPDATE_OBJ_TREE: ON
-DIR: code code\game code\game\gamemodes code\game\gamemodes\cult code\game\gamemodes\derelict code\game\gamemodes\revolution code\game\gamemodes\traitor maps 
-FILE: maps\tgstation.2.1.2.dmm
-LAST_COMPILE_TIME: 1364841441
+DIR: code code\game code\game\gamemodes code\game\gamemodes\derelict code\game\gamemodes\revolution code\game\gamemodes\traitor code\modules code\modules\admin code\modules\events maps 
+LAST_COMPILE_TIME: 1365199152
 AUTO_FILE_DIR: ON
 */
 // END_INTERNALS
