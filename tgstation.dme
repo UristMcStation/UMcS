@@ -20,6 +20,7 @@
 #define FILE_DIR "icons/obj/flora"
 #define FILE_DIR "icons/obj/machines"
 #define FILE_DIR "icons/obj/pipes"
+#define FILE_DIR "icons/obj/power_cond"
 #define FILE_DIR "icons/pda_icons"
 #define FILE_DIR "icons/spideros_icons"
 #define FILE_DIR "icons/Testing"
@@ -39,6 +40,9 @@
 #define FILE_DIR "sound/violin"
 #define FILE_DIR "sound/voice"
 #define FILE_DIR "sound/weapons"
+#define FILE_DIR "tools"
+#define FILE_DIR "tools/AddToChangelog"
+#define FILE_DIR "tools/AddToChangelog/AddToChangelog"
 // END_FILE_DIR
 
 // BEGIN_PREFERENCES
