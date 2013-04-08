@@ -3,9 +3,9 @@
 MAP_ICON_TYPE: 0
 WINDOW: code\modules\admin\topic.dm
 LAST_COMPILE_VERSION: 498.1158
-DIR: code code\game code\game\gamemodes code\game\gamemodes\derelict code\game\gamemodes\revolution code\game\machinery code\game\machinery\computer code\game\objects code\game\objects\items\weapons code\game\objects\items\weapons\implants code\modules code\modules\admin 
+DIR: code code\game\gamemodes\derelict code\game\gamemodes\revolution code\game\objects\items\weapons code\game\objects\items\weapons\implants code\modules code\modules\admin code\modules\events 
 FILE: code\modules\admin\topic.dm
-LAST_COMPILE_TIME: 1365274771
+LAST_COMPILE_TIME: 1365441925
 AUTO_FILE_DIR: ON
 */
 // END_INTERNALS
