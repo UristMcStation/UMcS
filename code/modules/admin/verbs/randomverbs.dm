@@ -134,7 +134,7 @@ proc/cmd_admin_mute(whom, mute_type, automute = 0)
 		if(MUTE_DEADCHAT)	mute_string = "deadchat and DSAY"
 		if(MUTE_ALL)		mute_string = "everything"
 		else				return
-		
+
 	var/client/C
 	if(istype(whom, /client))
 		C = whom
@@ -142,12 +142,12 @@ proc/cmd_admin_mute(whom, mute_type, automute = 0)
 		C = directory[whom]
 	else
 		return
-	
+
 	var/datum/preferences/P
 	if(C)	P = C.prefs
 	else	P = preferences_datums[whom]
 	if(!P)	return
-	
+
 	if(automute)
 		if(!config.automute_on)	return
 	else
@@ -187,11 +187,12 @@ proc/cmd_admin_mute(whom, mute_type, automute = 0)
 	log_admin("[key_name(src)] has added a random AI law.")
 	message_admins("[key_name_admin(src)] has added a random AI law.", 1)
 
+/* Below text block causes the alert message to display and sound twice, since the annoucement proc on the event is triggered anyway. Admins, If you dont want to annouce this event, just use the secrets verb
 	var/show_log = alert(src, "Show ion message?", "Message", "Yes", "No")
 	if(show_log == "Yes")
 		command_alert("Ion storm detected near the station. Please check all AI-controlled equipment for errors.", "Anomaly Alert")
 		world << sound('sound/AI/ionstorm.ogg')
-
+*/
 	new /datum/round_event/ion_storm{botEmagChance=0}()
 	feedback_add_details("admin_verb","ION") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
