@@ -759,6 +759,10 @@
 					if(!reason)
 						return
 
+					var/tellthem = alert("Inform them of the temporary jobban?",,"Yes","No", "Cancel") //Stealth jobban (only on temps) -AndroidSFV
+					if(tellthem == "Cancel")
+						return
+
 					var/msg
 					for(var/job in notbannedlist)
 						ban_unban_log_save("[key_name(usr)] temp-jobbanned [key_name(M)] from [job] for [mins] minutes. reason: [reason]")
@@ -773,9 +777,10 @@
 							msg += ", [job]"
 					notes_add(M.ckey, "Banned  from [msg] - [reason]")
 					message_admins("\blue [key_name_admin(usr)] banned [key_name_admin(M)] from [msg] for [mins] minutes", 1)
-					M << "\red<BIG><B>You have been jobbanned by [usr.client.ckey] from: [msg].</B></BIG>"
-					M << "\red <B>The reason is: [reason]</B>"
-					M << "\red This jobban will be lifted in [mins] minutes."
+					if(tellthem == "Yes")
+						M << "\red<BIG><B>You have been jobbanned by [usr.client.ckey] from: [msg].</B></BIG>"
+						M << "\red <B>The reason is: [reason]</B>"
+						M << "\red This jobban will be lifted in [mins] minutes."
 					href_list["jobban2"] = 1 // lets it fall through and refresh
 					return 1
 				if("No")
