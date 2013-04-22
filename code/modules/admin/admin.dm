@@ -815,26 +815,58 @@ var/global/floorIsLava = 0
 //
 //
 
-/*Show poll panel*/
+/*Poll panel*/
 
-/datum/admins/proc/showpollpanel()
-	set category = "Special Verbs"
-	set name = "Create Poll"
-	set desc="Create a poll in the database"
+/datum/admins/proc/poll_panel()
 	if(!check_rights(0))	return
+	
+	establish_db_connection()
+	if(!dbcon.IsConnected())
+		usr << "\red Failed to establish database connection"
+		return
 
-	var/dat = {"<html>
-			<head><title>Poll Panel</title></head>
-			<body>
-			<center><b>Poll Panel</b></center>
-			<BR><A HREF='?_src_=holder;createoptionpoll'>Create option poll</A>
-			<BR><A HREF='?_src_=holder;createmultipoll'>Create multiple-choice poll</A>
-			<BR><A HREF='?_src_=holder;createtextpoll'>Create text poll</A>
-			</body>
-			</html>
-		"}
+	//<input type='hidden' name='src' value='\ref[src]'>
 
-	usr << browse(dat, "window=admin2;size=210x180")
+	var/dat = "<html><head><script>";
+	dat += "var counter = 2;"
+	dat += "var limit = 8;"
+	dat += "function addInput(divName){"
+	dat += "     if (counter == limit)  {"
+	dat += "	  ;"
+	dat += "     }"
+	dat += "     else {"
+	dat += "	  var newdiv = document.createElement('div');"
+	dat += "	  newdiv.innerHTML = \"Poll option \" + (counter + 1) + \":<input type='text' name='polloptions'>\";"
+	dat += "	  document.getElementById(divName).appendChild(newdiv);"
+	dat += "	  counter++;"
+	dat += "     }"
+	dat += "}"
+	dat += "</script>"
+	dat += "<title>Poll Panel</title></head>"
+	dat += "<body>"
+	dat += "<center><b>Poll Panel</b></center>"
+	dat += "<form method='GET' action='?src=\ref[src]'>"
+	dat += "<input type='hidden' name='src' value='\ref[src]'>"
+	dat += "<input type='hidden' name='create_new_poll' value='1'>"
+	dat += "<BR>Poll type: <select name=\"polltype\">"
+	dat += "	<option value=\"1\">Option</option>"
+	dat += "	<option value=\"2\">Multi-choice</option>"
+	dat += "	<option value=\"3\">Text</option>"
+	dat += "	</select>"
+	dat += "<BR>Length (hours):<input type=\"text\" name=\"timelength\">"
+	dat += "<BR>Question:<input type=\"text\" name=\"question\">"
+	dat += "<div id=\"dynamicOptions\">"
+	dat += "<BR>Poll option 1:<input type=\"text\" name='polloptions'>"
+	dat += "<BR>Poll option 2:<input type=\"text\" name='polloptions'>"
+	dat += "</div>"
+	dat += "<input type=\"button\" value=\"Add another poll option\" onClick=\"addInput('dynamicOptions');\">"
+	dat += "<br>"
+	dat += "<input type='submit' value='Create Poll'>"
+	dat += "</form>"
+	dat += "</body>"
+	dat += "</html>"
+
+	usr << browse(dat, "window=adminpolls;size=400x400")
 	return
 	
 

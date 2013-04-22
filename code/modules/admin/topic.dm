@@ -2356,3 +2356,37 @@
 	else if(href_list["ac_set_signature"])
 		src.admincaster_signature = adminscrub(input(usr, "Provide your desired signature", "Network Identity Handler", ""))
 		src.access_news_network()
+
+	else if(href_list["create_new_poll"])
+	
+		usr << "[href]"
+
+		if(!href_list["polltype"])
+			usr << "Couldn't read poll type!"
+			return
+		if(!href_list["timelength"])
+			usr << "Couldn't read poll length!"
+			return
+		if(!href_list["question"])
+			usr << "Couldn't read poll question!"
+			return
+		/*if(!href_list["polloptions"])
+			usr << "Couldn't read poll options!"
+			return*/
+
+		var/polltype = text2num(href_list["polltype"])
+		var/timelength = text2num(href_list["timelength"])
+		var/question = href_list["question"]
+		var/polloptions[] = href_list["polloptions"]
+
+		usr << "Poll type: [polltype]"
+		usr << "Poll length: [timelength]"
+		usr << "Poll question: [question]"
+		usr << "# of poll options: [polloptions.len]"
+		//usr << "Poll option [1]: [polloptions[1]]"
+		//usr << "Poll option [2]: [polloptions[2]]"
+		var/i
+		for(i=1;i<=polloptions.len,i++)
+			usr << "Poll option [i]: [polloptions[i]]"
+
+		return
