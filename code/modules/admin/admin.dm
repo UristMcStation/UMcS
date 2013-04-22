@@ -815,6 +815,29 @@ var/global/floorIsLava = 0
 //
 //
 
+/*Show poll panel*/
+
+/datum/admins/proc/showpollpanel()
+	set category = "Special Verbs"
+	set name = "Create Poll"
+	set desc="Create a poll in the database"
+	if(!check_rights(0))	return
+
+	var/dat = {"<html>
+			<head><title>Poll Panel</title></head>
+			<body>
+			<center><b>Poll Panel</b></center>
+			<BR><A HREF='?_src_=holder;createoptionpoll'>Create option poll</A>
+			<BR><A HREF='?_src_=holder;createmultipoll'>Create multiple-choice poll</A>
+			<BR><A HREF='?_src_=holder;createtextpoll'>Create text poll</A>
+			</body>
+			</html>
+		"}
+
+	usr << browse(dat, "window=admin2;size=210x180")
+	return
+	
+
 
 /**********************Centcom Ferry**************************/
 
