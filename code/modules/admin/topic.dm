@@ -2358,8 +2358,11 @@
 		src.access_news_network()
 
 	else if(href_list["create_new_poll"])
-	
-		usr << "[href]"
+
+		establish_db_connection()
+		if(!dbcon.IsConnected())
+			usr << "\red Failed to establish database connection"
+			return
 
 		if(!href_list["polltype"])
 			usr << "Couldn't read poll type!"
@@ -2374,13 +2377,26 @@
 			usr << "Couldn't read poll options!"
 			return*/
 
-		var/polltype = text2num(href_list["polltype"])
+		var/polltype
+		if(text2num(href_list["polltype"]) == 1)
+			polltype = "OPTION"
+		else if(text2num(href_list["polltype"]) == 2)
+			polltype = "MULTICHOICE"
+		else if(text2num(href_list["polltype"]) == 3)
+			polltype = "TEXT"
 		var/timelength = text2num(href_list["timelength"])
-		var/question = href_list["question"]
+		var/timestart = time2text(world.realtime,"YYYY-MM-DD hh:mm:ss")
+		var/timeend = time2text(world.realtime+timelength*36000,"YYYY-MM-DD hh:mm:ss")
+		var/question = sql_sanitize_text(href_list["question"])
 		var/polloptions[] = href_list["polloptions"]
+		var/adminonly = 1;
+		var/multilimit = 1;
 
+		
 		usr << "Poll type: [polltype]"
 		usr << "Poll length: [timelength]"
+		usr << "Poll start: [timestart]"
+		usr << "Poll end: [timeend]"
 		usr << "Poll question: [question]"
 		usr << "# of poll options: [polloptions.len]"
 		//usr << "Poll option [1]: [polloptions[1]]"
@@ -2389,4 +2405,27 @@
 		for(i=1;i<=polloptions.len,i++)
 			usr << "Poll option [i]: [polloptions[i]]"
 
+		usr << "INSERT INTO erro_poll_question VALUES (NULL,'[polltype]','[timestart]','[timeend]','[question]',[adminonly],[multilimit])"
+		
+
+		var/DBQuery/poll_query = dbcon.NewQuery("INSERT INTO erro_poll_question VALUES (NULL,'[polltype]','[timestart]','[timeend]','[question]',[adminonly],[multilimit])")
+		poll_query.Execute()
+		var/DBQuery/id_query = dbcon.NewQuery("SELECT id FROM erro_poll_question WHERE starttime='[timestart]'")
+		id_query.Execute()
+
+		var/id = 0
+		var/idfound = 0
+		while(id_query.NextRow())
+			id = id_query.item[1]
+			idfound++;
+
+		if(idfound == 0)
+			usr << "ID not found, failed to insert poll into database!"
+			return
+
+		var/DBQuery/option_query
+		for(i=1;i<=polloptions.len,i++)
+			usr << "INSERT INTO erro_poll_option VALUES (NULL,[id],'[polloptions[i]]',1,NULL,NULL,NULL,NULL,NULL)"
+			option_query = dbcon.NewQuery("INSERT INTO erro_poll_option VALUES (NULL,[id],'[polloptions[i]]',1,NULL,NULL,NULL,NULL,NULL)")
+			option_query.Execute()
 		return
