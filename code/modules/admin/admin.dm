@@ -938,7 +938,7 @@ var/global/floorIsLava = 0
 	dat += "</body>"
 	dat += "</html>"
 
-	usr << browse(dat, "window=adminpolls;size=400x400")
+	usr << browse(dat, "window=adminpolls;size=600x650")
 	return
 	
 
