@@ -2373,43 +2373,76 @@
 		if(!href_list["question"])
 			usr << "Couldn't read poll question!"
 			return
+
+
 		/*if(!href_list["polloptions"])
 			usr << "Couldn't read poll options!"
 			return*/
 
+		var/i
 		var/polltype
-		if(text2num(href_list["polltype"]) == 1)
-			polltype = "OPTION"
-		else if(text2num(href_list["polltype"]) == 2)
-			polltype = "MULTICHOICE"
-		else if(text2num(href_list["polltype"]) == 3)
-			polltype = "TEXT"
 		var/timelength = text2num(href_list["timelength"])
 		var/timestart = time2text(world.realtime,"YYYY-MM-DD hh:mm:ss")
 		var/timeend = time2text(world.realtime+timelength*36000,"YYYY-MM-DD hh:mm:ss")
 		var/question = sql_sanitize_text(href_list["question"])
-		var/polloptions[] = href_list["polloptions"]
-		var/adminonly = 1;
+		var/polloptions[0];
+		var/adminonly = 0;
 		var/multilimit = 1;
+		var/maxval = 5;
+		var/minval = 1;
+		var/descmax = "NULL";
+		var/descmin = "NULL";
+		var/descmed = "NULL";
 
+		if(href_list["adminonly"])
+			adminonly = 1;
+
+		if(text2num(href_list["polltype"]) == 1)
+			polltype = "OPTION"
+			polloptions += href_list["polloptions"]
+		else if(text2num(href_list["polltype"]) == 2)
+			polltype = "MULTICHOICE"
+			multilimit = text2num(href_list["multilimit"])
+			polloptions += href_list["polloptions"]
+		else if(text2num(href_list["polltype"]) == 3)
+			polltype = "TEXT"
+		else if(text2num(href_list["polltype"]) == 4)
+			polltype = "NUMVAL"
+			polloptions += href_list["polloptions"]
+			if(href_list["maxval"])
+				maxval = text2num(href_list["maxval"])
+			else
+				maxval = 5;
+			if(href_list["minval"])
+				minval = text2num(href_list["minval"])
+			else
+				minval = 1;
+			if(href_list["descmax"])
+				descmax = sql_sanitize_text(href_list["descmax"])
+			if(href_list["descmin"])
+				descmin = sql_sanitize_text(href_list["descmin"])
+			if(href_list["descmed"])
+				descmed = sql_sanitize_text(href_list["descmed"])
+		else
+			usr << "Unrecognized polltype!"
+			return
 		
 		usr << "Poll type: [polltype]"
 		usr << "Poll length: [timelength]"
 		usr << "Poll start: [timestart]"
 		usr << "Poll end: [timeend]"
 		usr << "Poll question: [question]"
-		usr << "# of poll options: [polloptions.len]"
-		//usr << "Poll option [1]: [polloptions[1]]"
-		//usr << "Poll option [2]: [polloptions[2]]"
-		var/i
-		for(i=1;i<=polloptions.len,i++)
-			usr << "Poll option [i]: [polloptions[i]]"
+		if(text2num(href_list["polltype"]) != 3)
+			usr << "# of poll options: [polloptions.len]"	
+			for(i=1;i<=polloptions.len,i++)
+				usr << "Poll option [i]: [polloptions[i]]"
 
 		usr << "INSERT INTO erro_poll_question VALUES (NULL,'[polltype]','[timestart]','[timeend]','[question]',[adminonly],[multilimit])"
 		
 
 		var/DBQuery/poll_query = dbcon.NewQuery("INSERT INTO erro_poll_question VALUES (NULL,'[polltype]','[timestart]','[timeend]','[question]',[adminonly],[multilimit])")
 		poll_query.Execute()
+		usr << "SELECT id FROM erro_poll_question WHERE starttime='[timestart]'"
 		var/DBQuery/id_query = dbcon.NewQuery("SELECT id FROM erro_poll_question WHERE starttime='[timestart]'")
 		id_query.Execute()
 
@@ -2423,9 +2456,16 @@
 			usr << "ID not found, failed to insert poll into database!"
 			return
 
-		var/DBQuery/option_query
-		for(i=1;i<=polloptions.len,i++)
-			usr << "INSERT INTO erro_poll_option VALUES (NULL,[id],'[polloptions[i]]',1,NULL,NULL,NULL,NULL,NULL)"
-			option_query = dbcon.NewQuery("INSERT INTO erro_poll_option VALUES (NULL,[id],'[polloptions[i]]',1,NULL,NULL,NULL,NULL,NULL)")
-			option_query.Execute()
+		if(text2num(href_list["polltype"]) != 3)
+			var/DBQuery/option_query
+			for(i=1;i<=polloptions.len,i++)
+				usr << "INSERT INTO erro_poll_option VALUES (NULL,[id],'[polloptions[i]]',1,[minval],[maxval],'[descmin]','[descmed]','[descmax]')"
+				option_query = dbcon.NewQuery("INSERT INTO erro_poll_option VALUES (NULL,[id],'[polloptions[i]]',1,[minval],[maxval],'[descmin]','[descmed]','[descmax]')")
+				option_query.Execute()
+
+		/*if(text2num(href_list["polltype"]) == 4)
+			var/DBQuery/option_query
+			usr << "INSERT INTO erro_poll_option VALUES (NULL,[id],'Rate',1,[minval],[maxval],'[descmin]','[descmed]','[descmax]')"
+			option_query = dbcon.NewQuery("INSERT INTO erro_poll_option VALUES (NULL,[id],'Rate',1,[minval],[maxval],'[descmin]','[descmed]','[descmax]')")
+			option_query.Execute()*/
 		return
