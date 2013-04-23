@@ -368,8 +368,8 @@ var/list/admin_verbs_hideable = list(
 
 /client/proc/showpollpanel()
 	set category = "Special Verbs"
-	set name = "Create Poll"
-	set desc="Create a poll in the database"
+	set name = "Poll Panel"
+	set desc="Create and manage polls in the database"
 	if(holder)
 		holder.poll_panel()
 	feedback_add_details("admin_verb","SPL") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
