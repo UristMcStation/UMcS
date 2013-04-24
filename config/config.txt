@@ -1,11 +1,11 @@
 ## Server name: This appears at the top of the screen in-game. In this case it will read "tgstation: station_name" where station_name is the randomly generated name of the station for the round. Remove the # infront of SERVERNAME and replace 'tgstation' with the name of your choice
-SERVERNAME AndroidStation
+SERVERNAME Urist McStation
 
 ## Add a # infront of this if you want to use the SQL based admin system, the legacy system uses admins.txt. You need to set up your database to use the SQL based system.
 ADMIN_LEGACY_SYSTEM
 
 ## Add a # infront of this if you want to use the SQL based banning system. The legacy systems use the files in the data folder. You need to set up your database to use the SQL based system.
-BAN_LEGACY_SYSTEM
+#BAN_LEGACY_SYSTEM
 
 ## Unhash this entry to have certain jobs require your account to be at least a certain number of days old to select. You can configure the exact age requirement for different jobs by editing
 ## the minimal_player_age variable in the files in folder /code/game/jobs/job/.. for the job you want to edit. Set minimal_player_age to 0 to disable age requirement for that job.
@@ -90,7 +90,7 @@ NORESPAWN
 # DONT_DEL_NEWMOB
 
 ## set a hosted by name for unix platforms
-HOSTEDBY Yournamehere
+HOSTEDBY BYONDBOX
 
 ## Set to jobban "Guest-" accounts from Captain, HoS, HoP, CE, RD, CMO, Warden, Security, Detective, and AI positions.
 ## Set to 1 to jobban them from those positions, set to 0 to allow them.
@@ -107,13 +107,13 @@ GUEST_BAN
 # SERVER ss13.example.com:2506
 
 ## forum address
-# FORUMURL http://justanotherday.example.com
+FORUMURL http://http://www.bay12forums.com/smf/index.php?topic=123140.0
 
 ## Wiki address
 # WIKIURL http://www.nanotrasen.com/wiki/index.php
 
 ## Ban appeals URL - usually for a forum or wherever people should go to contact your admins.
-# BANAPPEALS http://justanotherday.example.com
+BANAPPEALS http://www.bay12forums.com/smf/index.php?action=pm;sa=send;u=17215
 
 ## In-game features
 ##Toggle for having jobs load up from the .txt
@@ -143,3 +143,5 @@ TICKCOMP 0
 
 ## Comment this out to disable automuting
 #AUTOMUTE_ON
+
+GHOST_INTERACTION
