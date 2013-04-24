@@ -28,7 +28,11 @@ var/list/admin_verbs_admin = list(
 	/datum/admins/proc/toggleenter,		/*toggles whether people can join the current game*/
 	/datum/admins/proc/toggleguests,	/*toggles whether guests can join the current game*/
 	/datum/admins/proc/announce,		/*priority announce something to all clients.*/
+<<<<<<< HEAD
 //	/client/proc/showpollpanel,	/*allows adding of polls to the database*/
+=======
+	/client/proc/showpollpanel,	/*allows adding of polls to the database*/
+>>>>>>> pollgui
 	/client/proc/colorooc,				/*allows us to set a custom colour for everythign we say in ooc*/
 	/client/proc/admin_ghost,			/*allows us to ghost/reenter body at will*/
 	/client/proc/toggle_view_range,		/*changes how far we can see*/
@@ -368,8 +372,8 @@ var/list/admin_verbs_hideable = list(
 
 /client/proc/showpollpanel()
 	set category = "Special Verbs"
-	set name = "Create Poll"
-	set desc="Create a poll in the database"
+	set name = "Poll Panel"
+	set desc="Create and manage polls in the database"
 	if(holder)
 		holder.poll_panel()
 	feedback_add_details("admin_verb","SPL") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!

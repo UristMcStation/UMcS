@@ -2357,13 +2357,57 @@
 		src.admincaster_signature = adminscrub(input(usr, "Provide your desired signature", "Network Identity Handler", ""))
 		src.access_news_network()
 
-	else if(href_list["create_new_poll"])
+/*************************************** POLL PANEL STUFF *****************************************/
+	
+	else if(href_list["create_poll_panel"])
+		create_poll_panel()
+
+	else if(href_list["manage_poll_panel"])
+		manage_poll_panel()
+
+	else if(href_list["view_poll"])
+		var/pollid = sql_sanitize_text(href_list["view_poll"])
+		view_poll_panel(pollid)		
+
+	else if(href_list["remove_poll"])
+		var/pollid = sql_sanitize_text(href_list["remove_poll"])
+		remove_poll(pollid)
+
+/*		if(!check_rights(R_SERVER,1))	return
 
 		establish_db_connection()
 		if(!dbcon.IsConnected())
 			usr << "\red Failed to establish database connection"
 			return
 
+		var/pollid = sql_sanitize_text(href_list["remove_poll"])
+
+		var/DBQuery/poll_query = dbcon.NewQuery("DELETE FROM erro_poll_question WHERE id=[pollid]")
+		if(!poll_query.Execute())
+			usr << "Removing poll failed: [poll_query.ErrorMsg()]"
+			return
+		//usr << "DELETE FROM erro_poll_question WHERE id=[pollid]"
+		var/DBQuery/option_query = dbcon.NewQuery("DELETE FROM erro_poll_option WHERE pollid=[pollid]")
+		if(!option_query.Execute())
+			usr << "Removing options failed: [option_query.ErrorMsg()]"
+			return
+		//usr << "DELETE FROM erro_poll_option WHERE pollid=[pollid]"
+		var/DBQuery/vote_query = dbcon.NewQuery("DELETE FROM erro_poll_vote WHERE pollid=[pollid]")
+		if(!vote_query.Execute())
+			usr << "Removing votes failed: [vote_query.ErrorMsg()]"
+			return
+		//usr << "DELETE FROM erro_poll_vote WHERE pollid=[pollid]"
+		var/DBQuery/text_query = dbcon.NewQuery("DELETE FROM erro_poll_textreply WHERE pollid=[pollid]")
+		if(!text_query.Execute())
+			usr << "Removing text replies failed: [text_query.ErrorMsg()]"
+			return
+		//usr << "DELETE FROM erro_poll_textreply WHERE pollid=[pollid]"
+*/
+		return
+
+
+	else if(href_list["create_new_poll"])
+	
 		if(!href_list["polltype"])
 			usr << "Couldn't read poll type!"
 			return
@@ -2374,16 +2418,8 @@
 			usr << "Couldn't read poll question!"
 			return
 
-
-		/*if(!href_list["polloptions"])
-			usr << "Couldn't read poll options!"
-			return*/
-
-		var/i
 		var/polltype
 		var/timelength = text2num(href_list["timelength"])
-		var/timestart = time2text(world.realtime,"YYYY-MM-DD hh:mm:ss")
-		var/timeend = time2text(world.realtime+timelength*36000,"YYYY-MM-DD hh:mm:ss")
 		var/question = sql_sanitize_text(href_list["question"])
 		var/polloptions[0];
 		var/adminonly = 0;
@@ -2426,25 +2462,36 @@
 		else
 			usr << "Unrecognized polltype!"
 			return
-		
+
+		create_new_poll(polltype,timelength,question,polloptions,adminonly,multilimit,maxval,minval,descmax,descmin,descmed)
+			
+
+/*		var/timestart = time2text(world.realtime,"YYYY-MM-DD hh:mm:ss")
+		var/timeend = time2text(world.realtime+timelength*36000,"YYYY-MM-DD hh:mm:ss")
+
+		usr << "Creating poll..."
 		usr << "Poll type: [polltype]"
 		usr << "Poll length: [timelength]"
 		usr << "Poll start: [timestart]"
 		usr << "Poll end: [timeend]"
 		usr << "Poll question: [question]"
-		if(text2num(href_list["polltype"]) != 3)
+		if(polltype != "TEXT")
 			usr << "# of poll options: [polloptions.len]"	
 			for(i=1;i<=polloptions.len,i++)
 				usr << "Poll option [i]: [polloptions[i]]"
 
-		usr << "INSERT INTO erro_poll_question VALUES (NULL,'[polltype]','[timestart]','[timeend]','[question]',[adminonly],[multilimit])"
+		//usr << "INSERT INTO erro_poll_question VALUES (NULL,'[polltype]','[timestart]','[timeend]','[question]',[adminonly],[multilimit])"
 		
 
 		var/DBQuery/poll_query = dbcon.NewQuery("INSERT INTO erro_poll_question VALUES (NULL,'[polltype]','[timestart]','[timeend]','[question]',[adminonly],[multilimit])")
-		poll_query.Execute()
-		usr << "SELECT id FROM erro_poll_question WHERE starttime='[timestart]'"
+		if(!poll_query.Execute())
+			usr << "Adding poll failed: [poll_query.ErrorMsg()]"
+			return
+		//usr << "SELECT id FROM erro_poll_question WHERE starttime='[timestart]'"
 		var/DBQuery/id_query = dbcon.NewQuery("SELECT id FROM erro_poll_question WHERE starttime='[timestart]'")
-		id_query.Execute()
+		if(!id_query.Execute())
+			usr << "Finding poll id failed: [id_query.ErrorMsg()]"
+			return
 
 		var/id = 0
 		var/idfound = 0
@@ -2453,19 +2500,15 @@
 			idfound++;
 
 		if(idfound == 0)
-			usr << "ID not found, failed to insert poll into database!"
+			usr << "ID not found, failed to finish inserting poll into database!"
 			return
 
-		if(text2num(href_list["polltype"]) != 3)
+		if(polltype != "TEXT")
 			var/DBQuery/option_query
 			for(i=1;i<=polloptions.len,i++)
-				usr << "INSERT INTO erro_poll_option VALUES (NULL,[id],'[polloptions[i]]',1,[minval],[maxval],'[descmin]','[descmed]','[descmax]')"
+				//usr << "INSERT INTO erro_poll_option VALUES (NULL,[id],'[polloptions[i]]',1,[minval],[maxval],'[descmin]','[descmed]','[descmax]')"
 				option_query = dbcon.NewQuery("INSERT INTO erro_poll_option VALUES (NULL,[id],'[polloptions[i]]',1,[minval],[maxval],'[descmin]','[descmed]','[descmax]')")
-				option_query.Execute()
-
-		/*if(text2num(href_list["polltype"]) == 4)
-			var/DBQuery/option_query
-			usr << "INSERT INTO erro_poll_option VALUES (NULL,[id],'Rate',1,[minval],[maxval],'[descmin]','[descmed]','[descmax]')"
-			option_query = dbcon.NewQuery("INSERT INTO erro_poll_option VALUES (NULL,[id],'Rate',1,[minval],[maxval],'[descmin]','[descmed]','[descmax]')")
-			option_query.Execute()*/
-		return
+				if(!option_query.Execute())
+					usr << "Adding option failed: [option_query.ErrorMsg()]"
+					return
+		return*/
