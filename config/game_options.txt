@@ -82,7 +82,7 @@ PROBABILITY CULT 2
 PROBABILITY CHANGELING 2
 PROBABILITY WIZARD 4
 PROBABILITY MALFUNCTION 1
-PROBABILITY BLOB 0
+PROBABILITY BLOB 1
 PROBABILITY METEOR 0
 PROBABILITY EXTENDED 0
 
@@ -96,7 +96,7 @@ PROBABILITY SANDBOX 0
 
 ## Uncomment to scale the number of antagonists to crew population. Doesn't
 ## affect all gamemodes.
-#TRAITOR_SCALING
+TRAITOR_SCALING
 
 ## Uncomment to prohibit jobs that start with loyalty
 ## implants from being most antagonists.
@@ -136,7 +136,7 @@ JOBS_HAVE_MINIMAL_ACCESS
 
 ### GHOST INTERACTION ###
 ## Uncomment to let ghosts spin chairs. You may be wondering why this is a config option. Don't ask.
-#GHOST_INTERACTION
+GHOST_INTERACTION
 
 ### NON-VOCAL SILICONS ###
 ## Uncomment to stop the AI, or cyborgs, from having vocal communication.
