@@ -104,6 +104,7 @@
 		if(istype(W,/obj/item/device/assembly_holder))
 			rig(W,user)
 		if(istype(W,/obj/item/weapon/wrench) && bombpart)
+			user << "\blue You remove the igniter assembly from the fueltank."
 			bombpart.loc = src.loc
 			bombpart.master = null
 			bombpart = null
@@ -127,6 +128,9 @@
 		src.bombpart = S
 		S.master = src
 		S.loc = src
+
+		usr << "\blue You rig the fueltank!"
+
 		return
 
 	receive_signal()
