@@ -20,8 +20,7 @@
 /datum/admins/proc/view_poll_panel(var/pollid)
 	if(!check_rights(R_SERVER,1))	return
 
-	establish_db_connection()
-	if(!dbcon.IsConnected())
+	if(!establish_db_connection())
 		usr << "\red Failed to establish database connection"
 		return
 
@@ -138,8 +137,7 @@
 /datum/admins/proc/manage_poll_panel()
 	if(!check_rights(R_SERVER,1))	return
 	
-	establish_db_connection()
-	if(!dbcon.IsConnected())
+	if(!establish_db_connection())
 		usr << "\red Failed to establish database connection"
 		return
 	
@@ -321,8 +319,7 @@
 /datum/admins/proc/remove_poll(var/pollid)
 	if(!check_rights(R_SERVER,1))	return
 
-	establish_db_connection()
-	if(!dbcon.IsConnected())
+	if(!establish_db_connection())
 		usr << "\red Failed to establish database connection"
 		return
 
@@ -357,8 +354,7 @@
 
 	if(!check_rights(R_SERVER,1))	return
 
-	establish_db_connection()
-	if(!dbcon.IsConnected())
+	if(!establish_db_connection())
 		usr << "\red Failed to establish database connection"
 		return
 	
