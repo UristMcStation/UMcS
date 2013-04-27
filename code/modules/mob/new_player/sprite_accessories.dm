@@ -273,6 +273,11 @@
 		icon_state = null
 		gender = MALE
 
+	bravo
+		name = "Bravo"
+		icon_state = "hair_bravo"
+		gender = MALE
+
 /////////////////////////////
 // Facial Hair Definitions //
 /////////////////////////////
