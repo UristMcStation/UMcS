@@ -20,22 +20,6 @@
 	usr << "It's a Hover Segway, Thanks from CentCom."
 
 
-/obj/structure/stool/bed/chair/segway/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/weapon/mop))
-		if(reagents.total_volume > 1)
-			reagents.trans_to(I, 2)
-			user << "<span class='notice'>You wet [I] in the [callme].</span>"
-			playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
-		else
-			user << "<span class='notice'>This [callme] is out of water!</span>"
-	else if(istype(I, /obj/item/key/head))
-		user << "Hold [I] in one of your hands while you drive this [callme]."
-	else if(istype(I, /obj/item/weapon/storage/bag/trash))
-		user << "<span class='notice'>You hook the trashbag onto the [callme].</span>"
-		user.drop_item()
-		I.loc = src
-		mybag = I
-
 /obj/structure/stool/bed/chair/segway/relaymove(mob/user, direction)
 	if(user.stat || user.stunned || user.weakened || user.paralysis)
 		unbuckle()
@@ -112,7 +96,7 @@
 
 /obj/structure/stool/bed/chair/segway/bullet_act(var/obj/item/projectile/Proj)
 	if(buckled_mob)
-		if(prob(85))
+		if(prob(0))
 			return buckled_mob.bullet_act(Proj)
 	visible_message("<span class='warning'>[Proj] ricochets off the [callme]!</span>")
 
