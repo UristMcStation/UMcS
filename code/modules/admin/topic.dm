@@ -2376,7 +2376,7 @@
 
 
 	else if(href_list["create_new_poll"])
-	
+
 		if(!href_list["polltype"])
 			usr << "Couldn't read poll type!"
 			return
@@ -2395,6 +2395,7 @@
 		var/multilimit = 1;
 		var/maxval = 5;
 		var/minval = 1;
+		var/i = 0
 		var/descmax = "NULL";
 		var/descmin = "NULL";
 		var/descmed = "NULL";
@@ -2404,16 +2405,22 @@
 
 		if(text2num(href_list["polltype"]) == 1)
 			polltype = "OPTION"
-			polloptions += sql_sanitize_text(href_list["polloptions"])
+			polloptions += href_list["polloptions"]
+			for(i=1;i<=polloptions.len,i++)
+				polloptions[i] = sql_sanitize_text(polloptions[i])
 		else if(text2num(href_list["polltype"]) == 2)
 			polltype = "MULTICHOICE"
 			multilimit = text2num(href_list["multilimit"])
-			polloptions += sql_sanitize_text(href_list["polloptions"])
+			polloptions += href_list["polloptions"]
+			for(i=1;i<=polloptions.len,i++)
+				polloptions[i] = sql_sanitize_text(polloptions[i])
 		else if(text2num(href_list["polltype"]) == 3)
 			polltype = "TEXT"
 		else if(text2num(href_list["polltype"]) == 4)
 			polltype = "NUMVAL"
 			polloptions += sql_sanitize_text(href_list["polloptions"])
+			for(i=1;i<=polloptions.len,i++)
+				polloptions[i] = sql_sanitize_text(polloptions[i])
 			if(href_list["maxval"])
 				maxval = text2num(href_list["maxval"])
 			else
