@@ -347,6 +347,9 @@
 		return
 	//usr << "DELETE FROM erro_poll_textreply WHERE pollid=[pollid]"
 
+	log_admin("[key_name(usr)] has removed poll with id = [pollid].")
+	message_admins("[key_name(usr)] has removed poll with id = [pollid].", 1)
+
 	return
 
 
@@ -404,4 +407,6 @@
 			if(!option_query.Execute())
 				usr << "Adding option failed: [option_query.ErrorMsg()]"
 				return
+	log_admin("[key_name(usr)] has created poll with id = [id].")
+	message_admins("[key_name(usr)] has created poll with id = [id].", 1)
 	return
