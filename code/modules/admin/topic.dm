@@ -2434,16 +2434,16 @@
 
 		if(text2num(href_list["polltype"]) == 1)
 			polltype = "OPTION"
-			polloptions += href_list["polloptions"]
+			polloptions += sql_sanitize_text(href_list["polloptions"])
 		else if(text2num(href_list["polltype"]) == 2)
 			polltype = "MULTICHOICE"
 			multilimit = text2num(href_list["multilimit"])
-			polloptions += href_list["polloptions"]
+			polloptions += sql_sanitize_text(href_list["polloptions"])
 		else if(text2num(href_list["polltype"]) == 3)
 			polltype = "TEXT"
 		else if(text2num(href_list["polltype"]) == 4)
 			polltype = "NUMVAL"
-			polloptions += href_list["polloptions"]
+			polloptions += sql_sanitize_text(href_list["polloptions"])
 			if(href_list["maxval"])
 				maxval = text2num(href_list["maxval"])
 			else
