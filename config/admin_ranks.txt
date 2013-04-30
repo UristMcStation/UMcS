@@ -33,7 +33,7 @@ Admin Candidate	+@
 Trial Admin		+@ +SPAWN +REJUV +VAREDIT +BAN
 Badmin			+@ +POSSESS +BUILDMODE +SERVER +FUN
 Game Admin		+@ +STEALTH +SOUNDS +DEBUG
-Game Master		+EVERYTHING
+Game Master		+@ +POLL
 
 Host			+EVERYTHING
 
