@@ -28,7 +28,6 @@ var/list/admin_verbs_admin = list(
 	/datum/admins/proc/toggleenter,		/*toggles whether people can join the current game*/
 	/datum/admins/proc/toggleguests,	/*toggles whether guests can join the current game*/
 	/datum/admins/proc/announce,		/*priority announce something to all clients.*/
-	/client/proc/showpollpanel,	/*allows adding of polls to the database*/
 	/client/proc/colorooc,				/*allows us to set a custom colour for everythign we say in ooc*/
 	/client/proc/admin_ghost,			/*allows us to ghost/reenter body at will*/
 	/client/proc/toggle_view_range,		/*changes how far we can see*/
@@ -199,6 +198,10 @@ var/list/admin_verbs_hideable = list(
 	/proc/release
 	)
 
+var/list/admin_verbs_poll = list(
+	/client/proc/showpollpanel	/*allows adding of polls to the database*/
+	)
+
 /client/proc/add_admin_verbs()
 	if(holder)
 		verbs += admin_verbs_default
@@ -214,6 +217,7 @@ var/list/admin_verbs_hideable = list(
 		if(holder.rights & R_REJUVINATE)	verbs += admin_verbs_rejuv
 		if(holder.rights & R_SOUNDS)		verbs += admin_verbs_sounds
 		if(holder.rights & R_SPAWN)			verbs += admin_verbs_spawn
+		if(holder.rights & R_POLL)			verbs += admin_verbs_poll
 
 /client/proc/remove_admin_verbs()
 	verbs.Remove(
@@ -230,6 +234,7 @@ var/list/admin_verbs_hideable = list(
 		admin_verbs_rejuv,
 		admin_verbs_sounds,
 		admin_verbs_spawn,
+		admin_verbs_poll,
 		/*Debug verbs added by "show debug verbs"*/
 		/client/proc/Cell,
 		/client/proc/do_not_use_these,
