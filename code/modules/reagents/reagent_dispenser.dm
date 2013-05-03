@@ -89,9 +89,60 @@
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "weldtank"
 	amount_per_transfer_from_this = 10
+	var/obj/item/device/assembly_holder/bombpart = null
+
 	New()
 		..()
 		reagents.add_reagent("fuel",1000)
+
+	examine()
+		..()
+		if(bombpart)
+			usr << "\blue There is a igniter assembly attached to it!"
+
+	attackby(obj/item/weapon/W as obj,mob/user as mob)
+		if(istype(W,/obj/item/device/assembly_holder))
+			rig(W,user)
+		if(istype(W,/obj/item/weapon/wrench) && bombpart)
+			user << "\blue You remove the igniter assembly from the fueltank."
+			bombpart.loc = src.loc
+			bombpart.master = null
+			bombpart = null
+
+	proc/rig(W,user)
+		var/obj/item/device/assembly_holder/S = W
+		var/mob/M = user
+		if(!S.secured)
+			return
+		if(bombpart)
+			usr << "The fueltank is already rigged!"
+			return
+		if(isigniter(S.a_left) == isigniter(S.a_right))
+			return
+		if(isinfared(S.a_left) || isinfared(S.a_right))
+			return
+		if(istype(S.a_left,/obj/item/device/assembly/mousetrap) || istype(S.a_right,/obj/item/device/assembly/mousetrap))
+			return
+		M.drop_item()
+
+		src.bombpart = S
+		S.master = src
+		S.loc = src
+
+		usr << "\blue You rig the fueltank!"
+
+		return
+
+	receive_signal()
+		visible_message("\icon[src] *beep* *beep*", "*beep* *beep*")
+		sleep(10)
+		if(!src)
+			return
+		ex_act()
+
+	HasProximity(atom/movable/AM as mob|obj)
+		if(bombpart)
+			bombpart.HasProximity(AM)
 
 
 	bullet_act(var/obj/item/projectile/Proj)
