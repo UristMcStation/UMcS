@@ -1,11 +1,9 @@
 // BEGIN_INTERNALS
 /*
 MAP_ICON_TYPE: 0
-WINDOW: code\modules\admin\topic.dm;code\game\machinery\computer\HolodeckControl.dm;code\game\objects\items\weapons\AI_modules.dm;code\game\objects\items\devices\violin.dm;code\game\machinery\autolathe.dm;code\game\machinery\computer\ai_core.dm
-LAST_COMPILE_VERSION: 498.1158
-DIR: code code\__HELPERS code\datums code\datums\wires code\game code\game\area code\game\gamemodes\derelict code\game\machinery code\game\machinery\computer code\game\objects code\game\objects\items code\game\objects\items\devices code\game\objects\items\weapons code\modules code\modules\admin 
-FILE: code\modules\admin\topic.dm
-LAST_COMPILE_TIME: 1365983726
+LAST_COMPILE_VERSION: 498.1163
+DIR: code\datums\wires code\game\machinery code\game\machinery\computer code\game\objects code\game\objects\effects\decals code\game\objects\effects\decals\Cleanable icons icons\obj maps 
+LAST_COMPILE_TIME: 1367629069
 AUTO_FILE_DIR: OFF
 */
 // END_INTERNALS
