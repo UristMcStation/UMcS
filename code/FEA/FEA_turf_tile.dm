@@ -61,7 +61,7 @@ turf
 				var/mob/living/carbon/human/H = in_tile
 				if(istype(H.shoes,/obj/item/clothing/shoes/magboots))
 					var/obj/item/clothing/shoes/magboots/M = H.shoes
-					if(M.magpulse && !istype(H.loc, /turf/space))
+					if(M.magpulse && !istype(H.loc, /turf/space) && pressure_difference < 90) //Magboots protect against movement by small pressure differences
 						continue
 			in_tile.experience_pressure_difference(pressure_difference, pressure_direction)
 
