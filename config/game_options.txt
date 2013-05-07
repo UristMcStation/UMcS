@@ -74,12 +74,12 @@ ALERT_DELTA The station's self-destruct mechanism has been engaged. All crew are
 ## Default probablity is 1, increase to make that mode more likely to be picked.
 ## Set to 0 to disable that mode.
 
-PROBABILITY TRAITOR 5
+PROBABILITY TRAITOR 2        //Because if we have enough pop for anything else, traitor feels like a waste.
 PROBABILITY TRAITORCHAN 4
-PROBABILITY NUCLEAR 2
-PROBABILITY REVOLUTION 2
-PROBABILITY CULT 2
-PROBABILITY CHANGELING 2
+PROBABILITY NUCLEAR 2        //Murderfest, does not seem as popular as the other types.
+PROBABILITY REVOLUTION 4
+PROBABILITY CULT 4
+PROBABILITY CHANGELING 4
 PROBABILITY WIZARD 4
 PROBABILITY MALFUNCTION 1
 PROBABILITY BLOB 0
