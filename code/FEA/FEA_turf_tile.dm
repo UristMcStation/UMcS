@@ -57,6 +57,12 @@ turf
 		if(reporting_pressure_difference)
 			world << "pressure_difference = [pressure_difference]; pressure_direction = [pressure_direction]"
 		for(var/atom/movable/in_tile in src)
+			if(istype(in_tile,/mob/living/carbon/human))
+				var/mob/living/carbon/human/H = in_tile
+				if(istype(H.shoes,/obj/item/clothing/shoes/magboots))
+					var/obj/item/clothing/shoes/magboots/M = H.shoes
+					if(M.magpulse && !istype(H.loc, /turf/space))
+						continue
 			in_tile.experience_pressure_difference(pressure_difference, pressure_direction)
 
 		pressure_difference = 0
