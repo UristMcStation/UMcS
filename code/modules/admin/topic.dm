@@ -759,6 +759,10 @@
 					if(!reason)
 						return
 
+					var/tellthem = alert("Inform them of the temporary jobban?",,"Yes","No", "Cancel") //Stealth jobban (only on temps) -AndroidSFV
+					if(tellthem == "Cancel")
+						return
+
 					var/msg
 					for(var/job in notbannedlist)
 						ban_unban_log_save("[key_name(usr)] temp-jobbanned [key_name(M)] from [job] for [mins] minutes. reason: [reason]")
@@ -773,9 +777,10 @@
 							msg += ", [job]"
 					notes_add(M.ckey, "Banned  from [msg] - [reason]")
 					message_admins("\blue [key_name_admin(usr)] banned [key_name_admin(M)] from [msg] for [mins] minutes", 1)
-					M << "\red<BIG><B>You have been jobbanned by [usr.client.ckey] from: [msg].</B></BIG>"
-					M << "\red <B>The reason is: [reason]</B>"
-					M << "\red This jobban will be lifted in [mins] minutes."
+					if(tellthem == "Yes")
+						M << "\red<BIG><B>You have been jobbanned by [usr.client.ckey] from: [msg].</B></BIG>"
+						M << "\red <B>The reason is: [reason]</B>"
+						M << "\red This jobban will be lifted in [mins] minutes."
 					href_list["jobban2"] = 1 // lets it fall through and refresh
 					return 1
 				if("No")
@@ -1631,11 +1636,7 @@
 
 	else if(href_list["secretsfun"])
 		if(!check_rights(R_FUN))	return
-
-		var/list/overrides = list()
-		if(alert(usr, "Would you like to alert the crew?", "Alert", "Yes", "No") == "No")
-			overrides["announceWhen"] = -1
-
+		var/datum/round_event/E
 		var/ok = 0
 		switch(href_list["secretsfun"])
 			if("monkey")
@@ -1664,7 +1665,7 @@
 				feedback_add_details("admin_secrets_fun_used","TriAI")
 			if("gravity")
 				alert("WIP - event unavailable")
-/*				new /datum/event/weightless(overrides)
+/*				E = new /datum/round_event/weightless()
 				log_admin("[key_name(usr)] triggered a gravity-failure event.", 1)
 				message_admins("\blue [key_name_admin(usr)] triggered a gravity-failure event.", 1)
 				feedback_inc("admin_secrets_fun_used",1)
@@ -1813,44 +1814,44 @@
 			if("wave")
 				feedback_inc("admin_secrets_fun_used",1)
 				feedback_add_details("admin_secrets_fun_used","MW")
-				new /datum/event/meteor_wave(overrides)
+				E = new /datum/round_event/meteor_wave()
 
 			if("gravanomalies")
 				feedback_inc("admin_secrets_fun_used",1)
 				feedback_add_details("admin_secrets_fun_used","GA")
-				new /datum/event/gravitational_anomaly(overrides)
+				E = new /datum/round_event/gravitational_anomaly()
 
 			if("timeanomalies")	//dear god this code was awful :P Still needs further optimisation
 				feedback_inc("admin_secrets_fun_used",1)
 				feedback_add_details("admin_secrets_fun_used","STA")
-				new /datum/event/wormholes(overrides)
+				E = new /datum/round_event/wormholes()
 
 			if("goblob")
 				feedback_inc("admin_secrets_fun_used",1)
 				feedback_add_details("admin_secrets_fun_used","BL")
 				message_admins("[key_name_admin(usr)] has spawned blob", 1)
-				new /datum/event/blob(overrides)
+				E = new /datum/round_event/blob()
 			if("aliens")
 				feedback_inc("admin_secrets_fun_used",1)
 				feedback_add_details("admin_secrets_fun_used","AL")
 				message_admins("[key_name_admin(usr)] has spawned aliens", 1)
-				new /datum/event/alien_infestation(overrides)
+				E = new /datum/round_event/alien_infestation()
 			if("alien_silent")								//replaces the spawn_xeno verb
 				feedback_inc("admin_secrets_fun_used",1)
 				feedback_add_details("admin_secrets_fun_used","ALS")
 				create_xeno()
 			if("spiders")
-				new /datum/event/spider_infestation(overrides)
+				E = new /datum/round_event/spider_infestation()
 				feedback_inc("admin_secrets_fun_used",1)
 				feedback_add_details("admin_secrets_fun_used","SL")
 				message_admins("[key_name_admin(usr)] has spawned spiders", 1)
 			if("bluespaceanomaly")
-				new /datum/event/bluespace_anomaly(overrides)
+				E = new /datum/round_event/bluespace_anomaly()
 				feedback_inc("admin_secrets_fun_used",1)
 				feedback_add_details("admin_secrets_fun_used","BA")
 				message_admins("[key_name_admin(usr)] has triggered a bluespace anomaly", 1)
 			if("comms_blackout")
-				new /datum/event/communications_blackout(overrides)
+				E = new /datum/round_event/communications_blackout()
 				feedback_inc("admin_secrets_fun_used",1)
 				feedback_add_details("admin_secrets_fun_used","CB")
 				message_admins("[key_name_admin(usr)] triggered a communications blackout.", 1)
@@ -1858,9 +1859,9 @@
 				feedback_inc("admin_secrets_fun_used",1)
 				feedback_add_details("admin_secrets_fun_used","SN")
 				message_admins("[key_name_admin(usr)] has sent in a space ninja", 1)
-				new /datum/event/ninja(list(overrides))
+				E = new /datum/round_event/ninja()
 			if("carp")
-				new /datum/event/carp_migration(overrides)
+				E = new /datum/round_event/carp_migration()
 				feedback_inc("admin_secrets_fun_used",1)
 				feedback_add_details("admin_secrets_fun_used","C")
 				message_admins("[key_name_admin(usr)] has spawned carp.", 1)
@@ -1868,35 +1869,34 @@
 				feedback_inc("admin_secrets_fun_used",1)
 				feedback_add_details("admin_secrets_fun_used","R")
 				message_admins("[key_name_admin(usr)] has has irradiated the station", 1)
-				new /datum/event/radiation_storm(overrides)
+				E = new /datum/round_event/radiation_storm()
 			if("immovable")
 				feedback_inc("admin_secrets_fun_used",1)
 				feedback_add_details("admin_secrets_fun_used","IR")
 				message_admins("[key_name_admin(usr)] has sent an immovable rod to the station", 1)
-				new /datum/event/immovable_rod(overrides)
+				E = new /datum/round_event/immovable_rod()
 			if("prison_break")
 				feedback_inc("admin_secrets_fun_used",1)
 				feedback_add_details("admin_secrets_fun_used","PB")
 				message_admins("[key_name_admin(usr)] has allowed a prison break", 1)
-				new /datum/event/prison_break(overrides)
+				E = new /datum/round_event/prison_break()
 			if("lightsout")
 				feedback_inc("admin_secrets_fun_used",1)
 				feedback_add_details("admin_secrets_fun_used","LO")
 				message_admins("[key_name_admin(usr)] has broke a lot of lights", 1)
-				overrides["lightsoutAmount"]=2
-				new /datum/event/electrical_storm(overrides)
+				E = new /datum/round_event/electrical_storm{lightsoutAmount = 2}()
 			if("blackout")
 				feedback_inc("admin_secrets_fun_used",1)
 				feedback_add_details("admin_secrets_fun_used","BO")
 				message_admins("[key_name_admin(usr)] broke all lights", 1)
-				overrides["lightsoutAmount"]=0
-				new /datum/event/electrical_storm(overrides)
+				for(var/obj/machinery/light/L in world)
+					L.broken()
 			if("whiteout")
 				feedback_inc("admin_secrets_fun_used",1)
 				feedback_add_details("admin_secrets_fun_used","WO")
+				message_admins("[key_name_admin(usr)] fixed all lights", 1)
 				for(var/obj/machinery/light/L in world)
 					L.fix()
-				message_admins("[key_name_admin(usr)] fixed all lights", 1)
 			if("friendai")
 				feedback_inc("admin_secrets_fun_used",1)
 				feedback_add_details("admin_secrets_fun_used","FA")
@@ -1972,10 +1972,12 @@
 					if("Make Your Own")
 						AdminCreateVirus(usr.client)
 					if("Random")
-						new /datum/event/disease_outbreak(overrides)
+						E = new /datum/round_event/disease_outbreak()
 					if("Choose")
-						overrides["virus_type"] = input("Choose the virus to spread", "BIOHAZARD") as null|anything in typesof(/datum/disease)
-						new /datum/event/disease_outbreak(overrides)
+						var/virus = input("Choose the virus to spread", "BIOHAZARD") as null|anything in typesof(/datum/disease)
+						E = new /datum/round_event/disease_outbreak{}()
+						var/datum/round_event/disease_outbreak/DO = E
+						DO.virus_type = virus
 			if("retardify")
 				feedback_inc("admin_secrets_fun_used",1)
 				feedback_add_details("admin_secrets_fun_used","RET")
@@ -2003,23 +2005,28 @@
 				feedback_inc("admin_secrets_fun_used",1)
 				feedback_add_details("admin_secrets_fun_used","I")
 				message_admins("[key_name_admin(usr)] triggered an ion storm")
-				new /datum/event/ion_storm(overrides)
+				E = new /datum/round_event/ion_storm()
 			if("spacevines")
 				feedback_inc("admin_secrets_fun_used",1)
 				feedback_add_details("admin_secrets_fun_used","K")
 				message_admins("[key_name_admin(usr)] has spawned spacevines", 1)
-				new /datum/event/spacevine(overrides)
+				E = new /datum/round_event/spacevine()
 			if("onlyone")
 				feedback_inc("admin_secrets_fun_used",1)
 				feedback_add_details("admin_secrets_fun_used","OO")
 				usr.client.only_one()
 //				message_admins("[key_name_admin(usr)] has triggered a battle to the death (only one)")
 			if("energeticflux")
-				new /datum/event/energetic_flux(overrides)
 				feedback_inc("admin_secrets_fun_used",1)
 				feedback_add_details("admin_secrets_fun_used","FLUX")
 				message_admins("[key_name_admin(usr)] has triggered an energetic flux")
-
+				E = new /datum/round_event/energetic_flux()
+		if(E)
+			E.processing = 0
+			if(E.announceWhen>0)
+				if(alert(usr, "Would you like to alert the crew?", "Alert", "Yes", "No") == "No")
+					E.announceWhen = -1
+			E.processing = 1
 		if(usr)
 			log_admin("[key_name(usr)] used secret [href_list["secretsfun"]]")
 			if (ok)
@@ -2348,3 +2355,90 @@
 	else if(href_list["ac_set_signature"])
 		src.admincaster_signature = adminscrub(input(usr, "Provide your desired signature", "Network Identity Handler", ""))
 		src.access_news_network()
+
+/*************************************** POLL PANEL STUFF *****************************************/
+	
+	else if(href_list["create_poll_panel"])
+		create_poll_panel()
+
+	else if(href_list["manage_poll_panel"])
+		manage_poll_panel()
+
+	else if(href_list["view_poll"])
+		var/pollid = sql_sanitize_text(href_list["view_poll"])
+		view_poll_panel(pollid)		
+
+	else if(href_list["remove_poll"])
+		var/pollid = sql_sanitize_text(href_list["remove_poll"])
+		remove_poll(pollid)
+
+		return
+
+
+	else if(href_list["create_new_poll"])
+
+		if(!href_list["polltype"])
+			usr << "Couldn't read poll type!"
+			return
+		if(!href_list["timelength"])
+			usr << "Couldn't read poll length!"
+			return
+		if(!href_list["question"])
+			usr << "Couldn't read poll question!"
+			return
+
+		var/polltype
+		var/timelength = text2num(href_list["timelength"])
+		var/question = sql_sanitize_text(href_list["question"])
+		var/polloptions[0];
+		var/adminonly = 0;
+		var/multilimit = 1;
+		var/maxval = 5;
+		var/minval = 1;
+		var/i = 0
+		var/descmax = "NULL";
+		var/descmin = "NULL";
+		var/descmed = "NULL";
+
+		if(href_list["adminonly"])
+			adminonly = 1;
+
+		if(text2num(href_list["polltype"]) == 1)
+			polltype = "OPTION"
+			polloptions += href_list["polloptions"]
+			for(i=1;i<=polloptions.len,i++)
+				polloptions[i] = sql_sanitize_text(polloptions[i])
+		else if(text2num(href_list["polltype"]) == 2)
+			polltype = "MULTICHOICE"
+			multilimit = text2num(href_list["multilimit"])
+			polloptions += href_list["polloptions"]
+			for(i=1;i<=polloptions.len,i++)
+				polloptions[i] = sql_sanitize_text(polloptions[i])
+		else if(text2num(href_list["polltype"]) == 3)
+			polltype = "TEXT"
+		else if(text2num(href_list["polltype"]) == 4)
+			polltype = "NUMVAL"
+			polloptions += sql_sanitize_text(href_list["polloptions"])
+			for(i=1;i<=polloptions.len,i++)
+				polloptions[i] = sql_sanitize_text(polloptions[i])
+			if(href_list["maxval"])
+				maxval = text2num(href_list["maxval"])
+			else
+				maxval = 5;
+			if(href_list["minval"])
+				minval = text2num(href_list["minval"])
+			else
+				minval = 1;
+			if(href_list["descmax"])
+				descmax = sql_sanitize_text(href_list["descmax"])
+			if(href_list["descmin"])
+				descmin = sql_sanitize_text(href_list["descmin"])
+			if(href_list["descmed"])
+				descmed = sql_sanitize_text(href_list["descmed"])
+		else
+			usr << "Unrecognized polltype!"
+			return
+
+		create_new_poll(polltype,timelength,question,polloptions,adminonly,multilimit,maxval,minval,descmax,descmin,descmed)
+			
+		return

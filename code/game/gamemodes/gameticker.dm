@@ -10,6 +10,9 @@ var/global/datum/controller/gameticker/ticker
 	var/const/restart_timeout = 250
 	var/current_state = GAME_STATE_PREGAME
 
+	var/retry_count = 0
+	var/max_retries = 3
+
 	var/hide_mode = 0
 	var/datum/game_mode/mode = null
 	var/event_time = null
@@ -81,8 +84,13 @@ var/global/datum/controller/gameticker/ticker
 	if (!src.mode.can_start())
 		world << "<B>Unable to start [mode.name].</B> Not enough players, [mode.required_players] players needed. Reverting to pre-game lobby."
 		del(mode)
+		retry_count += 1
 		current_state = GAME_STATE_PREGAME
 		job_master.ResetOccupations()
+		if(retry_count>=max_retries)
+			world << "<B>Retry count exceeded.Reverting to secret rotation.</B>"
+			retry_count = 0
+			master_mode = "secret"
 		return 0
 
 	//Configure mode and assign player to special mode stuff

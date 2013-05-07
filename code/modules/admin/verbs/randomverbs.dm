@@ -134,7 +134,7 @@ proc/cmd_admin_mute(whom, mute_type, automute = 0)
 		if(MUTE_DEADCHAT)	mute_string = "deadchat and DSAY"
 		if(MUTE_ALL)		mute_string = "everything"
 		else				return
-		
+
 	var/client/C
 	if(istype(whom, /client))
 		C = whom
@@ -142,12 +142,12 @@ proc/cmd_admin_mute(whom, mute_type, automute = 0)
 		C = directory[whom]
 	else
 		return
-	
+
 	var/datum/preferences/P
 	if(C)	P = C.prefs
 	else	P = preferences_datums[whom]
 	if(!P)	return
-	
+
 	if(automute)
 		if(!config.automute_on)	return
 	else
@@ -187,12 +187,13 @@ proc/cmd_admin_mute(whom, mute_type, automute = 0)
 	log_admin("[key_name(src)] has added a random AI law.")
 	message_admins("[key_name_admin(src)] has added a random AI law.", 1)
 
+/* Below text block causes the alert message to display and sound twice, since the annoucement proc on the event is triggered anyway. Admins, If you dont want to annouce this event, just use the secrets verb
 	var/show_log = alert(src, "Show ion message?", "Message", "Yes", "No")
 	if(show_log == "Yes")
 		command_alert("Ion storm detected near the station. Please check all AI-controlled equipment for errors.", "Anomaly Alert")
 		world << sound('sound/AI/ionstorm.ogg')
-
-	new /datum/event/ion_storm(list("botEmagChance"=0))
+*/
+	new /datum/round_event/ion_storm{botEmagChance=0}()
 	feedback_add_details("admin_verb","ION") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 
@@ -326,13 +327,9 @@ Traitors and the like can also be revived with the previous role mostly intact.
 
 	//DNA
 	if(record_found)//Pull up their name from database records if they did have a mind.
-		new_character.dna = new()//Let's first give them a new DNA.
-		new_character.dna.unique_enzymes = record_found.fields["b_dna"]//Enzymes are based on real name but we'll use the record for conformity.
-		new_character.dna.struc_enzymes = record_found.fields["enzymes"]//This is the default of enzymes so I think it's safe to go with.
-		new_character.dna.uni_identity = record_found.fields["identity"]//DNA identity is carried over.
-		updateappearance(new_character,new_character.dna.uni_identity)//Now we configure their appearance based on their unique identity, same as with a DNA machine or somesuch.
+		hardset_dna(new_character, record_found.fields["identity"], record_found.fields["enzymes"], record_found.fields["name"], null, record_found.fields["b_type"])
 	else//If they have no records, we just do a random DNA for them, based on their random appearance/savefile.
-		new_character.dna.ready_dna(new_character)
+		ready_dna(new_character)
 
 	new_character.key = G_found.key
 
