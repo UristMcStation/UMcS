@@ -1,0 +1,10 @@
+<h1>Welcome to Urist McStation!</h1>
+
+<i>This server is running a /tg/station13 SVN build.</i>
+<i>This is a medium roleplay server.  Roleplay is encouraged,
+and please don't be egregiously out of character.</i>
+<h2>Server rules:</h2>
+<p>Keep IC in IC chat, OOC in OOC chat.  Please don't discuss ongoing rounds in OOC.</p>
+<p>No killing, except in self defense, or as antagonist (and show restraint even then).  Sitting around watching isn't fun.</p>
+<p>Golden Rule: Do unto others as you would have done unto you.  Try to keep things enjoyable for everyone.</p>
+

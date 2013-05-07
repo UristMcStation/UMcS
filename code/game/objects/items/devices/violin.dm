@@ -8,13 +8,17 @@
 	item_state = "violin"
 	force = 10
 	var/datum/song/handheld/song
+	var/broken = 0
 
 /obj/item/device/violin/New()
 	song = new("violin", src)
 	song.instrumentExt = "mid"
 
 /obj/item/device/violin/attack_self(mob/user as mob)
-	interact(user)
+	if(broken == 1)
+		usr << "One of the violin's strings has broken, and the violin is unplayable. The God(s) must not have liked the sounds it played."
+	else
+		interact(user)
 
 /obj/item/device/violin/interact(mob/user as mob)
 	if(!user)
