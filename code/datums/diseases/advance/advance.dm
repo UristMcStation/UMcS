@@ -9,6 +9,8 @@
 
 #define RANDOM_STARTING_LEVEL 2
 
+var/luckyguy = null // Hate to define a var in this manner for what it's for but yeah
+
 var/list/archive_diseases = list()
 
 // The order goes from easy to cure to hard to cure.
@@ -413,12 +415,13 @@ var/list/advance_cures = 	list(
 				continue
 			if(!H.has_disease(D))
 				H.contract_disease(D, 1)
+				luckyguy = H.name
 				break
 
 		var/list/name_symptoms = list()
 		for(var/datum/symptom/S in D.symptoms)
 			name_symptoms += S.name
-		message_admins("[key_name_admin(user)] has triggered a custom virus outbreak of [D.name]! It has these symptoms: [english_list(name_symptoms)]")
+		message_admins("[key_name_admin(user)] has triggered a custom virus outbreak of [D.name]! It has these symptoms: [english_list(name_symptoms)]. [luckyguy] was infected.")
 
 /*
 /mob/verb/test()
