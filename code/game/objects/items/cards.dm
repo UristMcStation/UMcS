@@ -44,6 +44,7 @@
 			M.put_in_hands(hand)
 			W.loc = hand
 			src.loc = hand
+		..()
 		return
 
 	update_icon()
@@ -77,6 +78,7 @@
 		if(istype(W,/obj/item/toy/card) && loc==user)
 			M.drop_item()
 			W.loc = src
+		..()
 		return
 
 	verb/show()
@@ -120,13 +122,14 @@
 	allow_quick_gather = 0
 	w_class = 2 //Pocket size
 	max_combined_w_class = 104 //Could be higher i guess
+	use_to_pickup = 1
 
 	New()
 		..()
 		for(var/suit in cardsuits)
 			for(var/rank in cardranks)
 				new /obj/item/toy/card(src,suit,rank,0)
-		shuffle_deck()
+		src.contents = shuffle(src.contents)
 
 	verb/shuffle_deck()
 		set name = "Shuffle deck"
