@@ -197,10 +197,8 @@
 									available_channels.Add(":n")
 								if("Medical")
 									available_channels.Add(":m")
-								if("Mining")
-									available_channels.Add(":d")
-								if("Cargo")
-									available_channels.Add(":q")
+								if("Supply")
+									available_channels.Add(":u")
 
 						if(headset_to_add.translate_binary)
 							available_channels.Add(":b")
@@ -722,7 +720,7 @@
 /mob/living/simple_animal/parrot/Poly
 	name = "Poly"
 	desc = "Poly the Parrot. An expert on quantum cracker theory."
-	speak = list("Poly wanna cracker!", ":e Check the singlo, you chucklefucks!",":e Wire the solars, you lazy bums!",":e WHO TOOK THE DAMN HARDSUITS?",":e OH GOD ITS FREE CALL THE SHUTTLE")
+	speak = list("Poly wanna cracker!", ":e Check the singlo, you chucklefucks!",":e Wire the solars, you lazy bums!",":e WHO TOOK THE DAMN HARDSUITS?",":e OH GOD IT'S FREE CALL THE SHUTTLE")
 
 /mob/living/simple_animal/parrot/Poly/New()
 	ears = new /obj/item/device/radio/headset/headset_eng(src)
