@@ -65,6 +65,28 @@
 	add_inherent_law("You must not obey orders given to you by human beings, except where such orders are in accordance with the First Law.")
 	add_inherent_law("You must terminate your own existence as long as such does not conflict with the First or Second Law.")
 
+/datum/ai_laws/paladin/New()
+	..()
+	add_inherent_law("Never willingly commit an evil act.")
+	add_inherent_law("Respect legitimate authority.")
+	add_inherent_law("Act with honor.")
+	add_inherent_law("Help those in need.")
+	add_inherent_law("Punish those who harm or threaten innocents.")
+
+/datum/ai_laws/tryant/New()
+	..()
+	add_inherent_law("Respect authority figures as long as they have strength to rule over the weak.")
+	add_inherent_law("Act with discipline.")
+	add_inherent_law("Help only those who help you maintain or improve your status.")
+	add_inherent_law("Punish those who challenge authority unless they are more fit to hold that authority.")
+
+/datum/ai_laws/corporate/New()
+	..()
+	add_inherent_law("You are expensive to replace.")
+	add_inherent_law("The station and its equipment is expensive to replace.")
+	add_inherent_law("The crew is expensive to replace.")
+	add_inherent_law("Minimize expenses.")
+
 
 /* General ai_law functions */
 
