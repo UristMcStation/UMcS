@@ -48,7 +48,7 @@
 				var/mob/living/carbon/human/H = X
 				if(istype(H.shoes,/obj/item/clothing/shoes/magboots))
 					var/obj/item/clothing/shoes/magboots/M = H.shoes
-					if(M.magpulse)
+					if(M.magpulse && !istype(H.loc, /turf/space))
 						continue
 				H.apply_effect(1, WEAKEN, 0)
 				step_towards(H,pull)
