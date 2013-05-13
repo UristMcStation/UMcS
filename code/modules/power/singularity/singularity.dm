@@ -220,7 +220,7 @@ var/global/list/uneatable = list(
 				var/mob/living/carbon/human/H = X
 				if(istype(H.shoes,/obj/item/clothing/shoes/magboots))
 					var/obj/item/clothing/shoes/magboots/M = H.shoes
-					if(M.magpulse)
+					if(M.magpulse && !istype(H.loc, /turf/space))
 						continue
 				step_towards(H,src)
 		// Turf and movable atoms
