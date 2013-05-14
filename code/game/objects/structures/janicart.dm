@@ -249,14 +249,14 @@
 	add_fingerprint(user)
 
 
-/obj/structure/stool/bed/chair/janicart/unbuckle()
+/obj/structure/stool/bed/chair/segway/unbuckle()
 	if(buckled_mob)
 		buckled_mob.pixel_x = 0
 		buckled_mob.pixel_y = 0
 	..()
 
 
-/obj/structure/stool/bed/chair/janicart/handle_rotation()
+/obj/structure/stool/bed/chair/segway/handle_rotation()
 	if(dir == SOUTH)
 		layer = FLY_LAYER
 	else
