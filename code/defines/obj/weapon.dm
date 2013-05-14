@@ -41,6 +41,7 @@
 	w_class = 1.0
 	var/access = list()
 	var/cash_value = 1
+	access = access_crate_cash
 
 /obj/item/weapon/spacecash/c10
 	icon_state = "spacecash10"

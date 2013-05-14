@@ -16,8 +16,8 @@
 		return (OXYLOSS)
 
 /obj/item/weapon/melee/bat
-	name = "bassball bat"
-	desc = "A bassball bat to play a well know game."
+	name = "baseball bat"
+	desc = "A baseball bat to play a well know game."
 	icon_state = "bat"
 	item_state = "bat"
 	flags = FPRINT | TABLEPASS | CONDUCT
