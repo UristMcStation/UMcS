@@ -103,7 +103,7 @@
 
 /obj/item/key/head
 	name = "head key"
-	desc = "A keyring with a small steel key, reading \"HEAD\"."
+	desc = "A keyring with a small iron key, reading \"HEAD\"."
 	icon = 'icons/obj/vehicles.dmi'
 	icon_state = "headkeys"
 	w_class = 1
