@@ -14,3 +14,16 @@
 	suicide_act(mob/user)
 		viewers(user) << "\red <b>[user] is strangling \himself with the [src.name]! It looks like \he's trying to commit suicide.</b>"
 		return (OXYLOSS)
+
+/obj/item/weapon/melee/bat
+	name = "bassball bat"
+	desc = "A bassball bat to play a well know game."
+	icon_state = "bat"
+	item_state = "bat"
+	flags = FPRINT | TABLEPASS | CONDUCT
+	slot_flags = SLOT_BELT
+	force = 4
+	throwforce = 6
+	w_class = 3
+	origin_tech = "combat=1"
+	attack_verb = list("hit", "smashed", "bashed")
