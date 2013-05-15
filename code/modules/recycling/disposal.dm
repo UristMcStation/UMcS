@@ -510,6 +510,9 @@
 			if(istype(AM, /obj/item/smallDelivery) && !hasmob)
 				var/obj/item/smallDelivery/T = AM
 				src.destinationTag = T.sortTag
+			if(istype(AM, /obj/item/weapon/storage/envelope) && !hasmob)
+				var/obj/item/weapon/storage/envelope/T = AM
+				src.destinationTag = T.sortTag
 
 
 	// start the movement process
