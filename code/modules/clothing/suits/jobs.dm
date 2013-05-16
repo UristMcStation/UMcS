@@ -66,7 +66,7 @@
 	body_parts_covered = CHEST|GROIN
 
 //Detective
-/obj/item/clothing/suit/det_suit
+/obj/item/clothing/suit/storage/det_suit
 	name = "coat"
 	desc = "An 18th-century multi-purpose trenchcoat. Someone who wears this means serious business."
 	icon_state = "detective"
@@ -88,7 +88,7 @@
 	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank/emergency_oxygen,/obj/item/device/t_scanner,)
 
 //Lawyer
-/obj/item/clothing/suit/lawyer/bluejacket
+/obj/item/clothing/suit/storage/lawyer/bluejacket
 	name = "blue suit jacket"
 	desc = "A snappy dress jacket."
 	icon_state = "suitjacket_blue_open"
@@ -96,7 +96,7 @@
 	blood_overlay_type = "coat"
 	body_parts_covered = CHEST|ARMS
 
-/obj/item/clothing/suit/lawyer/purpjacket
+/obj/item/clothing/suit/storage/lawyer/purpjacket
 	name = "purple suit jacket"
 	desc = "A foppish dress jacket."
 	icon_state = "suitjacket_purp"

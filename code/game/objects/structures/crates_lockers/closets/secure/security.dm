@@ -203,7 +203,7 @@
 		..()
 		sleep(2)
 		new /obj/item/clothing/under/det(src)
-		new /obj/item/clothing/suit/det_suit(src)
+		new /obj/item/clothing/suit/storage/det_suit(src)
 		new /obj/item/clothing/gloves/black(src)
 		new /obj/item/clothing/head/det_hat(src)
 		new /obj/item/clothing/shoes/brown(src)
