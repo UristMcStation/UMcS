@@ -27,7 +27,7 @@
 /obj/item/tape/police
 	name = "police tape"
 	desc = "A length of police tape.  Do not cross."
-	req_access = list(access_security)
+	req_access = list(access_sec_doors)
 	icon_base = "police"
 
 /obj/item/taperoll/engineering
@@ -40,7 +40,7 @@
 /obj/item/tape/engineering
 	name = "engineering tape"
 	desc = "A length of engineering tape. Better not cross it."
-	req_one_access = list(access_engine,access_atmospherics)
+	req_one_access = list(access_engine, access_atmospherics)
 	icon_base = "engineering"
 
 /obj/item/taperoll/attack_self(mob/user as mob)
@@ -103,11 +103,6 @@
 		P.icon_state = "[src.icon_base]_door"
 		P.layer = 3.2
 		user << "\blue You finish placing the [src]."
-
-/obj/item/tape/Bumped(M as mob)
-	if(src.allowed(M))
-		var/turf/T = get_turf(src)
-		M:loc = T
 
 /obj/item/tape/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(!density) return 1
