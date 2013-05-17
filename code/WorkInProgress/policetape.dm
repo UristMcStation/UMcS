@@ -21,6 +21,7 @@
 	name = "police tape"
 	desc = "A roll of police tape used to block off crime scenes from the public."
 	icon_state = "police_start"
+	item_state = "policetape"
 	tape_type = /obj/item/tape/police
 	icon_base = "police"
 
@@ -34,6 +35,7 @@
 	name = "engineering tape"
 	desc = "A roll of engineering tape used to block off working areas from the public."
 	icon_state = "engineering_start"
+	item_state = "engineeringtape"
 	tape_type = /obj/item/tape/engineering
 	icon_base = "engineering"
 
