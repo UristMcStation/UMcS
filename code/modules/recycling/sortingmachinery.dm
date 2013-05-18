@@ -261,6 +261,10 @@
 			deliveryCheck = 1
 			if(O.sortTag == 0)
 				O.sortTag = 1
+		for(var/obj/item/weapon/storage/envelope/O in src)
+			deliveryCheck = 1
+			if(O.sortTag == 0)
+				O.sortTag = 1
 		if(deliveryCheck == 0)
 			H.destinationTag = 1
 
