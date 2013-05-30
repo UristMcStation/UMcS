@@ -6,9 +6,9 @@
 
 
 /datum/round_event/special_delivery
-	startWhen = 10
+	startWhen = 12
 	announceWhen = 0
-	var/possibleContent = list("Guns" = 5, "Slimes" = 2, "Ids" = 2, "Mech" = 5,"Rigs"=2,"Artifact"=1)
+	var/possibleContent = list("Guns" = 3, "Slimes" = 2, "Ids" = 3, "Mech" = 3,"Rigs"=2,"RCD"=2)
 
 
 /datum/round_event/special_delivery/announce()
@@ -41,12 +41,22 @@
 							new /obj/item/clothing/head/helmet/space/rig/medical(A)
 							new /obj/item/clothing/head/helmet/space/rig/security(A)
 						if("Ids")
-							//CHAOS
-							var/obj/structure/closet/crate/A = new /obj/structure/closet/crate(C.loc)
-							new /obj/item/weapon/card/id/captains_spare(A)
-							new /obj/item/weapon/card/id/captains_spare(A)
-							new /obj/item/weapon/card/id/captains_spare(A)
-							new /obj/item/weapon/card/id/captains_spare(A)
+							//IDS
+							var/obj/structure/closet/A = new /obj/structure/closet/(C.loc)
+							var/obj/item/weapon/card/id/B = null
+							for(var/i=1; i<=5; i++)
+								var/rank = pick("Chef","Chemist","Janitor","Cargo Technician","Station Engineer","Scientist","Security Officer")
+								var/datum/job/chosen_job = null
+								for(var/datum/job/J in job_master.occupations)
+									if(J.title == rank)
+										chosen_job = J
+										break
+								if(chosen_job)
+									B = new chosen_job.idtype(A)
+									B.access = chosen_job.get_access()
+									B.assignment = rank
+									B.registered_name = "[B.assignment]"
+									B.name = "[B.assignment]"
 						if("Mech")
 							//MECHANIZED CHAOS
 							var/obj/mecha/combat/durand/D =  new /obj/mecha/combat/durand(C.loc) //Could be random one as well.
@@ -54,10 +64,13 @@
 							E.attach(D)
 							E = new /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/scattershot
 							E.attach(D)
-						if("Artifact")
-							//HAMMER
+						if("RCD")
+							//RCDS
 							var/obj/structure/closet/A = new /obj/structure/closet(C.loc)
-							new /obj/item/weapon/twohanded/mjollnir(A)
+							for(var/i=1; i<=4; i++)
+								var/obj/item/weapon/rcd/B = new /obj/item/weapon/rcd(A)
+								B.matter = 30
+								B.desc = "A RCD. It currently holds [B.matter]/30 matter-units." //Ugh. Probably should add helper proc to RCD
 
 						//Probably needs few more things to keep it fresh
 				break
