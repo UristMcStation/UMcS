@@ -329,6 +329,12 @@ turf/simulated/floor/proc/update_icon()
 	broken = 0
 	burnt = 0
 
+	for(var/obj/item/O in contents)
+		if(O.w_class == 1.0)
+			O.invisibility = 0
+			O.level = 2
+			O.flags &= ~UNPICKABLE
+
 	update_icon()
 	levelupdate()
 
@@ -340,6 +346,7 @@ turf/simulated/floor/proc/update_icon()
 	burnt = 0
 	intact = 1
 	SetLuminosity(0)
+
 	if(T)
 		if(istype(T,/obj/item/stack/tile/plasteel))
 			floor_tile = T
@@ -499,6 +506,13 @@ turf/simulated/floor/proc/update_icon()
 				var/obj/item/stack/tile/T = C
 				floor_tile = new T.type
 				intact = 1
+				for(var/obj/item/O in contents)
+					if(O.w_class == 1.0)
+						if(O.invisibility == 0)
+							O.invisibility = 101
+							O.level = 1
+							O.flags |= UNPICKABLE
+
 				if(istype(T,/obj/item/stack/tile/light))
 					var/obj/item/stack/tile/light/L = T
 					var/obj/item/stack/tile/light/F = floor_tile

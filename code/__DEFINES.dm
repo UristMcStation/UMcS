@@ -60,6 +60,7 @@ var/turf/space/Space_Tile = locate(/turf/space) // A space tile to reference whe
 #define CONDUCT		64		// conducts electricity (metal etc.)
 #define FPRINT		256		// takes a fingerprint
 #define ON_BORDER	512		// item has priority to check when entering or leaving
+#define UNPICKABLE	1024
 
 #define GLASSESCOVERSEYES	1024
 #define MASKCOVERSEYES		1024		// get rid of some of the other retardation in these flags
