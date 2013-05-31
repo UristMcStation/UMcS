@@ -101,7 +101,7 @@
 "abW" = (/obj/machinery/door/airlock/external{name = "Security External Airlock"; req_access_txt = "1; 13"},/turf/simulated/floor/plating,/area/security/main)
 "abX" = (/obj/machinery/camera{c_tag = "Prison South"; dir = 1; network = list("SS13","Prison")},/turf/simulated/floor{icon_state = "floorgrime"},/area/security/prison)
 "abY" = (/obj/machinery/atmospherics/unary/vent_scrubber{on = 1; scrub_N2O = 0; scrub_Toxins = 0},/turf/simulated/floor{icon_state = "floorgrime"},/area/security/prison)
-"abZ" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden,/obj/machinery/light,/turf/simulated/floor{icon_state = "floorgrime"},/area/security/prison)
+"abZ" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden,/obj/machinery/light,/obj/machinery/flasher{id = "PCell 3"; pixel_y = -28},/turf/simulated/floor{icon_state = "floorgrime"},/area/security/prison)
 "aca" = (/obj/structure/bookcase,/turf/simulated/floor{icon_state = "floorgrime"},/area/security/prison)
 "acb" = (/obj/structure/toilet{dir = 1},/turf/simulated/floor{icon_state = "freezerfloor"},/area/security/prison)
 "acc" = (/turf/simulated/floor{dir = 9; icon_state = "warning"},/area/security/warden)
