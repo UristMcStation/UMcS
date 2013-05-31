@@ -108,6 +108,7 @@
 
 /obj/item/attack_hand(mob/user as mob)
 	if (!user) return
+	if (flags & UNPICKABLE) return
 	if (istype(src.loc, /obj/item/weapon/storage))
 		var/obj/item/weapon/storage/S = src.loc
 		S.remove_from_storage(src)
