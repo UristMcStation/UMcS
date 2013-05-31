@@ -334,6 +334,7 @@ turf/simulated/floor/proc/update_icon()
 			O.invisibility = 0
 			O.level = 2
 			O.flags &= ~UNPICKABLE
+			O.anchored = 0
 
 	update_icon()
 	levelupdate()
@@ -512,6 +513,7 @@ turf/simulated/floor/proc/update_icon()
 							O.invisibility = 101
 							O.level = 1
 							O.flags |= UNPICKABLE
+							O.anchored = 1
 
 				if(istype(T,/obj/item/stack/tile/light))
 					var/obj/item/stack/tile/light/L = T
