@@ -5,6 +5,7 @@
 	icon_state = "rollstart"
 	flags = FPRINT
 	w_class = 1.0
+	urist_only = 1
 	var/turf/start
 	var/turf/end
 	var/tape_type = /obj/item/tape
