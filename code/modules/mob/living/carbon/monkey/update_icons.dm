@@ -47,12 +47,13 @@
 		overlays -= overlays_standing[M_MASK_LAYER]
 		var/image/lying
 		var/image/standing
-		if(wear_mask.urist_only)
-			lying = image("icon" = 'icons/uristmob/monkey.dmi', "icon_state" = "[wear_mask.icon_state]2", "layer" = -M_MASK_LAYER)
-			standing = image("icon" = 'icons/uristmob/monkey.dmi', "icon_state" = "[wear_mask.icon_state]", "layer" = -M_MASK_LAYER)
-		else
+		if(!wear_mask.urist_only)
 			lying = image("icon" = 'icons/mob/monkey.dmi', "icon_state" = "[wear_mask.icon_state]2", "layer" = -M_MASK_LAYER)
 			standing = image("icon" = 'icons/mob/monkey.dmi', "icon_state" = "[wear_mask.icon_state]", "layer" = -M_MASK_LAYER)
+		else
+			lying = image("icon" = 'icons/uristmob/monkey.dmi', "icon_state" = "[wear_mask.icon_state]2", "layer" = -M_MASK_LAYER)
+			standing = image("icon" = 'icons/uristmob/monkey.dmi', "icon_state" = "[wear_mask.icon_state]", "layer" = -M_MASK_LAYER)
+
 		if(!istype(wear_mask, /obj/item/clothing/mask/cigarette) && wear_mask.blood_DNA )
 			lying.overlays		+= image("icon" = 'icons/effects/blood.dmi', "icon_state" = "maskblood2")
 			standing.overlays	+= image("icon" = 'icons/effects/blood.dmi', "icon_state" = "maskblood")
@@ -78,10 +79,10 @@
 		var/t_state = r_hand.item_state
 		if(!t_state)	t_state = r_hand.icon_state
 		overlays -= overlays_standing[M_R_HAND_LAYER]
-		if(r_hand.urist_only)
-			overlays_standing[M_R_HAND_LAYER]	= image("icon" = 'icons/uristmob/items_righthand.dmi', "icon_state" = t_state, "layer" = -M_R_HAND_LAYER)
-		else
+		if(!r_hand.urist_only)
 			overlays_standing[M_R_HAND_LAYER]	= image("icon" = 'icons/mob/items_righthand.dmi', "icon_state" = t_state, "layer" = -M_R_HAND_LAYER)
+		else
+			overlays_standing[M_R_HAND_LAYER]	= image("icon" = 'icons/uristmob/items_righthand.dmi', "icon_state" = t_state, "layer" = -M_R_HAND_LAYER)
 		overlays += overlays_standing[M_R_HAND_LAYER]
 	else
 		overlays -= overlays_standing[M_R_HAND_LAYER]
@@ -97,10 +98,10 @@
 		var/t_state = l_hand.item_state
 		if(!t_state)	 t_state = l_hand.icon_state
 		overlays -= overlays_standing[M_L_HAND_LAYER]
-		if(l_hand.urist_only)
-			overlays_standing[M_L_HAND_LAYER]	= image("icon" = 'icons/uristmob/items_lefthand.dmi', "icon_state" = t_state, "layer" = -M_L_HAND_LAYER)
-		else
+		if(!l_hand.urist_only)
 			overlays_standing[M_L_HAND_LAYER]	= image("icon" = 'icons/mob/items_lefthand.dmi', "icon_state" = t_state, "layer" = -M_L_HAND_LAYER)
+		else
+			overlays_standing[M_L_HAND_LAYER]	= image("icon" = 'icons/uristmob/items_lefthand.dmi', "icon_state" = t_state, "layer" = -M_L_HAND_LAYER)
 		overlays += overlays_standing[M_L_HAND_LAYER]
 	else
 		overlays -= overlays_standing[M_L_HAND_LAYER]
