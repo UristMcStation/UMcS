@@ -5,6 +5,7 @@
 #define SUPPLY_DOCK_AREATYPE "/area/supply/dock"	//Type of the supply shuttle area for dock
 
 var/datum/controller/supply_shuttle/supply_shuttle = new()
+var/centcom_message
 
 /area/supply/station //DO NOT TURN THE lighting_use_dynamic STUFF ON FOR SHUTTLES. IT BREAKS THINGS.
 	name = "supply shuttle"
@@ -120,8 +121,8 @@ var/datum/controller/supply_shuttle/supply_shuttle = new()
 	var/points_per_crate = 5
 	var/plasma_per_point = 5 // 2 plasma for 1 point
 	var/cash_per_point = 25
+	var/centcom_message = "" // Remarks from Centcom on how well you checked the last order.
 
-	var/centcomm_message = "" // Remarks from CentComm on how well you checked the last order.
 	//control
 	var/ordernum
 	var/list/shoppinglist = list()
@@ -292,7 +293,7 @@ var/datum/controller/supply_shuttle/supply_shuttle = new()
 			points += round(plasma_count / plasma_per_point)
 		if(cash_count)
 			points += round(cash_count / cash_per_point)
-		
+
 		if(crate_count)
 			centcom_message += "<font color=green>+[round(crate_count*points_per_crate)]</font>: Received [crate_count] crates.<BR>"
 			points += crate_count * points_per_crate
