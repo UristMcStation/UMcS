@@ -136,12 +136,13 @@
 			updatename(mod)
 			module = new /obj/item/weapon/robot_module/butler(src)
 			hands.icon_state = "service"
-			var/icontype = input("Select an icon!", "Robot", null, null) in list("Waitress", "Bro", "Butler", "Kent", "Rich")
+			var/icontype = input("Select an icon!", "Robot", null, null) in list("Waitress", "Bro", "Butler", "Kent", "Rich", "Forrest")
 			switch(icontype)
 				if("Waitress")	icon_state = "Service"
 				if("Kent")		icon_state = "toiletbot"
 				if("Bro")		icon_state = "Brobot"
 				if("Rich")		icon_state = "maximillion"
+				if("Forrest")		icon_state = "Greenbot"
 				else				icon_state = "Service2"
 			modtype = "Butler"
 			feedback_inc("cyborg_service",1)
