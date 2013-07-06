@@ -117,12 +117,20 @@ var/global/list/datum/stack_recipe/wood_recipes = list ( \
 /*
  * Cloth
  */
+var/global/list/datum/stack_recipe/cloth_recipes = list ( \
+	new/datum/stack_recipe("carpet tile", /obj/item/stack/tile/carpet, 1, 4, 20), \
+)
+
 /obj/item/stack/sheet/cloth
 	name = "cloth"
 	desc = "This roll of cloth is made from only the finest chemicals and bunny rabbits."
 	singular_name = "cloth roll"
 	icon_state = "sheet-cloth"
 	origin_tech = "materials=2"
+
+/obj/item/stack/sheet/cloth/New(var/loc, var/amount=null)
+	recipes = cloth_recipes
+	return ..()
 
 /*
  * Cardboard
