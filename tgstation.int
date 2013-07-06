@@ -1,8 +1,10 @@
 // BEGIN_INTERNALS
 /*
 MAP_ICON_TYPE: 0
+WINDOW: icons\mob\items_lefthand.dmi
 LAST_COMPILE_VERSION: 498.1163
-DIR: code\datums\wires code\game\machinery code\game\machinery\computer code\game\objects code\game\objects\effects\decals code\game\objects\effects\decals\Cleanable icons icons\obj maps 
+DIR: code\datums\wires code\game\machinery code\game\machinery\computer code\game\objects code\game\objects\effects\decals code\game\objects\effects\decals\Cleanable icons icons\mob icons\obj maps 
+FILE: icons\mob\items_lefthand.dmi
 LAST_COMPILE_TIME: 1367629069
 AUTO_FILE_DIR: OFF
 */
