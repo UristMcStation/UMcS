@@ -38,6 +38,8 @@
 	var/list/allowed = null //suit storage stuff.
 	var/obj/item/device/uplink/hidden/hidden_uplink = null // All items can have an uplink hidden inside, just remember to add the triggers.
 
+	var/urist_only = null //If the item is unique to Urist McStation
+
 /obj/item/device
 	icon = 'icons/obj/device.dmi'
 
