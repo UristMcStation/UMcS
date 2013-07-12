@@ -72,14 +72,7 @@
 	density = 0
 	build_icon()
 
-						//Emagged items for janitor and medical borg
-						if(R.module.emag)
-							if(istype(R.module.emag, /obj/item/weapon/reagent_containers/spray))
-								var/obj/item/weapon/reagent_containers/spray/S = R.module.emag
-								if(S.name == "polyacid spray")
-									S.reagents.add_reagent("pacid", 2)
-								else if(S.name == "lube spray")
-									S.reagents.add_reagent("lube", 2)
+
 /obj/machinery/recharge_station/proc/close()
 	for(var/mob/living/silicon/robot/R in loc)
 		R.stop_pulling()

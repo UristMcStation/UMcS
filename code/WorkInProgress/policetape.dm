@@ -1,11 +1,10 @@
 //Define all tape types in policetape.dm
 /obj/item/taperoll
 	name = "tape roll"
-	icon = 'icons/uristicons.dmi'
+	icon = 'icons/policetape.dmi'
 	icon_state = "rollstart"
 	flags = FPRINT
 	w_class = 1.0
-	urist_only = 1
 	var/turf/start
 	var/turf/end
 	var/tape_type = /obj/item/tape
@@ -13,7 +12,7 @@
 
 /obj/item/tape
 	name = "tape"
-	icon = 'icons/uristicons.dmi'
+	icon = 'icons/policetape.dmi'
 	anchored = 1
 	density = 1
 	var/icon_base
