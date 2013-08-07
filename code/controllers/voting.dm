@@ -35,14 +35,14 @@ datum/controller/vote
 			else
 				var/datum/browser/client_popup
 				while(i<=voting.len)
-					var/client/C = voting[i]					
+					var/client/C = voting[i]
 					if(C)
 						//C << browse(vote.interface(C),"window=vote;can_close=0")
 						client_popup = new(C, "vote", "Voting Panel")
 						client_popup.set_window_options("can_close=0")
 						client_popup.set_content(vote.interface(C))
 						client_popup.open(0)
-						
+
 						i++
 					else
 						voting.Cut(i,i+1)
@@ -111,6 +111,8 @@ datum/controller/vote
 					if(. == "Restart Round")
 						restart = 1
 				if("gamemode")
+					if(. == "Continue Playing")
+						return
 					if(master_mode != .)
 						world.save_mode(.)
 						if(ticker && ticker.mode)
@@ -151,7 +153,9 @@ datum/controller/vote
 			reset()
 			switch(vote_type)
 				if("restart")	choices.Add("Restart Round","Continue Playing")
-				if("gamemode")	choices.Add(config.votable_modes)
+				if("gamemode")
+					choices.Add(config.votable_modes)
+					choices.Add("Continue Playing")
 				if("custom")
 					question = html_encode(input(usr,"What is the vote for?") as text|null)
 					if(!question)	return 0
