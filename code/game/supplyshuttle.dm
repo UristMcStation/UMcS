@@ -85,6 +85,8 @@ var/centcom_message
 	var/reqtime = 0 //Cooldown for requisitions - Quarxink
 	var/hacked = 0
 	var/can_order_contraband = 0
+	var/last_viewed_group = "categories"
+
 
 /obj/machinery/computer/ordercomp
 	name = "Supply Ordering Console"
@@ -93,6 +95,7 @@ var/centcom_message
 	circuit = "/obj/item/weapon/circuitboard/ordercomp"
 	var/temp = null
 	var/reqtime = 0 //Cooldown for requisitions - Quarxink
+	var/last_viewed_group = "categories"
 
 /*
 /obj/effect/marker/supplymarker
@@ -142,6 +145,7 @@ var/centcom_message
 	proc/process()
 		for(var/typepath in (typesof(/datum/supply_packs) - /datum/supply_packs))
 			var/datum/supply_packs/P = new typepath()
+			if(P.name == "HEADER") continue		// To filter out group headers
 			supply_packs[P.name] = P
 
 		spawn(0)
@@ -356,8 +360,8 @@ var/centcom_message
 				A:req_access += text2num(SP.access)
 
 			var/list/contains
-			if(istype(SP,/datum/supply_packs/randomised))
-				var/datum/supply_packs/randomised/SPR = SP
+			if(istype(SP,/datum/supply_packs/misc/randomised))
+				var/datum/supply_packs/misc/randomised/SPR = SP
 				contains = list()
 				if(SPR.contains.len)
 					for(var/j=1,j<=SPR.num_contained,j++)
@@ -411,7 +415,8 @@ var/centcom_message
 	else
 		dat += {"Shuttle Location: [supply_shuttle.moving ? "Moving to station ([supply_shuttle.eta] Mins.)":supply_shuttle.at_station ? "Station":"Dock"]<BR>
 		<HR>Supply Points: [supply_shuttle.points]<BR>
-		<BR>\n<A href='?src=\ref[src];order=1'>Request items</A><BR><BR>
+
+		<BR>\n<A href='?src=\ref[src];order=categories'>Request items</A><BR><BR>
 		<A href='?src=\ref[src];vieworders=1'>View approved orders</A><BR><BR>
 		<A href='?src=\ref[src];viewrequests=1'>View requests</A><BR><BR>
 		<A href='?src=\ref[user];mach_close=computer'>Close</A>"}
@@ -419,7 +424,7 @@ var/centcom_message
 	// Removing the old window method but leaving it here for reference
 	//user << browse(dat, "window=computer;size=575x450")
 	//onclose(user, "computer")
-	
+
 	// Added the new browser window method
 	var/datum/browser/popup = new(user, "computer", "Supply Ordering Console", 575, 450)
 	popup.set_content(dat)
@@ -435,12 +440,25 @@ var/centcom_message
 		usr.set_machine(src)
 
 	if(href_list["order"])
-		temp = "<A href='?src=\ref[src];mainmenu=1'>Main Menu</A><BR><BR>Request what?<BR><BR>Supply Points: [supply_shuttle.points]<BR><HR>"
-		for(var/supply_name in supply_shuttle.supply_packs )
-			var/datum/supply_packs/N = supply_shuttle.supply_packs[supply_name]
-			if(N.hidden || N.contraband) continue																	//Have to send the type instead of a reference to
-			temp += "<A href='?src=\ref[src];doorder=[supply_name]'>[supply_name]</A> Cost: [N.cost]<BR>"    //the obj because it would get caught by the garbage
-		temp += "<BR><A href='?src=\ref[src];mainmenu=1'>Main Menu</A>"
+		if(href_list["order"] == "categories")
+			//all_supply_groups
+			//Request what?
+			last_viewed_group = "categories"
+			temp = "<b>Supply points: [supply_shuttle.points]</b><BR>"
+			temp += "<A href='?src=\ref[src];mainmenu=1'>Main Menu</A><HR><BR><BR>"
+			temp += "<b>Select a category</b><BR><BR>"
+			for(var/cat in all_supply_groups )
+				temp += "<A href='?src=\ref[src];order=[cat]'>[get_supply_group_name(cat)]</A><BR>"
+		else
+			last_viewed_group = href_list["order"]
+			var/cat = text2num(last_viewed_group)
+			temp = "<b>Supply points: [supply_shuttle.points]</b><BR>"
+			temp += "<A href='?src=\ref[src];order=categories'>Back to all categories</A><HR><BR><BR>"
+			temp += "<b>Request from: [get_supply_group_name(cat)]</b><BR><BR>"
+			for(var/supply_name in supply_shuttle.supply_packs )
+				var/datum/supply_packs/N = supply_shuttle.supply_packs[supply_name]
+				if(N.hidden || N.contraband || N.group != cat) continue												//Have to send the type instead of a reference to
+				temp += "<A href='?src=\ref[src];doorder=[supply_name]'>[supply_name]</A> Cost: [N.cost]<BR>"		//the obj because it would get caught by the garbage
 
 	else if (href_list["doorder"])
 		if(world.time < reqtime)
@@ -492,7 +510,7 @@ var/centcom_message
 		supply_shuttle.requestlist += O
 
 		temp = "Thanks for your request. The cargo team will process it as soon as possible.<BR>"
-		temp += "<BR><A href='?src=\ref[src];mainmenu=1'>Main Menu</A>"
+		temp += "<BR><A href='?src=\ref[src];order=[last_viewed_group]'>Back</A> <A href='?src=\ref[src];mainmenu=1'>Main Menu</A>"
 
 	else if (href_list["vieworders"])
 		temp = "<A href='?src=\ref[src];mainmenu=1'>Main Menu</A><BR><BR>Current approved orders: <BR><BR>"
@@ -531,7 +549,7 @@ var/centcom_message
 		dat += {"<BR><B>Supply shuttle</B><HR>
 		\nLocation: [supply_shuttle.moving ? "Moving to station ([supply_shuttle.eta] Mins.)":supply_shuttle.at_station ? "Station":"Away"]<BR>
 		<HR>\nSupply Points: [supply_shuttle.points]<BR>\n<BR>
-		[supply_shuttle.moving ? "\n*Must be away to order items*<BR>\n<BR>":supply_shuttle.at_station ? "\n*Must be away to order items*<BR>\n<BR>":"\n<A href='?src=\ref[src];order=1'>Order items</A><BR>\n<BR>"]
+		[supply_shuttle.moving ? "\n*Must be away to order items*<BR>\n<BR>":supply_shuttle.at_station ? "\n*Must be away to order items*<BR>\n<BR>":"\n<A href='?src=\ref[src];order=categories'>Order items</A><BR>\n<BR>"]
 		[supply_shuttle.moving ? "\n*Shuttle already called*<BR>\n<BR>":supply_shuttle.at_station ? "\n<A href='?src=\ref[src];send=1'>Send away</A><BR>\n<BR>":"\n<A href='?src=\ref[src];send=1'>Send to station</A><BR>\n<BR>"]
 		\n<A href='?src=\ref[src];viewrequests=1'>View requests</A><BR>\n<BR>
 		\n<A href='?src=\ref[src];vieworders=1'>View orders</A><BR>\n<BR>
@@ -608,14 +626,34 @@ var/centcom_message
 
 	else if (href_list["order"])
 		if(supply_shuttle.moving) return
-		temp = "<A href='?src=\ref[src];mainmenu=1'>Main Menu</A><BR><BR>Supply Points: [supply_shuttle.points]<BR><HR><BR>Request what?<BR><BR>"
+		if(href_list["order"] == "categories")
+			//all_supply_groups
+			//Request what?
+			last_viewed_group = "categories"
+			temp = "<b>Supply points: [supply_shuttle.points]</b><BR>"
+			temp += "<A href='?src=\ref[src];mainmenu=1'>Main Menu</A><HR><BR><BR>"
+			temp += "<b>Select a category</b><BR><BR>"
+			for(var/cat in all_supply_groups )
+				temp += "<A href='?src=\ref[src];order=[cat]'>[get_supply_group_name(cat)]</A><BR>"
+		else
+			last_viewed_group = href_list["order"]
+			var/cat = text2num(last_viewed_group)
+			temp = "<b>Supply points: [supply_shuttle.points]</b><BR>"
+			temp += "<A href='?src=\ref[src];order=categories'>Back to all categories</A><HR><BR><BR>"
+			temp += "<b>Request from: [get_supply_group_name(cat)]</b><BR><BR>"
+			for(var/supply_name in supply_shuttle.supply_packs )
+				var/datum/supply_packs/N = supply_shuttle.supply_packs[supply_name]
+				if((N.hidden && !hacked) || (N.contraband && !can_order_contraband) || N.group != cat) continue		//Have to send the type instead of a reference to
+				temp += "<A href='?src=\ref[src];doorder=[supply_name]'>[supply_name]</A> Cost: [N.cost]<BR>"		//the obj because it would get caught by the garbage
+
+		/*temp = "Supply points: [supply_shuttle.points]<BR><HR><BR>Request what?<BR><BR>"
 
 		for(var/supply_name in supply_shuttle.supply_packs )
 			var/datum/supply_packs/N = supply_shuttle.supply_packs[supply_name]
 			if(N.hidden && !hacked) continue
 			if(N.contraband && !can_order_contraband) continue
 			temp += "<A href='?src=\ref[src];doorder=[supply_name]'>[supply_name]</A> Cost: [N.cost]<BR>"    //the obj because it would get caught by the garbage
-		temp += "<BR><A href='?src=\ref[src];mainmenu=1'>Main Menu</A>"
+		temp += "<BR><A href='?src=\ref[src];mainmenu=1'>OK</A>"*/
 
 	else if (href_list["doorder"])
 		if(world.time < reqtime)
@@ -667,7 +705,7 @@ var/centcom_message
 		supply_shuttle.requestlist += O
 
 		temp = "Order request placed.<BR>"
-		temp += "<BR><A href='?src=\ref[src];mainmenu=1'>Main Menu</A> | <A href='?src=\ref[src];confirmorder=[O.ordernum]'>Authorize Order</A>"
+		temp += "<BR><A href='?src=\ref[src];order=[last_viewed_group]'>Back</A> | <A href='?src=\ref[src];mainmenu=1'>Main Menu</A> | <A href='?src=\ref[src];confirmorder=[O.ordernum]'>Authorize Order</A>"
 
 	else if(href_list["confirmorder"])
 		//Find the correct supply_order datum
@@ -685,10 +723,11 @@ var/centcom_message
 					supply_shuttle.points -= P.cost
 					supply_shuttle.shoppinglist += O
 					temp = "Thanks for your order.<BR>"
+					temp += "<BR><A href='?src=\ref[src];viewrequests=1'>Back</A> <A href='?src=\ref[src];mainmenu=1'>Main Menu</A>"
 				else
 					temp = "Not enough supply points.<BR>"
+					temp += "<BR><A href='?src=\ref[src];viewrequests=1'>Back</A> <A href='?src=\ref[src];mainmenu=1'>Main Menu</A>"
 				break
-		temp += "<BR><A href='?src=\ref[src];mainmenu=1'>Main Menu</A>"
 
 	else if (href_list["vieworders"])
 		temp = "<A href='?src=\ref[src];mainmenu=1'>Main Menu</A><BR><BR>Current approved orders: <BR><BR>"
@@ -726,7 +765,7 @@ var/centcom_message
 				supply_shuttle.requestlist.Cut(i,i+1)
 				temp = "Request removed.<BR>"
 				break
-		temp += "<BR><A href='?src=\ref[src];viewrequests=1'>OK</A>"
+		temp += "<BR><A href='?src=\ref[src];viewrequests=1'>Back</A> <A href='?src=\ref[src];mainmenu=1'>Main Menu</A>"
 
 	else if (href_list["clearreq"])
 		supply_shuttle.requestlist.Cut()

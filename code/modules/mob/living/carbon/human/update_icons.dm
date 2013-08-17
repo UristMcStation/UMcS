@@ -181,30 +181,31 @@ Please contact me on #coderbus IRC. ~Carnie x
 		return
 
 	//base icons
+	var/datum/sprite_accessory/S
 	var/list/standing	= list()
 	var/list/lying		= list()
 
-	if(f_style)
-		var/datum/sprite_accessory/facial_hair_style = facial_hair_styles_list[f_style]
-		if(facial_hair_style)
-			var/icon/facial_s = icon("icon"=facial_hair_style.icon, "icon_state"="[facial_hair_style.icon_state]_s")
-			var/icon/facial_l = icon("icon"=facial_hair_style.icon, "icon_state"="[facial_hair_style.icon_state]_l")
-			facial_s.Blend("#[f_color]", ICON_ADD)
-			facial_l.Blend("#[f_color]", ICON_ADD)
+	if(facial_hair_style)
+		S = facial_hair_styles_list[facial_hair_style]
+		if(S)
+			var/icon/facial_s = icon("icon"=S.icon, "icon_state"="[S.icon_state]_s")
+			var/icon/facial_l = icon("icon"=S.icon, "icon_state"="[S.icon_state]_l")
+			facial_s.Blend("#[facial_hair_color]", ICON_ADD)
+			facial_l.Blend("#[facial_hair_color]", ICON_ADD)
 			standing	+= image("icon"=facial_s, "layer"=-HAIR_LAYER)
 			lying		+= image("icon"=facial_l, "layer"=-HAIR_LAYER)
 
 	//Applies the debrained overlay if there is no brain
-	if(!getbrain(src))
+	if(!getorgan(/obj/item/organ/brain))
 		standing	+= image("icon"='icons/mob/human_face.dmi', "icon_state"="debrained_s", "layer"=-HAIR_LAYER)
 		lying		+= image("icon"='icons/mob/human_face.dmi', "icon_state"="debrained_l", "layer"=-HAIR_LAYER)
-	else if(h_style)
-		var/datum/sprite_accessory/hair_style = hair_styles_list[h_style]
-		if(hair_style)
-			var/icon/hair_s = icon("icon"=hair_style.icon, "icon_state"="[hair_style.icon_state]_s")
-			var/icon/hair_l = icon("icon"=hair_style.icon, "icon_state"="[hair_style.icon_state]_l")
-			hair_s.Blend("#[h_color]", ICON_ADD)
-			hair_l.Blend("#[h_color]", ICON_ADD)
+	else if(hair_style)
+		S = hair_styles_list[hair_style]
+		if(S)
+			var/icon/hair_s = icon("icon"=S.icon, "icon_state"="[S.icon_state]_s")
+			var/icon/hair_l = icon("icon"=S.icon, "icon_state"="[S.icon_state]_l")
+			hair_s.Blend("#[hair_color]", ICON_ADD)
+			hair_l.Blend("#[hair_color]", ICON_ADD)
 			standing	+= image("icon"=hair_s, "layer"=-HAIR_LAYER)
 			lying		+= image("icon"=hair_l, "layer"=-HAIR_LAYER)
 
