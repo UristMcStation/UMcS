@@ -131,6 +131,18 @@ macro "macro"
 		name = "F1"
 		command = "adminhelp"
 		is-disabled = false
+	elem
+		name = "F2"
+		command = "ooc"
+		is-disabled = false
+	elem 
+		name = "F3"
+		command = "say"
+		is-disabled = false
+	elem 
+		name = "F4"
+		command = "me"
+		is-disabled = false
 	elem 
 		name = "CTRL+SHIFT+F1+REP"
 		command = ".options"
@@ -364,6 +376,18 @@ macro "hotkeymode"
 	elem 
 		name = "F1"
 		command = "adminhelp"
+		is-disabled = false
+	elem
+		name = "F2"
+		command = "ooc"
+		is-disabled = false
+	elem 
+		name = "F3"
+		command = "say"
+		is-disabled = false
+	elem 
+		name = "F4"
+		command = "me"
 		is-disabled = false
 	elem 
 		name = "CTRL+SHIFT+F1+REP"
