@@ -67,3 +67,40 @@ Basically, if you need to add areas or turfs for UMcS, use this file -Glloyd */
 turf/simulated/floor/uristturf/pool/New()
 	..()
 	overlays += image("icon"='icons/turf/uristturf.dmi',"icon_state"="water2","layer"=MOB_LAYER+0.1)
+
+//Space!
+
+/turf/space/transit/west // moving to the west
+	icon = 'icons/turf/uristturf.dmi'
+	pushdirection = EAST
+
+	shuttlespace_ew1
+		icon_state = "speedspace_ew_1"
+	shuttlespace_ew2
+		icon_state = "speedspace_ew_2"
+	shuttlespace_ew3
+		icon_state = "speedspace_ew_3"
+	shuttlespace_ew4
+		icon_state = "speedspace_ew_4"
+	shuttlespace_ew5
+		icon_state = "speedspace_ew_5"
+	shuttlespace_ew6
+		icon_state = "speedspace_ew_6"
+	shuttlespace_ew7
+		icon_state = "speedspace_ew_7"
+	shuttlespace_ew8
+		icon_state = "speedspace_ew_8"
+	shuttlespace_ew9
+		icon_state = "speedspace_ew_9"
+	shuttlespace_ew10
+		icon_state = "speedspace_ew_10"
+	shuttlespace_ew11
+		icon_state = "speedspace_ew_11"
+	shuttlespace_ew12
+		icon_state = "speedspace_ew_12"
+	shuttlespace_ew13
+		icon_state = "speedspace_ew_13"
+	shuttlespace_ew14
+		icon_state = "speedspace_ew_14"
+	shuttlespace_ew15
+		icon_state = "speedspace_ew_15"
