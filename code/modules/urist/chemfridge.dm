@@ -1,4 +1,5 @@
-/* bottleshelf.  Much todo
+/*
+	Chemfridge. Shameless copypaste of smartfridge
 */
 /obj/machinery/chemfridge
 	name = "\improper Chem Storage"
@@ -12,10 +13,12 @@
 	idle_power_usage = 5
 	active_power_usage = 100
 	flags = NOREACT
-	var/global/max_n_of_items = 999 // Sorry but the BYOND infinite loop detector doesn't look things over 1000.
+	var/global/max_bottles = 29
+	var/shelf[1]
+	var/bottle_id = 1
+	var/loaded = 0
 	var/icon_on = "smartfridge"
 	var/icon_off = "smartfridge-off"
-	var/item_quants = list()
 	var/ispowered = 1 //starts powered
 	var/isbroken = 0
 
@@ -23,6 +26,13 @@
 	if(istype(O,/obj/item/weapon/reagent_containers/glass/bottle) && !istype(O,/obj/item/weapon/reagent_containers/glass/bottle/robot))
 		return 1
 	return 0
+
+/obj/machinery/chemfridge/proc/update_id()
+	for(var/i=1, i<=shelf.len, i++)
+		if(shelf[i]==null)
+			bottle_id = i
+			return
+	bottle_id = shelf.len+1
 
 /obj/machinery/chemfridge/power_change()
 	if( powered() )
@@ -38,6 +48,7 @@
 			icon_state = icon_off
 
 
+
 /*******************
 *   Item Adding
 ********************/
@@ -48,12 +59,18 @@
 		return
 
 	if(accept_check(O))
-		if(contents.len >= max_n_of_items)
+		if(loaded >= max_bottles)
 			user << "<span class='notice'>\The [src] is full.</span>"
 			return 1
 		else
 			user.before_take_item(O)
 			O.loc = src
+			if (shelf.len < bottle_id)
+				shelf.Add(O)
+			else
+				shelf[bottle_id] = O
+			loaded++
+			update_id()
 			user.visible_message("<span class='notice'>[user] has added \the [O] to \the [src].", \
 								 "<span class='notice'>You add \the [O] to \the [src].")
 	else
@@ -81,14 +98,17 @@
 		return
 
 	var/dat = "<TT><b>Select an item:</b><br>"
+	var/obj/item/weapon/reagent_containers/glass/O
 
-	if (contents.len == 0)
+	if (loaded == 0)
 		dat += "<font color = 'red'>No product loaded!</font>"
 	else
-		for (var/obj/item/weapon/reagent_containers/glass/O in contents)
-			dat += "<FONT color = 'blue'><B>[capitalize(O.name)]</B>:"
-			dat += "<a href='byond://?src=\ref[src];vend=[O.name]'>Vend</A> "
-			dat += "<br>"
+		for(var/i=1, i<=shelf.len, i++)
+			if(shelf[i]!=null)
+				O = shelf[i]
+				dat += "<FONT color = 'blue'><B>[capitalize(O.name)] ([i])</B>:"
+				dat += "<a href='byond://?src=\ref[src];vend=[i]'>Vend</A> "
+				dat += "<br>"
 
 		dat += "</TT>"
 	user << browse("<HEAD><TITLE>[src] Supplies</TITLE></HEAD><TT>[dat]</TT>", "window=chemfridge")
@@ -100,12 +120,16 @@
 		return
 	usr.set_machine(src)
 
-	var/N = href_list["vend"]
+	var/N = text2num(href_list["vend"])
+	if(shelf[N]!= null) // sanity
+		var/obj/item/weapon/reagent_containers/glass/O = shelf[N]
+		O.loc = src.loc
+		loaded--
+		shelf[N] = null
+		update_id()
+	else
+		world << N
 
-	for(var/obj/item/weapon/reagent_containers/glass/O in contents)
-		if(O.name == N)
-			O.loc = src.loc
-			break
 
 	src.updateUsrDialog()
 	return
