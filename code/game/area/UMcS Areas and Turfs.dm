@@ -10,20 +10,20 @@ Basically, if you need to add areas or turfs for UMcS, use this file -Glloyd */
 	icon_state = "tcomsatcham"
 
 /area/shuttle/pirate1/centcom
-	icon_state = "shuttle"
 	name = "\improper Pirate Ship Centcom" //WIP
+	icon_state = "shuttle"
 
 /area/shuttle/pirate1/station
-	icon_state = "shuttle"
 	name = "\improper Pirate Ship"
+	icon_state = "shuttle"
 
 /area/shuttle/naval1/centcom
-	icon_state = "shuttle"
 	name = "\improper Navy Ship Centcom" //WIP
+	icon_state = "shuttle"
 
 /area/shuttle/naval1/station
-	icon_state = "shuttle"
 	name = "\improper Navy Ship"
+	icon_state = "shuttle"
 
 /area/crew_quarters/pool
 	name = "\improper Pool"
@@ -43,12 +43,12 @@ Basically, if you need to add areas or turfs for UMcS, use this file -Glloyd */
 	icon_state = "head_quarters"
 
 /area/storage/emergency3
-	name = "Escape Emergency Storage" //Because yolo
+	name = "\improper Escape Emergency Storage" //Because yolo
 	icon_state = "emergencystorage"
 
 
 //TURFS
-//I SWEAR, IF ANYONE FUCKS WITH THIS, I WILL KILL YOU. WE ONLY NEED THE ONE TURF DEF FOR STATION TURFS. USE GENERATE ICONS FROM ICON STATES -Glloyd
+//I SWEAR, IF ANYONE FUCKS WITH THIS, I WILL KILL YOU. -Glloyd
 
 /turf/simulated/floor/uristturf
 	name = "floor"
@@ -56,15 +56,14 @@ Basically, if you need to add areas or turfs for UMcS, use this file -Glloyd */
 	icon_state = "yellowdiag02"
 	floor_tile = new/obj/item/stack/tile/plasteel
 
-//>Says we only need one turf def
-//>Adds another. Holy fuck. Anyways, this is pool turf, so we don't fuck up /tg/ .dmi's. ALOSO, if there ARE turfs to add, add them above this.
+//Holy fuck. Anyways, this is pool turf, so we don't fuck up /tg/ .dmi's. ALOSO, if there ARE turfs to add, add them above this.
 
-/turf/simulated/floor/uristturf/pool
+/turf/simulated/floor/beach/pool
 	name = "Pool"
 	icon = 'icons/turf/uristturf.dmi'
 	icon_state = "water4"
 
-turf/simulated/floor/uristturf/pool/New()
+turf/simulated/floor/beach/pool/New()
 	..()
 	overlays += image("icon"='icons/turf/uristturf.dmi',"icon_state"="water2","layer"=MOB_LAYER+0.1)
 
