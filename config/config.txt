@@ -104,7 +104,7 @@ GUEST_BAN
 # USEWHITELIST
 
 ## set a server location for world reboot. Don't include the byond://, just give the address and port.
-# SERVER ss13.example.com:2506
+# SERVER 24.240.44.164:59359
 
 ## forum address
 FORUMURL http://http://www.bay12forums.com/smf/index.php?topic=123140.0
