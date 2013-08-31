@@ -9,7 +9,7 @@ Basically, if you need to add areas or turfs for UMcS, use this file -Glloyd */
 	name = "\improper Pirate Server Room"
 	icon_state = "tcomsatcham"
 
-/*/area/shuttle/pirate1/centcom
+/area/shuttle/pirate1/centcom
 	name = "\improper Pirate Ship Centcom" //WIP
 	icon_state = "shuttle"
 
@@ -23,7 +23,7 @@ Basically, if you need to add areas or turfs for UMcS, use this file -Glloyd */
 
 /area/shuttle/naval1/station
 	name = "\improper Navy Ship"
-	icon_state = "shuttle"*/
+	icon_state = "shuttle"
 
 /area/crew_quarters/pool
 	name = "\improper Pool"
