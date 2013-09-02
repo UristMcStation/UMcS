@@ -163,6 +163,7 @@
 	item_state = "w_suit"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	flags_inv = HIDEJUMPSUIT
+	allowed = list (/obj/item/weapon/storage/bible,/obj/item/weapon/reagent_containers/food/drinks/bottle/holywater)
 
 
 /obj/item/clothing/suit/cardborg
