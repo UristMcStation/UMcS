@@ -97,6 +97,7 @@
 	opacity = 0
 	doortype = 10
 	glass = 1
+	bound_width = 64 // 2x1
 
 /obj/machinery/door/airlock/freezer
 	name = "freezer airlock"
@@ -626,6 +627,8 @@ About the new airlock wires panel:
 
 
 /obj/machinery/door/airlock/Topic(href, href_list, var/nowindow = 0)
+	// If you add an if(..()) check you must first remove the var/nowindow parameter.
+	// Otherwise it will runtime with this kind of error: null.Topic()
 	if(!nowindow)
 		..()
 	if(usr.stat || usr.restrained())

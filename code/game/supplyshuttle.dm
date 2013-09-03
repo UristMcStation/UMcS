@@ -235,8 +235,8 @@ var/centcom_message
 		for(var/atom/movable/MA in shuttle)
 			if(MA.anchored)	continue
 
-			// Must be in a crate!
-			if(istype(MA,/obj/structure/closet/crate))
+			// Must be in a crate (or a critter crate)!
+			if(istype(MA,/obj/structure/closet/crate) || istype(MA,/obj/structure/closet/critter))
 				crate_count++
 				var/find_slip = 1
 
