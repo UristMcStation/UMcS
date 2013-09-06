@@ -48,7 +48,7 @@
 /obj/machinery/computer/research_booster/proc/mastermind_new()
 	var/result = ""
 	var/list/letters = new
-	for(var/i=text2ascii("A"),i<text2ascii(LAST_LETTER),i++)
+	for(var/i=text2ascii("A"),i<=text2ascii(LAST_LETTER),i++)
 		letters.Add(ascii2text(i))
 	for(var/i=0,i<CODE_LEN,i++)
 		result+=pick(letters)
