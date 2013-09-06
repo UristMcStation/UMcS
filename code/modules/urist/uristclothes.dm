@@ -4,39 +4,51 @@
  // http://www.trmn.org/portal/images/uniforms/rmn/rmn_officer_srv_dress_lrg.png
 
 /obj/item/clothing/head/beret/centcom/officer
+	urist_only = 1
 	name = "officers beret"
 	desc = "A black beret adorned with the shield—a silver kite shield with an engraved sword—of the NanoTrasen security forces, announcing to the world that the wearer is a defender of NanoTrasen."
+	icon = 'icons/uristicons.dmi'
 	icon_state = "centcomofficerberet"
 	flags = FPRINT | TABLEPASS
 
 /obj/item/clothing/head/beret/centcom/captain
+	urist_only = 1
 	name = "captains beret"
 	desc = "A white beret adorned with the shield—a cobalt kite shield with an engraved sword—of the NanoTrasen security forces, worn only by those captaining a vessel of the NanoTrasen Navy."
+	icon = 'icons/uristicons.dmi'
 	icon_state = "centcomcaptain"
 	flags = FPRINT | TABLEPASS
 
 /obj/item/clothing/shoes/centcom
+	urist_only = 1
 	name = "dress shoes"
 	desc = "They appear impeccably polished."
+	icon = 'icons/uristicons.dmi'
 	icon_state = "laceups"
 
 /obj/item/clothing/under/rank/centcom/representative
+	urist_only = 1
 	desc = "Gold trim on space-black cloth, this uniform displays the rank of \"Ensign\" and bears \"N.C.V. Fearless CV-286\" on the left shounder."
 	name = "\improper NanoTrasen Navy Uniform"
+	icon = 'icons/uristicons.dmi'
 	icon_state = "officer"
 	item_state = "g_suit"
 	color = "officer"
 
 /obj/item/clothing/under/rank/centcom/officer
+	urist_only = 1
 	desc = "Gold trim on space-black cloth, this uniform displays the rank of \"Lieutenant Commander\" and bears \"N.C.V. Fearless CV-286\" on the left shounder."
 	name = "\improper NanoTrasen Officers Uniform"
+	icon = 'icons/uristicons.dmi'
 	icon_state = "officer"
 	item_state = "g_suit"
 	color = "officer"
 
 /obj/item/clothing/under/rank/centcom/captain
+	urist_only = 1
 	desc = "Gold trim on space-black cloth, this uniform displays the rank of \"Captain\" and bears \"N.C.V. Fearless CV-286\" on the left shounder."
 	name = "\improper NanoTrasen Captains Uniform"
+	icon = 'icons/uristicons.dmi'
 	icon_state = "centcom"
 	item_state = "dg_suit"
 	color = "centcom"
@@ -225,5 +237,18 @@
 
 	new /obj/item/clothing/head/bio_hood/asec(src)
 	new /obj/item/clothing/suit/bio_suit/asec(src)
+
+//Welder apron done by Shoes and Hats and added by Cozarctan. Moved from welder. Welde machete goes into the new uristweapons.dm
+
+/obj/item/clothing/suit/welderapron
+	urist_only = 1
+	name = "welder's apron"
+	desc = "A leather work apron."
+	icon = 'icons/uristicons.dmi'
+	icon_state = "welderapron"
+	item_state = "welderapron"
+	blood_overlay_type = "armor"
+	body_parts_covered = CHEST|GROIN
+
 
 
