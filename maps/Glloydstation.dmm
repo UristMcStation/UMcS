@@ -2994,7 +2994,7 @@
 "bfD" = (/obj/machinery/hologram/holopad,/turf/simulated/floor{icon_state = "floorgrime"},/area/security/prison)
 "bfE" = (/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{tag = "icon-manifold-r-f (WEST)"; icon_state = "manifold-r-f"; dir = 8},/obj/machinery/camera{c_tag = "Prison Wing East"; dir = 8; network = list("SS13")},/obj/machinery/flasher{id = "PCell 3"; pixel_x = 26; pixel_y = 0; pixel_z = 0},/turf/simulated/floor{icon_state = "floorgrime"},/area/security/prison)
 "bfF" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{dir = 4},/turf/simulated/wall/r_wall,/area/security/prison)
-"bfG" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{dir = 9},/obj/machinery/flasher_button{id = "PCell 3"; step_x = -25},/turf/simulated/floor{icon_state = "red"; dir = 10},/area/security/prison)
+"bfG" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{dir = 9},/obj/machinery/flasher_button{id = "PCell 3"; pixel_x = -25},/turf/simulated/floor{icon_state = "red"; dir = 10},/area/security/prison)
 "bfH" = (/obj/structure/table,/obj/item/clothing/suit/straight_jacket,/obj/item/clothing/glasses/sunglasses/blindfold,/turf/simulated/floor{dir = 8; icon_state = "whitehall"},/area/security/prison)
 "bfI" = (/obj/structure/closet/secure_closet/detective,/obj/item/taperoll/police,/obj/structure/disposalpipe/segment,/turf/simulated/floor{icon_state = "grimy"},/area/security/detectives_office)
 "bfJ" = (/obj/structure/table/woodentable,/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/item/weapon/folder/red,/obj/item/weapon/hand_labeler,/turf/simulated/floor/carpet,/area/security/detectives_office)

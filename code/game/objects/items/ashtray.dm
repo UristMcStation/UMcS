@@ -108,6 +108,7 @@
 	m_amt = 80
 	empty_desc = "Massive bronze ashtray."
 	throwforce = 10.0
+	force = 3.0
 
 	die()
 		..()
@@ -129,6 +130,7 @@
 	g_amt = 60
 	empty_desc = "Glass ashtray. Looks fragile."
 	throwforce = 6.0
+	force = 1.0
 
 	die()
 		..()
