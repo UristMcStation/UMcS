@@ -1,9 +1,9 @@
 // BEGIN_INTERNALS
 /*
 MAP_ICON_TYPE: 0
-LAST_COMPILE_VERSION: 498.1163
-DIR: code\datums\wires code\game\machinery code\game\machinery\computer code\game\objects code\game\objects\effects\decals code\game\objects\effects\decals\Cleanable icons icons\obj maps 
-LAST_COMPILE_TIME: 1367629069
+LAST_COMPILE_VERSION: 499.1202
+DIR: code code\datums code\game code\game\jobs\job code\game\machinery code\game\machinery\kitchen code\game\objects\effects\decals code\game\objects\effects\decals\Cleanable code\game\objects\structures\crates_lockers code\game\objects\structures\crates_lockers\closets code\modules code\modules\clothing code\modules\clothing\suits code\modules\urist icons icons\mob icons\uristmob maps 
+LAST_COMPILE_TIME: 1378262638
 AUTO_FILE_DIR: OFF
 */
 // END_INTERNALS
