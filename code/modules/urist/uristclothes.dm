@@ -250,5 +250,24 @@
 	blood_overlay_type = "armor"
 	body_parts_covered = CHEST|GROIN
 
+//Naval Space suit. Or something like that. I don't fucking know.
 
+/obj/item/clothing/head/helmet/space/naval
+	urist_only = 1
+	name = "naval space helmet"
+	desc = "A high quality space helmet used by the Nanotrasen Navy."
+	icon = 'icons/uristicons.dmi'
+	icon_state = "navyspacehelm"
+	armor = list(melee = 60, bullet = 45, laser = 40,energy = 15, bomb = 30, bio = 40, rad = 30)
+
+/obj/item/clothing/suit/space/naval
+	urist_only = 1
+	name = "naval space suit"
+	icon = 'icons/uristicons.dmi'
+	icon_state = "navyspace"
+	desc = "A high quality space suit used by the Nanotrasen Navy. Smells like oppression."
+	w_class = 3
+	allowed = list(/obj/item/weapon/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy/sword,/obj/item/weapon/handcuffs,/obj/item/weapon/tank/emergency_oxygen)
+	slowdown = 1
+	armor = list(melee = 60, bullet = 45, laser = 40,energy = 15, bomb = 30, bio = 40, rad = 30)
 

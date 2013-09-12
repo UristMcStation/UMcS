@@ -60,7 +60,7 @@
 		net_block
 			author = "Assistant Editor Carl Ritz"
 			channel_name = "The Gibson Gazette"
-			message = {"Several corporations banding together to block access to 'wetskrell.nt', site administrators
+			message = {"Several corporations banding together to block access to 'wetxeno.nt', site administrators
 			claiming violation of net laws."}
 			round_time = 60 * 50
 
@@ -74,6 +74,15 @@
 						accordingly."}
 			round_time = 60 * 90
 
+
+			channel_name = "Nanotrasen News"
+			author = "Nanotrasen Public Affairs Office"
+
+			message = {"Nanotrasen would like to publicly announce the unveiling of a new line of research stations.
+						Under the designation U.M.C.S, it is hoped that these stations will be safer than the outdated
+						TG model and the newer M.E.T.A model. Nanotrasen thanks you, and hopes you have a productive day."}
+			round_time = 600
+
 	lotus_tree
 
 		explosions
@@ -84,8 +93,7 @@
 						bridge today, and there are unconfirmed reports that the death toll has passed 50. The cause of
 						the explosions remain unknown, but there is speculation that it might have something to do with
 						the recent change of regulation in the Moore-Lee Corporation, a major funder of the ship, when M-L
-						announced that they were officially acknowledging inter-species marriage and providing couples
-						with marriage tax-benefits."}
+						announced that they were officially cutting ties with Nanotrasen Inc."}
 			round_time = 60 * 30
 
 	food_riots
