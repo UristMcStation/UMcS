@@ -21,3 +21,7 @@ bdthemag = Game Master
 androidsfv = Game Master
 glloyd = Game Master
 Nienhaus2 = Game Master
+hanspanda = Game Master
+greatorder = Moderator
+andreathesecond = Moderator
+jacob_lee = Trial Admin
