@@ -1138,6 +1138,7 @@
 #include "code\modules\surgery\xenomorph_removal.dm"
 #include "code\modules\surgery\organs\helpers.dm"
 #include "code\modules\surgery\organs\organ.dm"
+#include "code\modules\urist\necromorph.dm"
 #include "code\modules\urist\policetape.dm"
 #include "code\modules\urist\uristclothes.dm"
 #include "code\modules\urist\uristweapons.dm"

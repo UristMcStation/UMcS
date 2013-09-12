@@ -277,7 +277,7 @@
 	urist_only = 1
 	desc = "It's a quite fancy looking jumpsuit worn by someone who works in the position of \"Head of Personnel\"."
 	name = "head of personnel's stylish jumpsuit"
-	icon_state = "hopwhimsy"
 	icon = 'icons/uristicons.dmi'
+	icon_state = "hopwhimsy"
 	flags = FPRINT | TABLEPASS | ONESIZEFITSALL
 
