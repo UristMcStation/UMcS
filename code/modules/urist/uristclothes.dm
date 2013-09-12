@@ -258,7 +258,7 @@
 	desc = "A high quality space helmet used by the Nanotrasen Navy."
 	icon = 'icons/uristicons.dmi'
 	icon_state = "navyspacehelm"
-	armor = list(melee = 60, bullet = 45, laser = 40,energy = 15, bomb = 30, bio = 40, rad = 30)
+	armor = list(melee = 60, bullet = 45, laser = 40,energy = 15, bomb = 30, bio = 40, rad = 30) //similar values to the syndi space suits.
 
 /obj/item/clothing/suit/space/naval
 	urist_only = 1
@@ -270,4 +270,14 @@
 	allowed = list(/obj/item/weapon/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy/sword,/obj/item/weapon/handcuffs,/obj/item/weapon/tank/emergency_oxygen)
 	slowdown = 1
 	armor = list(melee = 60, bullet = 45, laser = 40,energy = 15, bomb = 30, bio = 40, rad = 30)
+
+//Alternate outfit for the HoP. Part of a little thing I want to do, which is add alternate clothing for all the heads.
+
+/obj/item/clothing/under/rank/alt_heads/hop
+	urist_only = 1
+	desc = "It's a quite fancy looking jumpsuit worn by someone who works in the position of \"Head of Personnel\"."
+	name = "head of personnel's stylish jumpsuit"
+	icon_state = "hopwhimsy"
+	icon = 'icons/uristicons.dmi'
+	flags = FPRINT | TABLEPASS | ONESIZEFITSALL
 
