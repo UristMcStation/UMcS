@@ -1,4 +1,7 @@
- //All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how much clothes do we need anyways... -Glloyd
+ /*										*****New space to put all UristMcStation Clothing*****
+
+Please keep it tidy, by which I mean put comments describing the item before the entry.
+All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how much clothes do we need anyways... -Glloyd*/
 
  // Beautiful naval shit, Reference: http://www.teuse.net/personal/harrington/hh_bible.htm
  // http://www.trmn.org/portal/images/uniforms/rmn/rmn_officer_srv_dress_lrg.png
