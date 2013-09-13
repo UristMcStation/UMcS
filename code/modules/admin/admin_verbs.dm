@@ -64,7 +64,8 @@ var/list/admin_verbs_ban = list(
 	)
 var/list/admin_verbs_sounds = list(
 	/client/proc/play_local_sound,
-	/client/proc/play_sound
+	/client/proc/play_sound,
+	/client/proc/stop_sounds
 	)
 var/list/admin_verbs_fun = list(
 	/client/proc/object_talk,
@@ -85,7 +86,6 @@ var/list/admin_verbs_spawn = list(
 	/client/proc/respawn_character
 	)
 var/list/admin_verbs_server = list(
-	/client/proc/ToRban,
 	/datum/admins/proc/startnow,
 	/datum/admins/proc/restart,
 	/datum/admins/proc/delay,
@@ -164,7 +164,6 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/make_sound,
 	/client/proc/toggle_random_events,
 	/client/proc/cmd_admin_add_random_ai_law,
-	/client/proc/ToRban,
 	/datum/admins/proc/startnow,
 	/datum/admins/proc/restart,
 	/datum/admins/proc/delay,
