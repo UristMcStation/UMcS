@@ -73,15 +73,15 @@ var/global/datum/controller/gameticker/ticker
 			world << "<B>Unable to choose playable game mode.</B> Reverting to pre-game lobby."
 			return 0
 		if(secret_force_mode != "secret")
-			var/datum/game_mode/M = config.pick_mode(secret_force_mode)
-			if(M.can_start())
-				src.mode = config.pick_mode(secret_force_mode)
-		job_master.ResetOccupations()
+			for (var/datum/game_mode/M in runnable_modes)
+				if (M.name == secret_force_mode)
+					src.mode = M
+					break
+			if	(!src.mode)
+				message_admins("\blue Unable to force secret [secret_force_mode].", 1)
 		if(!src.mode)
 			src.mode = pickweight(runnable_modes)
-		if(src.mode)
-			var/mtype = src.mode.type
-			src.mode = new mtype
+
 	else
 		src.mode = config.pick_mode(master_mode)
 	if (!src.mode.can_start())
@@ -97,8 +97,11 @@ var/global/datum/controller/gameticker/ticker
 		return 0
 
 	//Configure mode and assign player to special mode stuff
-	job_master.DivideOccupations() //Distribute jobs
-	var/can_continue = src.mode.pre_setup()//Setup special modes
+	var/can_continue = 0
+	if (src.mode.pre_setup_before_jobs)	can_continue = src.mode.pre_setup()
+	job_master.DivideOccupations() 				//Distribute jobs
+	if (!src.mode.pre_setup_before_jobs)	can_continue = src.mode.pre_setup()
+
 	if(!can_continue)
 		del(mode)
 		current_state = GAME_STATE_PREGAME
