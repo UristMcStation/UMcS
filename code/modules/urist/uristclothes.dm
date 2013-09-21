@@ -274,13 +274,15 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	slowdown = 1
 	armor = list(melee = 60, bullet = 45, laser = 40,energy = 15, bomb = 30, bio = 40, rad = 30)
 
-//Alternate outfit for the HoP. Part of a little thing I want to do, which is add alternate clothing for all the heads.
+//Alternate outfit for the HoP. Part of a little thing I want to do, which is add alternate clothing for all the heads. Doesn't appear on mobs at the moment...''[///////[[/[///'''''''''''''''''''''''''''''''''''''
 
-/obj/item/clothing/under/rank/alt_heads/hop
+/*/obj/item/clothing/under/rank/head_of_personnel_whimsy
 	urist_only = 1
-	desc = "It's a quite fancy looking jumpsuit worn by someone who works in the position of \"Head of Personnel\"."
-	name = "head of personnel's stylish jumpsuit"
+	desc = "A blue jacket and red tie, with matching red cuffs! Snazzy. Wearing this makes you feel more important than your job title does."
+	name = "head of personnel's suit"
 	icon = 'icons/uristicons.dmi'
 	icon_state = "hopwhimsy"
-	flags = FPRINT | TABLEPASS | ONESIZEFITSALL
+	item_state = "hopwhimsy"
+	color = "hopwhimsy"
+	flags = FPRINT | TABLEPASS*/
 
