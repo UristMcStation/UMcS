@@ -1162,4 +1162,5 @@
 #include "code\WorkInProgress\Sigyn\Department Sec\jobs.dm"
 #include "interface\interface.dm"
 #include "interface\skin.dmf"
+#include "maps\MetaStation.v36D.III.dmm"
 // END_INCLUDE
