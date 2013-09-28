@@ -24,4 +24,4 @@ Nienhaus2 = Game Master
 hanspanda = Game Master
 greatorder = Moderator
 andreathesecond = Moderator
-jacob_lee = Trial Admin
+jacob_lee = Game Master
