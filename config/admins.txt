@@ -72,4 +72,8 @@ crimsonvision = Game Master
 iamgoofball = Game Master
 zelacks = Game Master
 androidsfv = Game Master
->>>>>>> c62f5cd8d790fc15aabfd967a584bfe070a2e14a
+
+miauw62 = Game Master
+jordie0608 = Game Master
+s0ldi3rkr4s0 = Game Master
+ergosavi = Game Master
