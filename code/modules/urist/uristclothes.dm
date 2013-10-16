@@ -261,7 +261,7 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	desc = "A high quality space helmet used by the Nanotrasen Navy."
 	icon = 'icons/uristicons.dmi'
 	icon_state = "navyspacehelm"
-	armor = list(melee = 60, bullet = 45, laser = 40,energy = 15, bomb = 30, bio = 40, rad = 30) //similar values to the syndi space suits.
+	armor = list(melee = 55, bullet = 45, laser = 30,energy = 15, bomb = 30, bio = 30, rad = 30)
 
 /obj/item/clothing/suit/space/naval
 	urist_only = 1
@@ -270,19 +270,55 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	icon_state = "navyspace"
 	desc = "A high quality space suit used by the Nanotrasen Navy. Smells like oppression."
 	w_class = 3
-	allowed = list(/obj/item/weapon/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy/sword,/obj/item/weapon/handcuffs,/obj/item/weapon/tank/emergency_oxygen)
+	allowed = list(/obj/item/weapon/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy/sword,/obj/item/weapon/handcuffs,/obj/item/weapon/tank/emergency_oxygen,/obj/item/device/flashlight)
 	slowdown = 1
-	armor = list(melee = 60, bullet = 45, laser = 40,energy = 15, bomb = 30, bio = 40, rad = 30)
+	armor = list(melee = 60, bullet = 50, laser = 30,energy = 15, bomb = 30, bio = 30, rad = 30)
 
-//Alternate outfit for the HoP. Part of a little thing I want to do, which is add alternate clothing for all the heads. Doesn't appear on mobs at the moment...''[///////[[/[///'''''''''''''''''''''''''''''''''''''
+//Alternate outfit for the HoP. Part of a little thing I want to do, which is add alternate clothing for all the heads. Doesn't appear on mobs at the moment...
 
 /*/obj/item/clothing/under/rank/head_of_personnel_whimsy
 	urist_only = 1
-	desc = "A blue jacket and red tie, with matching red cuffs! Snazzy. Wearing this makes you feel more important than your job title does."
 	name = "head of personnel's suit"
 	icon = 'icons/uristicons.dmi'
 	icon_state = "hopwhimsy"
 	item_state = "hopwhimsy"
-	color = "hopwhimsy"
+	desc = "A blue jacket and red tie, with matching red cuffs! Snazzy. Wearing this makes you feel more important than your job title does."
 	flags = FPRINT | TABLEPASS*/
 
+//Tactical Webbing. Icons are /tg/, there's just no def.
+
+/obj/item/clothing/suit/storage/webbing
+
+	name = "tactical webbing"
+	icon_state = "webbing"
+	item_state = "webbing"
+	desc = "Badass tactical webbing. Lots of handy pockets for storing things."
+	allowed = list(/obj/item/weapon/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy/sword,/obj/item/weapon/handcuffs,/obj/item/weapon/tank/emergency_oxygen,/obj/item/weapon/hand_tele)
+	body_parts_covered = CHEST|GROIN
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 0, bomb = 0, bio = 0, rad = 0)
+
+//Naval Commando Helmet and Suit
+
+/obj/item/clothing/head/helmet/space/rig/commando
+	urist_only = 1
+	name = "naval commando helmet"
+	desc = "An extremely intimidating helmet worn by the Nanotrasen Naval Commandos"
+	icon = 'icons/uristicons.dmi'
+	icon_state = "rig0-commando"
+	item_color = "commando"
+	armor = list(melee = 65, bullet = 55, laser = 35,energy = 20, bomb = 30, bio = 30, rad = 30)
+
+
+/obj/item/clothing/suit/space/rig/commando
+	urist_only = 1
+	name = "naval commando suit"
+	desc = "A heavily armored suit that protects against moderate damage. Worn by the Nanotrasen Naval Commandos. It reeks of oppression."
+	icon = 'icons/uristicons.dmi'
+	icon_state = "commando"
+	gas_transfer_coefficient = 0.01
+	permeability_coefficient = 0.01
+	flags = FPRINT | TABLEPASS
+	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
+	allowed = list(/obj/item/weapon/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/tank/emergency_oxygen,/obj/item/weapon/melee/energy/sword)
+	slowdown = 1
+	armor = list(melee = 80, bullet = 60, laser = 50,energy = 25, bomb = 50, bio = 30, rad = 30)
