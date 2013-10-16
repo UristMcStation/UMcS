@@ -36,7 +36,7 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	icon = 'icons/uristicons.dmi'
 	icon_state = "officer"
 	item_state = "g_suit"
-	color = "officer"
+	item_color = "officer"
 
 /obj/item/clothing/under/rank/centcom/officer
 	urist_only = 1
@@ -45,7 +45,7 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	icon = 'icons/uristicons.dmi'
 	icon_state = "officer"
 	item_state = "g_suit"
-	color = "officer"
+	item_color = "officer"
 
 /obj/item/clothing/under/rank/centcom/captain
 	urist_only = 1
@@ -54,7 +54,7 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	icon = 'icons/uristicons.dmi'
 	icon_state = "centcom"
 	item_state = "dg_suit"
-	color = "centcom"
+	item_color = "centcom"
 
 //swimsuits for women, because pool and sexism.
 
@@ -67,7 +67,7 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	desc = "An oldfashioned black swimsuit."
 	icon = 'icons/uristicons.dmi'
 	icon_state = "swim_black"
-	color = "swim_black"
+	item_color = "swim_black"
 	siemens_coefficient = 1
 
 /obj/item/clothing/under/swimsuit/blue
@@ -76,7 +76,7 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	desc = "An oldfashioned blue swimsuit."
 	icon = 'icons/uristicons.dmi'
 	icon_state = "swim_blue"
-	color = "swim_blue"
+	item_color = "swim_blue"
 	siemens_coefficient = 1
 
 /obj/item/clothing/under/swimsuit/purple
@@ -85,7 +85,7 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	desc = "An oldfashioned purple swimsuit."
 	icon = 'icons/uristicons.dmi'
 	icon_state = "swim_purp"
-	color = "swim_purp"
+	item_color = "swim_purp"
 	siemens_coefficient = 1
 
 /obj/item/clothing/under/swimsuit/green
@@ -94,7 +94,7 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	desc = "An oldfashioned green swimsuit."
 	icon = 'icons/uristicons.dmi'
 	icon_state = "swim_green"
-	color = "swim_green"
+	item_color = "swim_green"
 	siemens_coefficient = 1
 
 /obj/item/clothing/under/swimsuit/red
@@ -103,7 +103,7 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	desc = "An oldfashioned red swimsuit."
 	icon = 'icons/uristicons.dmi'
 	icon_state = "swim_red"
-	color = "swim_red"
+	item_color = "swim_red"
 	siemens_coefficient = 1
 
 //SciRIG. It's hip, it's happening and it protects against space and some other shit. You fuckers said you wanted more EVA.
@@ -114,7 +114,7 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	desc = "A special helmet designed for work in a hazardous, low pressure environment. Built with lightweight materials for extra comfort."
 	icon_state = "rig0-medical"
 	item_state = "medical_helm"
-	color = "medical"
+	item_color = "medical"
 	armor = list(melee = 10, bullet = 5, laser = 5,energy = 5, bomb = 60, bio = 100, rad = 30)
 
 /obj/item/clothing/suit/space/rig/science
