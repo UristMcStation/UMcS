@@ -27,7 +27,8 @@
 		/obj/item/weapon/storage/secure/safe,
 		/obj/machinery/disposal,
 		/mob/living/simple_animal/cow,
-		/mob/living/simple_animal/hostile/retaliate/goat
+		/mob/living/simple_animal/hostile/retaliate/goat,
+		/obj/machinery/chemfridge
 	)
 
 	examine()
