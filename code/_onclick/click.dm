@@ -43,19 +43,19 @@
 		return
 
 	var/list/modifiers = params2list(params)
-	if("middle" in modifiers)
+	if(modifiers["middle"])
 		MiddleClickOn(A)
 		return
-	if("shift" in modifiers)
+	if(modifiers["shift"])
 		ShiftClickOn(A)
 		return
-	if("ctrl" in modifiers)
-		CtrlClickOn(A)
-		return
-	if("alt" in modifiers)
+	if(modifiers["alt"]) // alt and alt-gr (rightalt)
 		AltClickOn(A)
 		return
-
+	if(modifiers["ctrl"])
+		CtrlClickOn(A)
+		return
+	
 	if(stat || paralysis || stunned || weakened)
 		return
 
@@ -216,6 +216,7 @@
 /atom/proc/ShiftClick(var/mob/user)
 	if(user.client && user.client.eye == user)
 		examine()
+		user.face_atom(src)
 	return
 
 /*
@@ -241,6 +242,13 @@
 	return
 
 /atom/proc/AltClick(var/mob/user)
+	var/turf/T = get_turf(src)
+	if(T && T.Adjacent(user))
+		if(user.listed_turf == T)
+			user.listed_turf = null
+		else
+			user.listed_turf = T
+			user.client.statpanel = T.name
 	return
 
 /*

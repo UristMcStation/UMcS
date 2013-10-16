@@ -1,11 +1,11 @@
 // BEGIN_INTERNALS
 /*
 MAP_ICON_TYPE: 0
-WINDOW: code\modules\admin\admin_verbs.dm
+WINDOW: code\modules\admin\admin_verbs.dm;code\modules\admin\admin_ranks.dm;icons\mob\items_lefthand.dmi;icons\mob\items_righthand.dmi;icons\effects\blood.dmi;icons\mob\screen_gen.dmi;icons\mob\screen_retro.dmi;code\modules\urist\uristclothes.dm
 LAST_COMPILE_VERSION: 499.1191
-DIR: code code\datums\wires code\game\machinery code\game\machinery\computer code\game\objects code\game\objects\effects\decals code\game\objects\effects\decals\Cleanable code\modules code\modules\admin icons icons\obj maps 
-FILE: code\modules\admin\admin_verbs.dm
-LAST_COMPILE_TIME: 1378166890
+DIR: code code\controllers code\game code\game\objects code\game\objects\effects code\game\objects\effects\decals\Cleanable code\modules code\modules\admin code\modules\urist maps 
+FILE: code\modules\urist\uristclothes.dm
+LAST_COMPILE_TIME: 1381885075
 AUTO_FILE_DIR: OFF
 */
 // END_INTERNALS
