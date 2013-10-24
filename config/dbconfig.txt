@@ -7,7 +7,7 @@ SQL_ENABLED
 
 ## Server the MySQL database can be found at.
 # Examples: localhost, 200.135.5.43, www.mysqldb.com, etc.
-ADDRESS 127.0.0.1
+ADDRESS localhost
 
 ## MySQL server port (default is 3306).
 PORT 3306
@@ -16,7 +16,7 @@ PORT 3306
 FEEDBACK_DATABASE feedback
 
 ## Username/Login used to access the database.
-FEEDBACK_LOGIN root
+FEEDBACK_LOGIN AndroidSFV
 
 ## Password used to access the database.
-FEEDBACK_PASSWORD somepass
+FEEDBACK_PASSWORD droid500

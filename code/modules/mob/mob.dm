@@ -643,7 +643,7 @@ note dizziness decrements automatically in the mob's Life() proc.
 
 			if(master_controller)
 				stat(null,"MasterController-[last_tick_duration] ([master_controller.processing?"On":"Off"]-[controller_iteration])")
-				stat(null,"Air-[master_controller.air_cost]\t#[air_master.active_turfs.len]")
+				stat(null,"Air-[master_controller.air_cost]\t#[global_activeturfs]")
 				stat(null,"Sun-[master_controller.sun_cost]")
 				stat(null,"Mob-[master_controller.mobs_cost]\t#[mob_list.len]")
 				stat(null,"Dis-[master_controller.diseases_cost]\t#[active_diseases.len]")
@@ -656,7 +656,7 @@ note dizziness decrements automatically in the mob's Life() proc.
 				stat(null,"MasterController-ERROR")
 
 	if(listed_turf && client)
-		if(get_dist(listed_turf,src) > 1)
+		if(!TurfAdjacent(listed_turf))
 			listed_turf = null
 		else
 			statpanel(listed_turf.name, null, listed_turf)

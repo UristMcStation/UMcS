@@ -5,6 +5,7 @@ var/global/obj/effect/overlay/plmaster = null
 var/global/obj/effect/overlay/slmaster = null
 
 
+var/global/list/global_activeturfs
 var/global/list/machines = list()
 var/global/list/processing_objects = list()
 var/global/list/active_diseases = list()
@@ -142,6 +143,7 @@ var/MAX_EX_DEVESTATION_RANGE = 3
 var/MAX_EX_HEAVY_RANGE = 7
 var/MAX_EX_LIGHT_RANGE = 14
 var/MAX_EX_FLASH_RANGE = 14
+var/MAX_EX_FLAME_RANGE = 14
 
 var/list/liftable_structures = list(
 	/obj/machinery/autolathe,
