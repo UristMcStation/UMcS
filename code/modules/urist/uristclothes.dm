@@ -332,4 +332,4 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	icon = 'icons/uristicons.dmi'
 	icon_state = "meido"
 	item_state = "meido"
-	body_parts_covered = CHEST|GROIN|LEGS|ARMS|FEET
+	body_parts_covered = CHEST|GROIN|ARMS
