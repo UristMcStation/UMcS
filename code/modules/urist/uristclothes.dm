@@ -322,3 +322,14 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	allowed = list(/obj/item/weapon/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/tank/emergency_oxygen,/obj/item/weapon/melee/energy/sword)
 	slowdown = 1
 	armor = list(melee = 80, bullet = 60, laser = 50,energy = 25, bomb = 50, bio = 30, rad = 30)
+
+//Meido outfit, Pretty much Japanese for Maid outfit. I will most likely be doing more costumes.
+
+/obj/item/clothing/suit/meido
+	urist_only = 1
+	name = "meido costume"
+	desc = "A black maid costume."
+	icon = 'icons/uristicons.dmi'
+	icon_state = "meido"
+	item_state = "meido"
+	body_parts_covered = CHEST|GROIN|ARMS
