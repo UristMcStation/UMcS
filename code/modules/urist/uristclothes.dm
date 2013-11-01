@@ -283,7 +283,21 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	icon_state = "hopwhimsy"
 	item_state = "hopwhimsy"
 	desc = "A blue jacket and red tie, with matching red cuffs! Snazzy. Wearing this makes you feel more important than your job title does."
-	flags = FPRINT | TABLEPASS*/
+	flags = FPRINT | TABLEPASS
+
+//Alternate outfit for the RD, Based off Dr. Kreiger from Archer. I'm putting it by the HoPW as it goes together
+
+/obj/item/clothing/under/rank/research_director_whimsy
+	urist_only = 1
+	name = "research director's suit"
+	icon = 'icons/uristicons.dmi'
+	icon_state = "rdwhimsy"
+	item_state = "rdwhimsy"
+	desc = "A pale yellow collared shirt along with matching dark tan pants and a brown tie that 'ties' it together. Would look great with a labcoat."
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
+	flags = FPRINT | TABLEPASS | ONESIZEFITSALL
+	var/blood_overlay_type = "suit"*/
+
 
 //Tactical Webbing. Icons are /tg/, there's just no def.
 
