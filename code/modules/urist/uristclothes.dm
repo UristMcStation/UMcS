@@ -274,16 +274,18 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	slowdown = 1
 	armor = list(melee = 60, bullet = 50, laser = 30,energy = 15, bomb = 30, bio = 30, rad = 30)
 
-//Alternate outfit for the HoP. Part of a little thing I want to do, which is add alternate clothing for all the heads. Doesn't appear on mobs at the moment...
+//Alternate outfit for the HoP. Part of a little thing I want to do, which is add alternate clothing for all the heads. Let's try this again.
 
-/*/obj/item/clothing/under/rank/head_of_personnel_whimsy
+/obj/item/clothing/under/rank/head_of_personnel_whimsy
 	urist_only = 1
 	name = "head of personnel's suit"
 	icon = 'icons/uristicons.dmi'
 	icon_state = "hopwhimsy"
 	item_state = "hopwhimsy"
+	item_color = "hopwhimsy"
 	desc = "A blue jacket and red tie, with matching red cuffs! Snazzy. Wearing this makes you feel more important than your job title does."
 	flags = FPRINT | TABLEPASS
+<<<<<<< HEAD
 
 //Alternate outfit for the RD, Based off Dr. Kreiger from Archer. I'm putting it by the HoPW as it goes together
 
@@ -298,6 +300,8 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	flags = FPRINT | TABLEPASS | ONESIZEFITSALL
 	var/blood_overlay_type = "suit"*/
 
+=======
+>>>>>>> e5736fab23d47a891f9474ee06d153b5b1b04243
 
 //Tactical Webbing. Icons are /tg/, there's just no def.
 
