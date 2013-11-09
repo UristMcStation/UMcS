@@ -433,23 +433,12 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	update_icon()
 
 	if (istype(O, /obj/item/weapon/card/id) || istype(O, /obj/item/device/pda))
+		var/obj/item/weapon/card/id/ID = O.GetID()
 		if(screen == 9)
-			var/obj/item/weapon/card/id/T
-			if (istype(O, /obj/item/device/pda))
-				var/obj/item/device/pda/U = O
-				T = U.id
-			else
-				T = O
-			msgVerified = "<font color='green'><b>Verified by [T.registered_name] ([T.assignment])</b></font>"
+			msgVerified = "<font color='green'><b>Verified by [ID.registered_name] ([ID.assignment])</b></font>"
 			updateUsrDialog()
 		if(screen == 10)
-			var/obj/item/weapon/card/id/ID
-			if (istype(O,/obj/item/device/pda))
-				var/obj/item/device/pda/V = O
-				ID = V.id
-			else
-				ID = O
-			if (access_RC_announce in ID.GetAccess())
+			if (access_RC_announce in ID.access)
 				announceAuth = 1
 			else
 				announceAuth = 0
