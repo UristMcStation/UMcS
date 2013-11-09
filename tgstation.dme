@@ -1189,7 +1189,7 @@
 #include "code\modules\telesci\gps.dm"
 #include "code\modules\telesci\telepad.dm"
 #include "code\modules\telesci\telesci_computer.dm"
-#include "code\modules\urist\necromorph.dm"
+#include "code\modules\urist\animals.dm"#include "code\modules\urist\necromorph.dm"
 #include "code\modules\urist\policetape.dm"
 #include "code\modules\urist\uristclothes.dm"
 #include "code\modules\urist\uristweapons.dm"
