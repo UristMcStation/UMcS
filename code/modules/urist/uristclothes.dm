@@ -286,6 +286,8 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	desc = "A blue jacket and red tie, with matching red cuffs! Snazzy. Wearing this makes you feel more important than your job title does."
 	flags = FPRINT | TABLEPASS
 
+//Alternate outfit for the RD. Part of a little thing I want to do, which is add alternate clothing for all the heads. Let's try this again.
+
 /obj/item/clothing/under/rank/research_director_whimsy
 	urist_only = 1
 	name = "research director's suit"
