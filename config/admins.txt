@@ -28,5 +28,6 @@ andreathesecond = Moderator
 jacob_lee = Game Master
 USEC_OFFICER = Trial Admin
 Ozarck = Moderator
+Rabidgam3r = Moderator
 =======
 
