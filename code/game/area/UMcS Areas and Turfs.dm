@@ -103,3 +103,11 @@ turf/simulated/floor/beach/pool/New()
 		icon_state = "speedspace_ew_14"
 	shuttlespace_ew15
 		icon_state = "speedspace_ew_15"
+
+	//entryscreen for UMcS
+
+	/turf/unsimulated/wall/uristscreen
+		name = "Space Station 13"
+		icon = 'icons/misc/entryscreen.dmi'
+		icon_state = "title"
+		layer = FLY_LAYER

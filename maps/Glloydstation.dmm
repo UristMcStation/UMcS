@@ -7373,7 +7373,7 @@
 "cLO" = (/obj/effect/step_trigger/thrower{affect_ghosts = 1; direction = 2; name = "thrower_throwdownside"; nostop = 1; stopper = 0; tiles = 0},/turf/space/transit/north/shuttlespace_ns11,/area)
 "cLP" = (/turf/unsimulated/wall,/area/start)
 "cLQ" = (/obj/effect/landmark/start,/turf/unsimulated/floor,/area/start)
-"cLR" = (/turf/unsimulated/wall/splashscreen,/area/start)
+"cLR" = (/turf/unsimulated/wall/uristscreen,/area/start)
 "cLS" = (/turf/space,/area/shuttle/escape_pod1/centcom)
 "cLT" = (/turf/space,/area/shuttle/escape_pod2/centcom)
 "cLU" = (/turf/simulated/shuttle/wall{icon_state = "swall_s6"; dir = 2},/area/centcom/evac)
