@@ -7,7 +7,7 @@
 	icon_living = "fox"
 	icon_dead = "fox_dead"
 	speak = list("Ack-Ack","Ack-Ack-Ack-Ackawoooo","Purr","Awoo","Tchoff")
-	speak_emote = list("yelps", "barks")
+	speak_emote = list("purrs", "ack-ack")
 	emote_hear = list("howls","barks")
 	emote_see = list("shakes its head", "shivers")
 	speak_chance = 1
