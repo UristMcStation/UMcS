@@ -27,3 +27,10 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/item/weapon/machete/IsShield()
 		return 1
 
+/obj/item/weapon/lighter/zippo/gold
+	name = "Golden zippo lighter"
+	desc = "The zippo. It's a shiny gold color!"
+	icon_state = "zippog"
+	item_state = "zippo"
+	icon_on = "zippogon"
+	icon_off = "zippog"

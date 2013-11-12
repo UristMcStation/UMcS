@@ -7,7 +7,7 @@ CIGARETTES
 CIGARS
 SMOKING PIPES
 CHEAP LIGHTERS
-ZIPPO (+GOLD)
+ZIPPO
 
 CIGARETTE PACKETS ARE IN FANCY.DM
 */
@@ -342,14 +342,6 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	item_state = "zippo"
 	icon_on = "zippoon"
 	icon_off = "zippo"
-
-/obj/item/weapon/lighter/zippo/gold
-	name = "Golden zippo lighter"
-	desc = "The zippo. It's a shiny gold color!"
-	icon_state = "zippog"
-	item_state = "zippo"
-	icon_on = "zippogon"
-	icon_off = "zippog"
 
 /obj/item/weapon/lighter/random
 	New()
