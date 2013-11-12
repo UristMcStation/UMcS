@@ -1,7 +1,7 @@
 
 //########################## CONTRABAND ;3333333333333333333 -Agouri ###################################################
 
-#define NUM_OF_POSTER_DESIGNS 11
+#define NUM_OF_POSTER_DESIGNS 13
 
 /obj/item/weapon/contraband
 	name = "contraband item"
@@ -116,6 +116,12 @@ obj/structure/sign/poster/New(serial)
 		if(11)
 			name += " - RIP Badger"
 			desc += " This poster commemorates the day hundreds of badgers worldwide were sacrificed for the greater good."
+		if(12)
+			name += " - After Dwarf"
+			desc += " A poster honoring the dwarves of the Twelfth Bay fallen during the night troll rampages of 2013."
+		if(13)
+			name += " - Lamarr"
+			desc += " This poster depicts Lamarr. Probably made by the research director."
 		else
 			name = "This shit just bugged. Report it to Agouri - polyxenitopalidou@gmail.com"
 			desc = "Why are you still here?"
