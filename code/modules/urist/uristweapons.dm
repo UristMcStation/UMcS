@@ -33,7 +33,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	urist_only = 1
 	name = "energy pistol"
 	desc = "A small energy pistol fitted with a nice wooden handle that can be set to two mode, Kill and stun."
-	icon = 'icons/uristicons.dmi'
+	icon = 'icons/uristguns.dmi'
 	icon_state = "senergystun100"
 	item_state = "gun"
 	fire_sound = 'sound/weapons/Taser.ogg'
