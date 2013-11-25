@@ -27,12 +27,12 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/item/weapon/machete/IsShield()
 		return 1
 
-//Energy pistol, It's like an energy gun it can be put in a pocket and has less shots
+//Energy pistol, Energy gun with less shots. Can be put in player's pockets.
 
 /obj/item/weapon/gun/energy/gun/small
 	urist_only = 1
 	name = "energy pistol"
-	desc = "A small energy pistol fitted with a nice wooden handle that can be set to two mode, Kill and stun."
+	desc = "An energy pistol with a wooden handle."
 	icon = 'icons/uristguns.dmi'
 	icon_state = "senergystun100"
 	item_state = "gun"
