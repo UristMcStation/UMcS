@@ -108,13 +108,13 @@ GUEST_BAN
 # SERVER ss13.example.com:2506
 
 ## forum address
-FORUMURL http://www.bay12forums.com/smf/index.php?topic=123140.0
+FORUMURL http://http://www.bay12forums.com/smf/index.php?topic=123140.0
 
 ## Wiki address
 # WIKIURL http://www.nanotrasen.com/wiki/index.php
 
 ## Ban appeals URL - usually for a forum or wherever people should go to contact your admins.
-BANAPPEALS http://www.bay12forums.com/smf/index.php?action=pm;sa=send;u=74225
+BANAPPEALS http://www.bay12forums.com/smf/index.php?action=pm;sa=send;u=17215
 
 ## In-game features
 ##Toggle for having jobs load up from the .txt
