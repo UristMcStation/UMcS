@@ -27,3 +27,43 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/item/weapon/machete/IsShield()
 		return 1
 
+//Energy pistol, Energy gun with less shots. Can be put in player's pockets.
+
+/obj/item/weapon/gun/energy/gun/small
+	urist_only = 1
+	name = "energy pistol"
+	desc = "An energy pistol with a wooden handle."
+	icon = 'icons/uristguns.dmi'
+	icon_state = "senergystun100"
+	item_state = "gun"
+	fire_sound = 'sound/weapons/Taser.ogg'
+	w_class = 1
+	charge_cost = 150 //How much energy is needed to fire.
+	projectile_type = "/obj/item/projectile/energy/electrode"
+	origin_tech = "combat=2;magnets=2"
+	modifystate = "senergystun"
+
+	mode = 0 //0 = stun, 1 = kill
+
+
+	attack_self(mob/living/user as mob)
+		switch(mode)
+			if(0)
+				mode = 1
+				charge_cost = 150
+				fire_sound = 'sound/weapons/Laser.ogg'
+				user << "\red [src.name] is now set to kill."
+				projectile_type = "/obj/item/projectile/beam"
+				modifystate = "senergykill"
+			if(1)
+				mode = 0
+				charge_cost = 150
+				fire_sound = 'sound/weapons/Taser.ogg'
+				user << "\red [src.name] is now set to stun."
+				projectile_type = "/obj/item/projectile/energy/electrode"
+				modifystate = "senergystun"
+		update_icon()
+
+	suicide_act(mob/user)
+		viewers(user) << "\red <b>[user] is unloading the [src.name] into their head!</b>"
+		return(BRUTELOSS)
