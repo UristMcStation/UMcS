@@ -1,12 +1,9 @@
-<<<<<<< HEAD
+
 Urist McStation - March 2013
-=======
-/tg/station 13 v1.0 - 6 October 2010
 
 Website: http://ss13.eu
 Code: https://github.com/tgstation/-tg-station
 IRC: irc://irc.rizon.net/coderbus
->>>>>>> remotes/merging/master
 
 ================================================================================
 DOWNLOADING
