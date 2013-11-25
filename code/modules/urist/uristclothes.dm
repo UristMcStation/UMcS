@@ -286,7 +286,7 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	desc = "A blue jacket and red tie, with matching red cuffs! Snazzy. Wearing this makes you feel more important than your job title does."
 	flags = FPRINT | TABLEPASS
 
-//Alternate outfit for the RD. Part of a little thing I want to do, which is add alternate clothing for all the heads. Let's try this again.
+//Alternate outfit for the RD.
 
 /obj/item/clothing/under/rank/research_director_whimsy
 	urist_only = 1
@@ -297,12 +297,15 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	item_color = "rdwhimsy"
 	desc = "A pale yellow collared shirt along with matching dark tan pants and a brown tie that 'ties' it together. Would look great with a labcoat."
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
+	flags = FPRINT | TABLEPASS
 
 //Tactical Webbing. Icons are /tg/, there's just no def.
 
 /obj/item/clothing/suit/storage/webbing
 
+	urist_only = 1
 	name = "tactical webbing"
+	icon = 'icons/uristicons.dmi'
 	icon_state = "webbing"
 	item_state = "webbing"
 	desc = "Badass tactical webbing. Lots of handy pockets for storing things."
