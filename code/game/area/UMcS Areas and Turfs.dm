@@ -56,7 +56,7 @@ Basically, if you need to add areas or turfs for UMcS, use this file -Glloyd */
 	icon_state = "yellowdiag02"
 	floor_tile = new/obj/item/stack/tile/plasteel
 
-//Holy fuck. Anyways, this is pool turf, so we don't fuck up /tg/ .dmi's. ALOSO, if there ARE turfs to add, add them above this.
+//Holy fuck. Anyways, this is pool turf, so we don't fuck up /tg/ .dmi's. ALSO, if there ARE turfs to add, add them above this.
 
 /turf/simulated/floor/beach/pool
 	name = "Pool"

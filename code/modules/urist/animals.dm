@@ -1,4 +1,9 @@
-//Fox
+/*										*****New space to put all UristMcStation Animals*****
+
+Please keep it tidy, by which I mean put comments describing the item before the entry. -Glloyd */
+
+//Fox **Icons and code by Nienhaus. What does it say?
+
 /mob/living/simple_animal/fox
 	name = "fox"
 	desc = "It's a fox. I wonder what it says?"
@@ -19,6 +24,7 @@
 	response_harm   = "kicks"
 
 //Renault, the captain's fox.
+
 /mob/living/simple_animal/fox/Renault
 	name = "Renault"
 	desc = "Renault, the Captain's trustworthy fox. I wonder what it says?"
