@@ -54,6 +54,10 @@ Basically, if you need to add areas or turfs for UMcS, use this file -Glloyd */
  	name = "\improper Party Room"
  	icon_state = "yellow"
 
+/area/security/gaschamber
+	name = "\improper Gas Chamber"
+	icon_state = "brig"
+
 
 
 //TURFS
