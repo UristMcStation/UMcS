@@ -46,6 +46,15 @@ Basically, if you need to add areas or turfs for UMcS, use this file -Glloyd */
 	name = "\improper Escape Emergency Storage" //Because yolo
 	icon_state = "emergencystorage"
 
+/area/construction/assemblyline
+	name = "\improper Abandoned Assembly Line"
+	icon_state = "ass_line"
+
+/area/party
+ 	name = "\improper Party Room"
+ 	icon_state = "yellow"
+
+
 
 //TURFS
 //I SWEAR, IF ANYONE FUCKS WITH THIS, I WILL KILL YOU. -Glloyd
