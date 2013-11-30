@@ -67,3 +67,13 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	suicide_act(mob/user)
 		viewers(user) << "\red <b>[user] is unloading the [src.name] into their head!</b>"
 		return(BRUTELOSS)
+
+//Space drugs pill. LET'S PARTY!
+
+/obj/item/weapon/reagent_containers/pill/spacedrugs
+	name = "happy pill"
+	desc = "Ready to party?"
+	icon_state = "pill20"
+	New()
+		..()
+		reagents.add_reagent("space_drugs", 50)
