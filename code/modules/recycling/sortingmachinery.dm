@@ -1,3 +1,18 @@
+/proc/tag_menu(mob/user, obj/item/device/destTagger/target) //used for disposal taggers and mailman jumpsuits. totally worth it to prevent 14 lines of copypaste
+	var/dat = "<tt><center><h1><b>TagMaster 2.2</b></h1></center>"
+
+	dat += "<table style='width:100%; padding:4px;'><tr>"
+	for (var/i = 1, i <= TAGGERLOCATIONS.len, i++)
+		dat += "<td><a href='?src=\ref[target];nextTag=[i]'>[TAGGERLOCATIONS[i]]</a></td>"
+
+		if(i%4==0)
+			dat += "</tr><tr>"
+
+	dat += "</tr></table><br>Current Selection: [target.sortTag ? TAGGERLOCATIONS[target.sortTag] : "None"]</tt>"
+
+	user << browse(dat, "window=destTagScreen;size=450x350")
+	onclose(user, "destTagScreen")
+
 /obj/structure/bigDelivery
 	name = "large parcel"
 	desc = "A big wrapped package."
@@ -10,44 +25,39 @@
 	var/sortTag = 0
 
 
-/obj/structure/bigDelivery/attack_hand(mob/user as mob)
-	del(src)
+	attack_hand(mob/user as mob)
+		if(wrapped) //sometimes items can disappear. For example, bombs. --rastaf0
+			wrapped.loc = (get_turf(loc))
+			if(istype(wrapped, /obj/structure/closet))
+				var/obj/structure/closet/O = wrapped
+				O.welded = 0
+		del(src)
 
-/obj/structure/bigDelivery/Del()
-	if(wrapped) //sometimes items can disappear. For example, bombs. --rastaf0
-		wrapped.loc = (get_turf(loc))
-		if(istype(wrapped, /obj/structure/closet))
-			var/obj/structure/closet/O = wrapped
-			O.welded = 0
-	var/turf/T = get_turf(src)
-	for(var/atom/movable/AM in contents)
-		AM.loc = T
-	..()
 
-/obj/structure/bigDelivery/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/device/destTagger))
-		var/obj/item/device/destTagger/O = W
+	attackby(obj/item/W as obj, mob/user as mob)
+		if(istype(W, /obj/item/device/destTagger))
+			var/obj/item/device/destTagger/O = W
 
-		if(sortTag != O.currTag)
-			var/tag = uppertext(TAGGERLOCATIONS[O.currTag])
-			user << "\blue *[tag]*"
-			sortTag = O.currTag
-			playsound(loc, 'sound/machines/twobeep.ogg', 100, 1)
+			if(sortTag != O.sortTag)
+				var/tag = uppertext(TAGGERLOCATIONS[O.sortTag])
+				user << "\blue *[tag]*"
+				sortTag = O.sortTag
+				playsound(loc, 'sound/machines/twobeep.ogg', 100, 1)
 
-	else if(istype(W, /obj/item/weapon/pen))
-		var/str = copytext(sanitize(input(user,"Label text?","Set label","")),1,MAX_NAME_LEN)
-		if(!str || !length(str))
-			user << "<span class='notice'>Invalid text.</span>"
-			return
-		user.visible_message("<span class='notice'>[user] labels [src] as [str].</span>")
-		name = "[name] ([str])"
+		else if(istype(W, /obj/item/weapon/pen))
+			var/str = copytext(sanitize(input(user,"Label text?","Set label","")),1,MAX_NAME_LEN)
+			if(!str || !length(str))
+				user << "<span class='notice'>Invalid text.</span>"
+				return
+			user.visible_message("<span class='notice'>[user] labels [src] as [str].</span>")
+			name = "[name] ([str])"
 
-	else if(istype(W, /obj/item/weapon/wrapping_paper))
-		user.visible_message("<span class='notice'>[user] wraps the package in festive paper!</span>")
-		if(istype(wrapped, /obj/structure/closet/crate))
-			icon_state = "giftcrate"
-		else
-			icon_state = "giftcloset"
+		else if(istype(W, /obj/item/weapon/wrapping_paper))
+			user.visible_message("<span class='notice'>[user] wraps the package in festive paper!</span>")
+			if(istype(wrapped, /obj/structure/closet/crate))
+				icon_state = "giftcrate"
+			else
+				icon_state = "giftcloset"
 
 
 /obj/item/smallDelivery
@@ -75,10 +85,10 @@
 		if(istype(W, /obj/item/device/destTagger))
 			var/obj/item/device/destTagger/O = W
 
-			if(sortTag != O.currTag)
-				var/tag = uppertext(TAGGERLOCATIONS[O.currTag])
+			if(sortTag != O.sortTag)
+				var/tag = uppertext(TAGGERLOCATIONS[O.sortTag])
 				user << "\blue *[tag]*"
-				sortTag = O.currTag
+				sortTag = O.sortTag
 				playsound(loc, 'sound/machines/twobeep.ogg', 100, 1)
 
 		else if(istype(W, /obj/item/weapon/pen))
@@ -175,7 +185,7 @@
 	name = "destination tagger"
 	desc = "Used to set the destination of properly wrapped packages."
 	icon_state = "forensic0"
-	var/currTag = 0
+	var/sortTag = 0
 	//The whole system for the sorttype var is determined based on the order of this list,
 	//disposals must always be 1, since anything that's untagged will automatically go to disposals, or sorttype = 1 --Superxpdude
 
@@ -187,31 +197,16 @@
 	flags = FPRINT | TABLEPASS | CONDUCT
 	slot_flags = SLOT_BELT
 
-	proc/openwindow(mob/user as mob)
-		var/dat = "<tt><center><h1><b>TagMaster 2.2</b></h1></center>"
+/obj/item/device/destTagger/attack_self(mob/user as mob)
+	tag_menu(user, src)
+	return
 
-		dat += "<table style='width:100%; padding:4px;'><tr>"
-		for (var/i = 1, i <= TAGGERLOCATIONS.len, i++)
-			dat += "<td><a href='?src=\ref[src];nextTag=[i]'>[TAGGERLOCATIONS[i]]</a></td>"
-
-			if(i%4==0)
-				dat += "</tr><tr>"
-
-		dat += "</tr></table><br>Current Selection: [currTag ? TAGGERLOCATIONS[currTag] : "None"]</tt>"
-
-		user << browse(dat, "window=destTagScreen;size=450x350")
-		onclose(user, "destTagScreen")
-
-	attack_self(mob/user as mob)
-		openwindow(user)
-		return
-
-	Topic(href, href_list)
-		add_fingerprint(usr)
-		if(href_list["nextTag"])
-			var/n = text2num(href_list["nextTag"])
-			currTag = n
-		openwindow(usr)
+/obj/item/device/destTagger/Topic(href, href_list)
+	add_fingerprint(usr)
+	if(href_list["nextTag"])
+		var/n = text2num(href_list["nextTag"])
+		sortTag = n
+	tag_menu(usr, src)
 
 /obj/machinery/disposal/deliveryChute
 	name = "delivery chute"
