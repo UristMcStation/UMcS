@@ -192,18 +192,12 @@
 // can breath normally in the disposal
 /obj/machinery/disposal/alter_health()
 	return get_turf(src)
-	
-/obj/machinery/disposal/relaymove(mob/user as mob)
-	attempt_escape(user)
 
 // resist to escape the bin
 /obj/machinery/disposal/container_resist()
-	attempt_escape(usr)
-
-/obj/machinery/disposal/proc/attempt_escape(mob/user as mob)
 	if(src.flushing)
 		return
-	go_out(user)
+	go_out(usr)
 	return
 
 // leave the disposal
@@ -492,7 +486,7 @@
 
 	// initialize a holder from the contents of a disposal unit
 	proc/init(var/obj/machinery/disposal/D)
-		gas = D.air_contents// transfer gas resv. into holder object
+		gas = D.air_contents //transfer gas resv. into holder object
 
 		//Check for any living mobs trigger hasmob.
 		//hasmob effects whether the package goes to cargo or its tagged destination.
@@ -516,13 +510,15 @@
 				var/mob/living/carbon/human/H = AM
 				if(FAT in H.mutations)		// is a human and fat?
 					has_fat_guy = 1			// set flag on holder
+				if(istype(H.get_item_by_slot(slot_w_uniform), /obj/item/clothing/under/syndiemail))
+					var/obj/item/clothing/under/syndiemail/temptag = H.get_item_by_slot(slot_w_uniform)
+					destinationTag = temptag.sortTag
 			if(istype(AM, /obj/structure/bigDelivery) && !hasmob)
 				var/obj/structure/bigDelivery/T = AM
-				src.destinationTag = T.sortTag
+				destinationTag = T.sortTag
 			if(istype(AM, /obj/item/smallDelivery) && !hasmob)
 				var/obj/item/smallDelivery/T = AM
-				src.destinationTag = T.sortTag
-
+				destinationTag = T.sortTag
 
 	// start the movement process
 	// argument is the disposal unit the holder started in
@@ -988,10 +984,10 @@
 		if(istype(I, /obj/item/device/destTagger))
 			var/obj/item/device/destTagger/O = I
 
-			if(O.currTag > 0)// Tag set
-				sortType = O.currTag
+			if(O.sortTag > 0)// Tag set
+				sortType = O.sortTag
 				playsound(src.loc, 'sound/machines/twobeep.ogg', 100, 1)
-				var/tag = uppertext(TAGGERLOCATIONS[O.currTag])
+				var/tag = uppertext(TAGGERLOCATIONS[O.sortTag])
 				user << "\blue Changed filter to [tag]"
 				updatedesc()
 
