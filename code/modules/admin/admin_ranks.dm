@@ -283,3 +283,5 @@ var/list/admin_ranks = list()								//list of all admin_rank datums
 			log_admin_permission_modification(adm_ckey, D.rank.rights)
 
 	edit_admin_permissions()
+			
+	edit_admin_permissions()
