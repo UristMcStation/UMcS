@@ -16,7 +16,6 @@ electronics111 = Game Master
 #Electronics
 aardvarkperson = Game Master
 #Shoesandhats
-redfox47 = Game Master
 donuts223 = Game Master
 bdthemag = Game Master
 androidsfv = Game Master
