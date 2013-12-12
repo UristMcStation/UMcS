@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ###############################################################################################
 # Basically, ckey goes first. Rank goes after the "="                                         #
 # Case is not important for ckey.                                                             #
@@ -11,12 +10,12 @@
 
 kg333 = Host
 vactor = Host
-aklyon = Game Master
+#aklyon = Game Master
 electronics111 = Game Master
 #Electronics
-aardvarkperson = Game Master
+#aardvarkperson = Game Master
 #Shoesandhats
-donuts223 = Game Master
+#donuts223 = Game Master
 bdthemag = Game Master
 androidsfv = Game Master
 glloyd = Game Master
@@ -29,5 +28,4 @@ USEC_OFFICER = Trial Admin
 Ozarck = Moderator
 Rabidgam3r = Moderator
 M3hillus = Trial Admin
-=======
 
