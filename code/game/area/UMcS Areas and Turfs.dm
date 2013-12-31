@@ -1,4 +1,4 @@
-/*Urist McStation Areas, turf and maybe some other random shit to save on .dm's.
+/*Urist McStation Areas and turfs! Includes the entryscreen because yes, that's a turf.
 
 Basically, if you need to add areas or turfs for UMcS, use this file -Glloyd */
 
@@ -18,7 +18,7 @@ Basically, if you need to add areas or turfs for UMcS, use this file -Glloyd */
 	icon_state = "shuttle"
 
 /area/shuttle/naval1/centcom
-	name = "\improper Navy Ship Centcom" //WIP
+	name = "\improper Navy Ship Centcom" //Not a WIP any longer motherfuckers
 	icon_state = "shuttle"
 
 /area/shuttle/naval1/station
@@ -50,18 +50,20 @@ Basically, if you need to add areas or turfs for UMcS, use this file -Glloyd */
 	name = "\improper Abandoned Assembly Line"
 	icon_state = "ass_line"
 
-/area/party
+/area/crew_quarters/party //needs the crewquarters before it because of gamemode code
  	name = "\improper Party Room"
  	icon_state = "yellow"
 
-/area/security/gaschamber
+/area/security/gaschamber //someday...
 	name = "\improper Gas Chamber"
 	icon_state = "brig"
 
 
 
-//TURFS
-//I SWEAR, IF ANYONE FUCKS WITH THIS, I WILL KILL YOU. -Glloyd
+/*TURFS
+********I SWEAR, IF ANYONE FUCKS WITH THIS, I WILL KILL YOU. -Glloyd********
+
+Icons for uristturfs from Nienhaus and Lord Slowpoke*/
 
 /turf/simulated/floor/uristturf
 	name = "floor"
@@ -80,7 +82,7 @@ turf/simulated/floor/beach/pool/New()
 	..()
 	overlays += image("icon"='icons/turf/uristturf.dmi',"icon_state"="water2","layer"=MOB_LAYER+0.1)
 
-//Space!
+//Space! Because fuck /tg/!
 
 /turf/space/transit/west // moving to the west
 	icon = 'icons/turf/uristturf.dmi'
@@ -117,7 +119,7 @@ turf/simulated/floor/beach/pool/New()
 	shuttlespace_ew15
 		icon_state = "speedspace_ew_15"
 
-	//entryscreen for UMcS
+	//entryscreen for UMcS, done by Glloyd.
 
 	/turf/unsimulated/wall/uristscreen
 		name = "Space Station 13"
