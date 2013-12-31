@@ -38,7 +38,7 @@
 						stomach_contents.Remove(A)
 					src.gib()
 
-/mob/living/carbon/gib()
+/mob/living/carbon/gib(var/animation = 1)
 	for(var/mob/M in src)
 		if(M in stomach_contents)
 			stomach_contents.Remove(M)
@@ -365,8 +365,7 @@
 				var/start_T_descriptor = "<font color='#6b5d00'>tile at [start_T.x], [start_T.y], [start_T.z] in area [get_area(start_T)]</font>"
 				var/end_T_descriptor = "<font color='#6b4400'>tile at [end_T.x], [end_T.y], [end_T.z] in area [get_area(end_T)]</font>"
 
-				M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been thrown by [usr.name] ([usr.ckey]) from [start_T_descriptor] with the target [end_T_descriptor]</font>")
-				usr.attack_log += text("\[[time_stamp()]\] <font color='red'>Has thrown [M.name] ([M.ckey]) from [start_T_descriptor] with the target [end_T_descriptor]</font>")
+				add_logs(usr, M, "thrown", admin=0, addition="from [start_T_descriptor] with the target [end_T_descriptor]")
 
 	if(!item) return //Grab processing has a chance of returning null
 
@@ -548,3 +547,29 @@
 	else if(prob(50))
 		return "trails_1"
 	return "trails_2"
+
+var/const/NO_SLIP_WHEN_WALKING = 1
+var/const/STEP = 2
+var/const/SLIDE = 4
+var/const/GALOSHES_DONT_HELP = 8
+/mob/living/carbon/slip(var/s_amount, var/w_amount, var/obj/O, var/lube)
+	if (m_intent=="walk" && (lube&NO_SLIP_WHEN_WALKING))
+		return 0
+	if(!lying)
+		stop_pulling()
+		if(lube&STEP)
+			step(src, src.dir)
+		if(lube&SLIDE)
+			for(var/i=1, i<5, i++)
+				spawn (i)
+					step(src, src.dir)
+			take_organ_damage(2)
+		if(O)
+			src << "<span class='notice'>You slipped on the [O.name]!</span>"
+		else
+			src << "<span class='notice'>You slipped!</span>"
+		playsound(loc, 'sound/misc/slip.ogg', 50, 1, -3)
+		Stun(s_amount)
+		Weaken(w_amount)
+		return 1
+	return 0 // no success. Used in clown pda and wet floors
