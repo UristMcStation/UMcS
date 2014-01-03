@@ -7,7 +7,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /mob/living/simple_animal/fox
 	name = "fox"
 	desc = "It's a fox. I wonder what it says?"
-	icon = 'icons/uristicons.dmi'
+	icon = 'icons/urist/uristicons.dmi'
 	icon_state = "fox"
 	icon_living = "fox"
 	icon_dead = "fox_dead"

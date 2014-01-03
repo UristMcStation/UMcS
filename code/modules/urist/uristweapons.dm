@@ -1,6 +1,6 @@
 /*										*****New space to put all UristMcStation Weapons*****
 
-Please keep it tidy, by which I mean put comments describing the item before the entry. -Glloyd */
+Please keep it tidy, by which I mean put comments describing the item before the entry. Icons go to 'icons/urist/uristweapons.dmi' -Glloyd */
 
 
 //Welder machete, icons by ShoesandHats, object by Cozarctan
@@ -9,7 +9,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	urist_only = 1
 	name = "machete"
 	desc = "a large blade beloved by sugar farmers and mass murderers"
-	icon = 'icons/uristicons.dmi'
+	icon = 'icons/urist/uristweapons.dmi'
 	icon_state = "machete"
 	item_state = "machete"
 	flags = FPRINT | TABLEPASS | CONDUCT
@@ -33,7 +33,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	urist_only = 1
 	name = "energy pistol"
 	desc = "An energy pistol with a wooden handle."
-	icon = 'icons/uristguns.dmi'
+	icon = 'icons/urist/uristweapons.dmi'
 	icon_state = "senergystun100"
 	item_state = "gun"
 	fire_sound = 'sound/weapons/Taser.ogg'

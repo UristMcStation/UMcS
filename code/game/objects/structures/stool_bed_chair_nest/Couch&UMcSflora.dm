@@ -154,15 +154,3 @@
 	icon_state = "firstbush_1"
 	anchored = 1
 
-//Don't want to do this... but saves .dm's
-
-/obj/structure/sign/uristmap
-	name = "station map"
-	icon = 'icons/uristicons.dmi'
-	desc = "A framed picture of the station."
-
-/obj/structure/sign/uristmap/left
-	icon_state = "umap_left"
-
-/obj/structure/sign/uristmap/right
-	icon_state = "umap_right"

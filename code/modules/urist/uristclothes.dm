@@ -1,6 +1,6 @@
  /*										*****New space to put all UristMcStation Clothing*****
 
-Please keep it tidy, by which I mean put comments describing the item before the entry.
+Please keep it tidy, by which I mean put comments describing the item before the entry. Icons go to 'icons/urist/uristclothes.dmi'
 All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how much clothes do we need anyways... -Glloyd*/
 
  // Beautiful naval shit, Reference: http://www.teuse.net/personal/harrington/hh_bible.htm
@@ -10,7 +10,7 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	urist_only = 1
 	name = "officers beret"
 	desc = "A black beret adorned with the shield—a silver kite shield with an engraved sword—of the NanoTrasen security forces, announcing to the world that the wearer is a defender of NanoTrasen."
-	icon = 'icons/uristicons.dmi'
+	icon = 'icons/urist/uristclothes.dmi'
 	icon_state = "centcomofficerberet"
 	flags = FPRINT | TABLEPASS
 
@@ -18,7 +18,7 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	urist_only = 1
 	name = "captains beret"
 	desc = "A white beret adorned with the shield—a cobalt kite shield with an engraved sword—of the NanoTrasen security forces, worn only by those captaining a vessel of the NanoTrasen Navy."
-	icon = 'icons/uristicons.dmi'
+	icon = 'icons/urist/uristclothes.dmi'
 	icon_state = "centcomcaptain"
 	flags = FPRINT | TABLEPASS
 
@@ -26,7 +26,7 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	urist_only = 1
 	name = "dress shoes"
 	desc = "They appear impeccably polished."
-	icon = 'icons/uristicons.dmi'
+	icon = 'icons/urist/uristclothes.dmi'
 	icon_state = "laceups"
 
 /obj/item/clothing/under/rank/centcom
@@ -36,7 +36,7 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	urist_only = 1
 	desc = "Gold trim on space-black cloth, this uniform displays the rank of \"Ensign\" and bears \"N.C.V. Fearless CV-286\" on the left shounder."
 	name = "\improper NanoTrasen Navy Uniform"
-	icon = 'icons/uristicons.dmi'
+	icon = 'icons/urist/uristclothes.dmi'
 	icon_state = "officer"
 	item_state = "g_suit"
 	item_color = "officer"
@@ -45,7 +45,7 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	urist_only = 1
 	desc = "Gold trim on space-black cloth, this uniform displays the rank of \"Lieutenant Commander\" and bears \"N.C.V. Fearless CV-286\" on the left shounder."
 	name = "\improper NanoTrasen Officers Uniform"
-	icon = 'icons/uristicons.dmi'
+	icon = 'icons/urist/uristclothes.dmi'
 	icon_state = "officer"
 	item_state = "g_suit"
 	item_color = "officer"
@@ -54,7 +54,7 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	urist_only = 1
 	desc = "Gold trim on space-black cloth, this uniform displays the rank of \"Captain\" and bears \"N.C.V. Fearless CV-286\" on the left shounder."
 	name = "\improper NanoTrasen Captains Uniform"
-	icon = 'icons/uristicons.dmi'
+	icon = 'icons/urist/uristclothes.dmi'
 	icon_state = "centcom"
 	item_state = "dg_suit"
 	item_color = "centcom"
@@ -69,7 +69,7 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	urist_only = 1
 	name = "black swimsuit"
 	desc = "An oldfashioned black swimsuit."
-	icon = 'icons/uristicons.dmi'
+	icon = 'icons/urist/uristclothes.dmi'
 	icon_state = "swim_black"
 	item_color = "swim_black"
 	siemens_coefficient = 1
@@ -78,7 +78,7 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	urist_only = 1
 	name = "blue swimsuit"
 	desc = "An oldfashioned blue swimsuit."
-	icon = 'icons/uristicons.dmi'
+	icon = 'icons/urist/uristclothes.dmi'
 	icon_state = "swim_blue"
 	item_color = "swim_blue"
 	siemens_coefficient = 1
@@ -87,7 +87,7 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	urist_only = 1
 	name = "purple swimsuit"
 	desc = "An oldfashioned purple swimsuit."
-	icon = 'icons/uristicons.dmi'
+	icon = 'icons/urist/uristclothes.dmi'
 	icon_state = "swim_purp"
 	item_color = "swim_purp"
 	siemens_coefficient = 1
@@ -96,7 +96,7 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	urist_only = 1
 	name = "green swimsuit"
 	desc = "An oldfashioned green swimsuit."
-	icon = 'icons/uristicons.dmi'
+	icon = 'icons/urist/uristclothes.dmi'
 	icon_state = "swim_green"
 	item_color = "swim_green"
 	siemens_coefficient = 1
@@ -105,7 +105,7 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	urist_only = 1
 	name = "red swimsuit"
 	desc = "An oldfashioned red swimsuit."
-	icon = 'icons/uristicons.dmi'
+	icon = 'icons/urist/uristclothes.dmi'
 	icon_state = "swim_red"
 	item_color = "swim_red"
 	siemens_coefficient = 1
@@ -123,7 +123,7 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 
 /obj/item/clothing/suit/space/rig/science
 	urist_only = 1
-	icon = 'icons/uristicons.dmi'
+	icon = 'icons/urist/uristclothes.dmi'
 	icon_state = "Scirig"
 	name = "science hardsuit"
 	desc = "A special suit that protects against hazardous, low pressure environments. Built with lightweight materials for easier movement. Looks like it could hold up against an explosion."
@@ -139,7 +139,7 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	urist_only = 1
 	name = "emergency suit"
 	desc = "A bulky suit meant to be used in emergencies only. It doesn't look too safe... Wait, is that blood?" //PREPARE FOR YOUR DOOM
-	icon = 'icons/uristicons.dmi'
+	icon = 'icons/urist/uristclothes.dmi'
 	icon_state = "emergency"
 	item_state = "emergency"
 	w_class = 4
@@ -160,7 +160,7 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	urist_only = 1
 	name = "emergency hood"
 	desc = "A bulky hood meant to be used in emergencies only. It doesn't look too safe, and has some strange gray stains inside..."
-	icon = 'icons/uristicons.dmi'
+	icon = 'icons/urist/uristclothes.dmi'
 	icon_state = "emergency_hood"
 	item_state = "emergency_hood"
 	armor = list(melee = 5, bullet = 0, laser = 0,energy = 0, bomb = 5, bio = 50, rad = 25)
@@ -168,32 +168,13 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	cold_protection = HEAD
 	min_cold_protection_temperature = FIRE_HELM_MIN_TEMP_PROTECT
 
-/obj/structure/closet/emsuits //Tossing the closet here, because why the fuck not.
-	name = "emergency suit closet"
-	desc = "It's a closet for storing emergency equipment and suits. A small  sign on the bottom reads 'use only in extreme emergencies'"
-	icon = 'icons/uristicons.dmi'
-	icon_state = "ecloset"
-	icon_closed = "ecloset"
-	icon_opened = "eclosetopen"
-
-/obj/structure/closet/emsuits/New()
-	..()
-
-	new /obj/item/clothing/head/emergencyhood(src)
-	new /obj/item/clothing/suit/emergencysuit(src)
-	new /obj/item/weapon/tank/emergency_oxygen(src)
-	new /obj/item/clothing/mask/breath(src)
-	new /obj/item/weapon/storage/toolbox/emergency(src)
-	new /obj/item/weapon/tank/emergency_oxygen(src)
-
-
 //Sexy Captain's jacket
 
 /obj/item/clothing/suit/captunic/capjacket
 	urist_only = 1
 	name = "captain's uniform jacket"
 	desc = "A less formal jacket for everyday captain use."
-	icon = 'icons/uristicons.dmi'
+	icon = 'icons/urist/uristclothes.dmi'
 	icon_state = "capjacket"
 	item_state = "capjacket"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
@@ -204,7 +185,7 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 /obj/item/clothing/head/bio_hood/asec
 	urist_only = 1
 	name = "armoured bio hood"
-	icon = 'icons/uristicons.dmi'
+	icon = 'icons/urist/uristclothes.dmi'
 	icon_state = "Armouredbiohood"
 	desc = "An armoured hood that protects the head and face from biological comtaminants and minor damage."
 	permeability_coefficient = 0.01
@@ -216,7 +197,7 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	urist_only = 1
 	name = "armoured bio suit"
 	desc = "An armoured suit that protects against biological contamination and minor damage."
-	icon = 'icons/uristicons.dmi'
+	icon = 'icons/urist/uristclothes.dmi'
 	icon_state = "Armouredbiosuit"
 	item_state = "bio_suit"
 	w_class = 4//bulky item
@@ -229,29 +210,13 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	armor = list(melee = 20, bullet = 10, laser = 25, energy = 10, bomb = 25, bio = 100, rad = 20)
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 
-/obj/structure/closet/secure_closet/armoredbiosuit
-	name = "armoured bio suit locker"
-	req_access = list(access_armory)
-	icon_state = "wardensecure1"
-	icon_closed = "wardensecure"
-	icon_locked = "wardensecure1"
-	icon_opened = "wardensecureopen"
-	icon_broken = "wardensecurebroken"
-	icon_off = "wardensecureoff"
-
-/obj/structure/closet/secure_closet/armoredbiosuit/New()
-	..()
-
-	new /obj/item/clothing/head/bio_hood/asec(src)
-	new /obj/item/clothing/suit/bio_suit/asec(src)
-
 //Welder apron done by Shoes and Hats and added by Cozarctan. Moved from welder. Welde machete goes into the new uristweapons.dm
 
 /obj/item/clothing/suit/welderapron
 	urist_only = 1
 	name = "welder's apron"
 	desc = "A leather work apron."
-	icon = 'icons/uristicons.dmi'
+	icon = 'icons/urist/uristclothes.dmi'
 	icon_state = "welderapron"
 	item_state = "welderapron"
 	blood_overlay_type = "armor"
@@ -263,14 +228,14 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	urist_only = 1
 	name = "naval space helmet"
 	desc = "A high quality space helmet used by the Nanotrasen Navy."
-	icon = 'icons/uristicons.dmi'
+	icon = 'icons/urist/uristclothes.dmi'
 	icon_state = "navyspacehelm"
 	armor = list(melee = 55, bullet = 45, laser = 30,energy = 15, bomb = 30, bio = 30, rad = 30)
 
 /obj/item/clothing/suit/space/naval
 	urist_only = 1
 	name = "naval space suit"
-	icon = 'icons/uristicons.dmi'
+	icon = 'icons/urist/uristclothes.dmi'
 	icon_state = "navyspace"
 	desc = "A high quality space suit used by the Nanotrasen Navy. Smells like oppression."
 	w_class = 3
@@ -283,7 +248,7 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 /obj/item/clothing/under/rank/head_of_personnel_whimsy
 	urist_only = 1
 	name = "head of personnel's suit"
-	icon = 'icons/uristicons.dmi'
+	icon = 'icons/urist/uristclothes.dmi'
 	icon_state = "hopwhimsy"
 	item_state = "hopwhimsy"
 	item_color = "hopwhimsy"
@@ -296,7 +261,7 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 /obj/item/clothing/under/rank/research_director_whimsy
 	urist_only = 1
 	name = "research director's suit"
-	icon = 'icons/uristicons.dmi'
+	icon = 'icons/urist/uristclothes.dmi'
 	icon_state = "rdwhimsy"
 	item_state = "rdwhimsy"
 	item_color = "rdwhimsy"
@@ -311,7 +276,7 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 
 	urist_only = 1
 	name = "tactical webbing"
-	icon = 'icons/uristicons.dmi'
+	icon = 'icons/urist/uristclothes.dmi'
 	icon_state = "webbing"
 	item_state = "webbing"
 	desc = "Badass tactical webbing. Lots of handy pockets for storing things."
@@ -325,7 +290,7 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	urist_only = 1
 	name = "naval commando helmet"
 	desc = "An extremely intimidating helmet worn by the Nanotrasen Naval Commandos"
-	icon = 'icons/uristicons.dmi'
+	icon = 'icons/urist/uristclothes.dmi'
 	icon_state = "rig0-commando"
 	item_color = "commando"
 	armor = list(melee = 65, bullet = 55, laser = 35,energy = 20, bomb = 30, bio = 30, rad = 30)
@@ -335,7 +300,7 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	urist_only = 1
 	name = "naval commando suit"
 	desc = "A heavily armored suit that protects against moderate damage. Worn by the Nanotrasen Naval Commandos. It reeks of oppression."
-	icon = 'icons/uristicons.dmi'
+	icon = 'icons/urist/uristclothes.dmi'
 	icon_state = "commando"
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.01
@@ -345,13 +310,15 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	slowdown = 1
 	armor = list(melee = 80, bullet = 60, laser = 50,energy = 25, bomb = 50, bio = 30, rad = 30)
 
-//Meido outfit, Pretty much Japanese for Maid outfit. I will most likely be doing more costumes.
+//Meido outfit, Pretty much Japanese for Maid outfit. I will most likely be doing more costumes. -Nien
 
 /obj/item/clothing/suit/meido
 	urist_only = 1
 	name = "meido costume"
 	desc = "A black maid costume."
-	icon = 'icons/uristicons.dmi'
+	icon = 'icons/urist/uristclothes.dmi'
 	icon_state = "meido"
 	item_state = "meido"
 	body_parts_covered = CHEST|GROIN|ARMS
+
+

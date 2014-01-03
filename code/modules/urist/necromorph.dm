@@ -6,7 +6,7 @@
 	name = "necromorph"
 	desc = "Reanimated corpses of the dead, reshaped into horrific new forms by a recombinant extraterrestrial infection."
 	speak_emote = list("screeches")
-	icon = 'icons/uristicons.dmi'
+	icon = 'icons/urist/uristicons.dmi'
 	icon_state = "necro_s"
 	icon_living = "necro_s"
 	icon_dead = "necro_d"
@@ -26,13 +26,13 @@
 	min_n2 = 0
 	max_n2 = 0
 	minbodytemp = 0
-	
+
 //Baby Necromorph
 
 /mob/living/simple_animal/hostile/necromorph/baby
 	name = "baby necromorph"
 	ranged = 1
-	icon = 'icons/uristicons.dmi'
+	icon = 'icons/urist/uristicons.dmi'
 	icon_state = "baby_necro"
 	icon_dead = "b_necro_l"
 	health = 20
