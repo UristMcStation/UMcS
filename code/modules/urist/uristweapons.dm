@@ -77,3 +77,32 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	New()
 		..()
 		reagents.add_reagent("space_drugs", 50)
+
+//plasma pistol. does toxic damage. I want to add this to research soonish. icons by Susan from BS12, editing and projectile by Glloyd
+
+/obj/item/weapon/gun/energy/plasmapistol
+	urist_only = 1
+	name = "plasma pistol"
+	desc = "An experimental weapon that works by ionizing plasma and firing it in a particular direction, poisoning someone."
+	icon = 'icons/urist/uristweapons.dmi'
+	icon_state = "plasmapistol"
+	item_state = "gun"
+	fire_sound = 'sound/weapons/Genhit.ogg'
+	w_class = 1
+	charge_cost = 150 //How much energy is needed to fire.
+	projectile_type = "/obj/item/projectile/energy/plasma"
+	origin_tech = "combat=3;magnets=2"
+	modifystate = "plasmapistol"
+	cell_type = "/obj/item/weapon/cell/crap"
+
+	suicide_act(mob/user)
+		viewers(user) << "\red <b>[user] is unloading the [src.name] into their head!</b>"
+		return(BRUTELOSS)
+
+/obj/item/projectile/energy/plasma
+	urist_only = 1
+	name = "ionized plasma"
+	icon = 'icons/urist/uristweapons.dmi'
+	icon_state = "plasma"
+	damage = 15
+	damage_type = TOX
