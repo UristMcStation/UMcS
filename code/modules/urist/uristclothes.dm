@@ -12,7 +12,6 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	desc = "A black beret adorned with the shield—a silver kite shield with an engraved sword—of the NanoTrasen security forces, announcing to the world that the wearer is a defender of NanoTrasen."
 	icon = 'icons/urist/uristclothes.dmi'
 	icon_state = "centcomofficerberet"
-	flags = FPRINT | TABLEPASS
 
 /obj/item/clothing/head/beret/centcom/captain
 	urist_only = 1
@@ -20,7 +19,6 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	desc = "A white beret adorned with the shield—a cobalt kite shield with an engraved sword—of the NanoTrasen security forces, worn only by those captaining a vessel of the NanoTrasen Navy."
 	icon = 'icons/urist/uristclothes.dmi'
 	icon_state = "centcomcaptain"
-	flags = FPRINT | TABLEPASS
 
 /obj/item/clothing/shoes/centcom
 	urist_only = 1
@@ -150,7 +148,7 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	slowdown = 1.5
 	armor = list(melee = 5, bullet = 0, laser = 5,energy = 0, bomb = 5, bio = 50, rad = 25)
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
-	flags = FPRINT | TABLEPASS | STOPSPRESSUREDMAGE | THICKMATERIAL
+	flags = STOPSPRESSUREDMAGE | THICKMATERIAL
 	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	max_heat_protection_temperature = SPACE_SUIT_MAX_TEMP_PROTECT
 	cold_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
@@ -164,7 +162,7 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	icon_state = "emergency_hood"
 	item_state = "emergency_hood"
 	armor = list(melee = 5, bullet = 0, laser = 0,energy = 0, bomb = 5, bio = 50, rad = 25)
-	flags = FPRINT | TABLEPASS | STOPSPRESSUREDMAGE | THICKMATERIAL
+	flags = STOPSPRESSUREDMAGE | THICKMATERIAL
 	cold_protection = HEAD
 	min_cold_protection_temperature = FIRE_HELM_MIN_TEMP_PROTECT
 
@@ -189,7 +187,7 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	icon_state = "Armouredbiohood"
 	desc = "An armoured hood that protects the head and face from biological comtaminants and minor damage."
 	permeability_coefficient = 0.01
-	flags = FPRINT|TABLEPASS|HEADCOVERSEYES|HEADCOVERSMOUTH|BLOCKHAIR|THICKMATERIAL
+	flags = HEADCOVERSEYES|HEADCOVERSMOUTH|BLOCKHAIR|THICKMATERIAL
 	armor = list(melee = 20, bullet = 10, laser = 25, energy = 10, bomb = 25, bio = 100, rad = 20)
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES
 
@@ -203,7 +201,7 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	w_class = 4//bulky item
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.01
-	flags = FPRINT | TABLEPASS | THICKMATERIAL
+	flags = THICKMATERIAL
 	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	slowdown = 3.0 //disgusting slowdown to compensate.
 	allowed = list(/obj/item/weapon/tank/emergency_oxygen,/obj/item/weapon/pen,/obj/item/device/flashlight/pen)
@@ -253,7 +251,6 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	item_state = "hopwhimsy"
 	item_color = "hopwhimsy"
 	desc = "A blue jacket and red tie, with matching red cuffs! Snazzy. Wearing this makes you feel more important than your job title does."
-	flags = FPRINT | TABLEPASS
 	fitted = 0
 
 //Alternate outfit for the RD.
@@ -267,7 +264,6 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	item_color = "rdwhimsy"
 	desc = "A pale yellow collared shirt along with matching dark tan pants and a brown tie that 'ties' it together. Would look great with a labcoat."
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
-	flags = FPRINT | TABLEPASS
 	fitted = 0
 
 //Tactical Webbing. Icons are /tg/, there's just no def.
@@ -304,7 +300,7 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	icon_state = "commando"
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.01
-	flags = FPRINT | TABLEPASS | THICKMATERIAL
+	flags = THICKMATERIAL
 	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	allowed = list(/obj/item/weapon/gun,/obj/item/ammo_box,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/tank/emergency_oxygen,/obj/item/weapon/melee/energy/sword)
 	slowdown = 1
