@@ -8203,7 +8203,7 @@
 "dbM" = (/obj/structure/artilleryplaceholder{tag = "icon-35"; icon_state = "35"},/turf/simulated/shuttle/plating{tag = "icon-warnplate"; icon_state = "warnplate"},/area/shuttle/naval1/centcom)
 "dbN" = (/turf/simulated/shuttle/plating{tag = "icon-warnplate (SOUTHEAST)"; icon_state = "warnplate"; dir = 6},/area/shuttle/naval1/centcom)
 "dbO" = (/turf/unsimulated/wall,/area/centcom/control)
-"dbP" = (/obj/machinery/computer/shuttle,/turf/simulated/shuttle/floor,/area/shuttle/escape/centcom)
+"dbP" = (/obj/machinery/computer/emergency_shuttle,/turf/simulated/shuttle/floor,/area/shuttle/escape/centcom)
 "dbQ" = (/obj/machinery/door/airlock/glass_command{name = "Emergency Shuttle Cockpit"; req_access_txt = "19"},/turf/simulated/shuttle/floor,/area/shuttle/escape/centcom)
 "dbR" = (/obj/structure/grille,/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced{dir = 8},/turf/simulated/shuttle/plating,/area/shuttle/escape/centcom)
 "dbS" = (/obj/structure/grille,/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced{dir = 4},/turf/simulated/shuttle/plating,/area/shuttle/escape/centcom)
