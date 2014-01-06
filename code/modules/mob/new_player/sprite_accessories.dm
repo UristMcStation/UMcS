@@ -283,6 +283,10 @@
 		icon_state = "hair_bravo"
 		gender = MALE
 
+	parted
+		name = "Side Part"
+		icon_state = "hair_part"
+
 /////////////////////////////
 // Facial Hair Definitions //
 /////////////////////////////
