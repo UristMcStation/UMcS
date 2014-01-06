@@ -1,4 +1,6 @@
-//Necromorphs. Meant to do this a while ago, icons by nien.
+//Necromorphs. Meant to do this a while ago, icons by Nien.
+
+//Basic Necromorph
 
 /mob/living/simple_animal/hostile/necromorph
 	name = "necromorph"
@@ -24,6 +26,8 @@
 	min_n2 = 0
 	max_n2 = 0
 	minbodytemp = 0
+	
+//Baby Necromorph
 
 /mob/living/simple_animal/hostile/necromorph/baby
 	name = "baby necromorph"

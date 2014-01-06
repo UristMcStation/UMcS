@@ -14,6 +14,9 @@
 		src << "\blue You have given up life and succumbed to death."
 		death()
 
+/mob/living/ex_act(severity)
+	if(client && !blinded)
+		flick("flash", src.flash)
 
 /mob/living/proc/updatehealth()
 	if(status_flags & GODMODE)
@@ -211,6 +214,9 @@
 		O.emp_act(severity)
 	..()
 
+/mob/living/proc/can_inject()
+	return 1
+
 /mob/living/proc/get_organ_target()
 	var/mob/shooter = src
 	var/t = shooter:zone_sel.selecting
@@ -277,7 +283,7 @@
 	if(stat == 2)
 		dead_mob_list -= src
 		living_mob_list += src
-	stat = CONSCIOUS
+	if(!isanimal(src))	stat = CONSCIOUS
 	update_fire()
 	regenerate_icons()
 	..()
@@ -385,7 +391,8 @@
 											var/mob/living/carbon/DNA_helper = pulling
 											H.blood_DNA[DNA_helper.dna.unique_enzymes] = DNA_helper.dna.blood_type
 						step(pulling, get_dir(pulling.loc, T))
-						M.start_pulling(t)
+						if(M)
+							M.start_pulling(t)
 				else
 					if (pulling)
 						if (istype(pulling, /obj/structure/window))
@@ -549,3 +556,7 @@
 						CM.legcuffed.loc = usr.loc
 						CM.legcuffed = null
 						CM.update_inv_legcuffed(0)
+
+
+/mob/living/proc/get_visible_name()
+	return name

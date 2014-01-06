@@ -108,7 +108,7 @@ GUEST_BAN
 # SERVER ss13.example.com:2506
 
 ## forum address
-FORUMURL http://http://www.bay12forums.com/smf/index.php?topic=123140.0
+FORUMURL http://www.bay12forums.com/smf/index.php?topic=123140.0
 
 ## Wiki address
 # WIKIURL http://www.nanotrasen.com/wiki/index.php
