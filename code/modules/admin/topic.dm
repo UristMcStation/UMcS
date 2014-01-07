@@ -1946,6 +1946,13 @@
 				if(istype(s)) s.move_shuttle()
 				message_admins("\blue [key_name_admin(usr)] moved the centcom ferry", 1)
 				log_admin("[key_name(usr)] moved the centcom ferry")
+			if("movenavalship")
+				feedback_inc("admin_secrets_fun_used",1)
+				feedback_add_details("admin_secrets_fun_used","ShN")
+				var/datum/shuttle_manager/s = shuttles["naval"]
+				if(istype(s)) s.move_shuttle()
+				message_admins("\blue [key_name_admin(usr)] moved the naval ship", 1)
+				log_admin("[key_name(usr)] moved the naval ship")
 			if("kick_all_from_lobby")
 				if(ticker && ticker.current_state == GAME_STATE_PLAYING)
 					var/afkonly = text2num(href_list["afkonly"])
@@ -2266,7 +2273,7 @@
 		src.access_news_network()
 
 /*************************************** POLL PANEL STUFF *****************************************/
-	
+
 	else if(href_list["create_poll_panel"])
 		create_poll_panel()
 
@@ -2275,7 +2282,7 @@
 
 	else if(href_list["view_poll"])
 		var/pollid = sql_sanitize_text(href_list["view_poll"])
-		view_poll_panel(pollid)		
+		view_poll_panel(pollid)
 
 	else if(href_list["remove_poll"])
 		var/pollid = sql_sanitize_text(href_list["remove_poll"])
@@ -2349,5 +2356,5 @@
 			return
 
 		create_new_poll(polltype,timelength,question,polloptions,adminonly,multilimit,maxval,minval,descmax,descmin,descmed)
-			
+
 		return

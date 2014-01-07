@@ -96,7 +96,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	cell_type = "/obj/item/weapon/cell/crap"
 
 	suicide_act(mob/user)
-		viewers(user) << "\red <b>[user] is unloading the [src.name] into their head!</b>"
+		viewers(user) << "\red <b>[user] is unloading the [src.name] into their head! Their skin turns purple and starts to melt!</b>"
 		return(BRUTELOSS)
 
 /obj/item/projectile/energy/plasma
@@ -104,5 +104,5 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	name = "ionized plasma"
 	icon = 'icons/urist/uristweapons.dmi'
 	icon_state = "plasma"
-	damage = 15
+	damage = 18
 	damage_type = TOX
