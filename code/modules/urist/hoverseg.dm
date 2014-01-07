@@ -1,6 +1,6 @@
 /obj/structure/stool/bed/chair/segway
 	name = "hover segway"
-	icon = 'icons/obj/vehicles.dmi'
+	icon = 'icons/obj/uristvehicles.dmi'
 	icon_state = "segway"
 	anchored = 0
 	density = 1
