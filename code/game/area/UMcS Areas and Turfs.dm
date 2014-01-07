@@ -20,10 +20,12 @@ Basically, if you need to add areas or turfs for UMcS, use this file -Glloyd */
 /area/shuttle/naval1/centcom
 	name = "\improper Navy Ship Centcom" //Not a WIP any longer motherfuckers
 	icon_state = "shuttle"
+	destination = /area/shuttle/naval1/station
 
 /area/shuttle/naval1/station
 	name = "\improper Navy Ship"
 	icon_state = "shuttle"
+	destination = /area/shuttle/naval1/centcom
 
 /area/crew_quarters/pool
 	name = "\improper Pool"
