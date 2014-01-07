@@ -1204,7 +1204,6 @@
 #include "code\modules\urist\policetape.dm"
 #include "code\modules\urist\uristanimals.dm"
 #include "code\modules\urist\uristclothes.dm"
-#include "code\modules\urist\uristmiscitems.dm"
 #include "code\modules\urist\uriststructures.dm"
 #include "code\modules\urist\uristweapons.dm"
 #include "code\WorkInProgress\buildmode.dm"
