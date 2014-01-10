@@ -85,7 +85,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	name = "plasma pistol"
 	desc = "An experimental weapon that works by ionizing plasma and firing it in a particular direction, poisoning someone."
 	icon = 'icons/urist/uristweapons.dmi'
-	icon_state = "plasmapistol100"
+	icon_state = "plasmapistol"
 	item_state = "gun"
 	fire_sound = 'sound/weapons/Genhit.ogg'
 	w_class = 1
