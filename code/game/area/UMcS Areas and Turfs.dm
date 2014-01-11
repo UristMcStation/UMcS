@@ -63,6 +63,11 @@ Basically, if you need to add areas or turfs for UMcS, use this file -Glloyd */
 /area/centcom/scom
 	name = "\improper S-COM Headquarters"
 
+/area/awaymission/snowventure
+	name = "\improper Snowy Plains"
+	icon_state = "away"
+	requires_power = 0
+	lighting_use_dynamic = 0
 
 
 /*TURFS
@@ -124,10 +129,17 @@ turf/simulated/floor/beach/pool/New()
 	shuttlespace_ew15
 		icon_state = "speedspace_ew_15"
 
-	//entryscreen for UMcS, done by Glloyd.
+//entryscreen for UMcS, done by Glloyd.
 
-	/turf/unsimulated/wall/uristscreen
-		name = "Space Station 13"
-		icon = 'icons/misc/entryscreen.dmi'
-		icon_state = "title"
-		layer = FLY_LAYER
+/turf/unsimulated/wall/uristscreen
+	name = "Space Station 13"
+	icon = 'icons/misc/entryscreen.dmi'
+	icon_state = "title"
+	layer = FLY_LAYER
+
+//snow trail for the snow awaymap I'm making
+
+/turf/simulated/floor/plating/snow/trail
+	name = "snow covered trail"
+	icon = 'icons/turf/uristturf.dmi'
+	icon_state = "snowpath"
