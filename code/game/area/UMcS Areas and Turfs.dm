@@ -60,6 +60,9 @@ Basically, if you need to add areas or turfs for UMcS, use this file -Glloyd */
 	name = "\improper Gas Chamber"
 	icon_state = "brig"
 
+/area/centcom/scom
+	name = "\improper S-COM Headquarters"
+
 
 
 /*TURFS
