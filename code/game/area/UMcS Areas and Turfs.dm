@@ -69,6 +69,9 @@ Basically, if you need to add areas or turfs for UMcS, use this file -Glloyd */
 	requires_power = 0
 	lighting_use_dynamic = 0
 
+/area/derelict/satellite
+	name = "\improper Abandoned Satellite"
+	icon_state = "yellow"
 
 /*TURFS
 ********I SWEAR, IF ANYONE FUCKS WITH THIS, I WILL KILL YOU. -Glloyd********
