@@ -152,7 +152,7 @@ the sprite and make my own projectile -Glloyd*/
 /obj/item/projectile/beam/sniper
 	name = "sniper beam"
 	icon_state = "xray"
-	damage = 50
+	damage = 60
 	stun = 5
 	weaken = 5
 	stutter = 5
