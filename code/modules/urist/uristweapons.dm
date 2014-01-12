@@ -78,14 +78,17 @@ Please keep it tidy, by which I mean put comments describing the item before the
 		..()
 		reagents.add_reagent("space_drugs", 50)
 
-//plasma pistol. does toxic damage. I want to add this to research soonish. icons by Susan from BS12, editing and projectile by Glloyd
+/*plasma pistol. does toxic damage. I want to add this to research soonish. icons by Susan from BS12, editing and projectile by Glloyd
+--Okay, they implemented this on BS12, and I dislike how they did it. The top is green, and shoots a green pulse. It also has different values then the one I coded.
+The point is that theirs is closer to the X-COM plasma pistol, despite the fact that all depictions of plasma in SS13 are purple, thus my choice to edit
+the sprite and make my own projectile -Glloyd*/
 
 /obj/item/weapon/gun/energy/plasmapistol
 	urist_only = 1
 	name = "plasma pistol"
 	desc = "An experimental weapon that works by ionizing plasma and firing it in a particular direction, poisoning someone."
 	icon = 'icons/urist/uristweapons.dmi'
-	icon_state = "plasmapistol100"
+	icon_state = "plasmapistol"
 	item_state = "gun"
 	fire_sound = 'sound/weapons/Genhit.ogg'
 	w_class = 1
@@ -104,5 +107,53 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	name = "ionized plasma"
 	icon = 'icons/urist/uristweapons.dmi'
 	icon_state = "plasma"
-	damage = 18
+	damage = 20
 	damage_type = TOX
+	irradiate = 20
+
+//Sniper rifle, from BS12. Those guys used spaces instead of tabs. What the actual fuck.
+
+/obj/item/weapon/gun/energy/sniperrifle
+	urist_only = 1
+	name = "L.W.A.P. Sniper Rifle"
+	desc = "A rifle constructed of lightweight materials, fitted with a SMART aiming-system scope."
+	icon = 'icons/urist/uristweapons.dmi'
+	icon_state = "sniper"
+	fire_sound = 'sound/weapons/marauder.ogg'
+	origin_tech = "combat=6;materials=5;powerstorage=4"
+	projectile_type = "/obj/item/projectile/beam/sniper"
+	slot_flags = SLOT_BACK
+	charge_cost = 250
+	w_class = 4.0
+
+	var/zoom = 0
+
+/obj/item/weapon/gun/energy/sniperrifle/dropped(mob/user)
+	user.client.view = world.view
+	zoom = 0
+
+/obj/item/weapon/gun/energy/sniperrifle/verb/zoom()
+	set category = "Special Verbs"
+	set name = "Zoom"
+	set popup_menu = 0
+	if(usr.stat || !(istype(usr,/mob/living/carbon/human)))
+		usr << "No."
+	return
+
+	src.zoom = !src.zoom
+	usr << ("<font color='[src.zoom?"blue":"red"]'>Zoom mode [zoom?"en":"dis"]abled.</font>")
+	if(zoom)
+		usr.client.view = 12
+		usr << sound('sound/mecha/imag_enh.ogg',volume=50)
+	else
+		usr.client.view = world.view//world.view - default mob view size
+	return
+
+/obj/item/projectile/beam/sniper
+	name = "sniper beam"
+	icon_state = "xray"
+	damage = 60
+	stun = 5
+	weaken = 5
+	stutter = 5
+

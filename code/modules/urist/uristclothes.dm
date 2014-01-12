@@ -208,7 +208,7 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	armor = list(melee = 20, bullet = 10, laser = 25, energy = 10, bomb = 25, bio = 100, rad = 20)
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 
-//Welder apron done by Shoes and Hats and added by Cozarctan. Moved from welder. Welde machete goes into the new uristweapons.dm
+//Welder apron done by ShoesandHats and added by Cozarctan. Moved from welder. Welder machete goes into the new uristweapons.dm
 
 /obj/item/clothing/suit/welderapron
 	urist_only = 1
@@ -317,4 +317,40 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	item_state = "meido"
 	body_parts_covered = CHEST|GROIN|ARMS
 
+//Alternate detective gear from BS12, Noire as fuck.
+
+/obj/item/clothing/under/det/black
+	urist_only = 1
+	icon = 'icons/urist/uristclothes.dmi'
+	icon_state = "detalt"
+	item_state = "detalt"
+	item_color = "detalt"
+	fitted = 0
+
+/obj/item/clothing/under/det/slob
+	urist_only = 1
+	icon = 'icons/urist/uristclothes.dmi'
+	icon_state = "polsuit"
+	item_state = "polsuit"
+	item_color = "polsuit"
+	fitted = 0
+
+/obj/item/clothing/under/det/slob/verb/rollup()
+	set name = "Roll suit sleeves"
+	set category = "Object"
+	set src in usr
+	item_color = item_color == "polsuit" ? "polsuit_rolled" : "polsuit"
+	if (ishuman(loc))
+		var/mob/living/carbon/human/H = loc
+		H.update_inv_w_uniform(1)
+
+/obj/item/clothing/suit/storage/det_suit/black
+	urist_only = 1
+	icon = 'icons/urist/uristclothes.dmi'
+	icon_state = "detective"
+
+/obj/item/clothing/head/det_hat/black
+	urist_only = 1
+	icon = 'icons/urist/uristclothes.dmi'
+	icon_state = "dethat"
 
