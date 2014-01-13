@@ -253,19 +253,6 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	desc = "A blue jacket and red tie, with matching red cuffs! Snazzy. Wearing this makes you feel more important than your job title does."
 	fitted = 0
 
-//Alternate outfit for the RD.
-
-/obj/item/clothing/under/rank/research_director_whimsy
-	urist_only = 1
-	name = "research director's suit"
-	icon = 'icons/urist/uristclothes.dmi'
-	icon_state = "rdwhimsy"
-	item_state = "rdwhimsy"
-	item_color = "rdwhimsy"
-	desc = "A pale yellow collared shirt along with matching dark tan pants and a brown tie that 'ties' it together. Would look great with a labcoat."
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
-	fitted = 0
-
 //Tactical Webbing. Icons are /tg/, there's just no def.
 
 /obj/item/clothing/suit/storage/webbing

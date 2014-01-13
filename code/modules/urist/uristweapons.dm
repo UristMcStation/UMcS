@@ -156,4 +156,3 @@ the sprite and make my own projectile -Glloyd*/
 	stun = 5
 	weaken = 5
 	stutter = 5
-
