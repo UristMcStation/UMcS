@@ -1,11 +1,11 @@
 // BEGIN_INTERNALS
 /*
 MAP_ICON_TYPE: 0
-WINDOW: code\modules\admin\admin_verbs.dm;code\modules\admin\admin_ranks.dm;icons\mob\items_lefthand.dmi;icons\mob\items_righthand.dmi;icons\effects\blood.dmi;icons\mob\screen_gen.dmi;icons\mob\screen_retro.dmi;code\modules\urist\uristclothes.dm
-LAST_COMPILE_VERSION: 499.1191
-DIR: code code\controllers code\game code\game\objects code\game\objects\effects code\game\objects\effects\decals\Cleanable code\modules code\modules\admin code\modules\urist maps 
-FILE: code\modules\urist\uristclothes.dm
-LAST_COMPILE_TIME: 1381885075
+WINDOW: code\modules\urist\uristclothes.dm;maps\tgstation.2.1.2.dmm;maps\Glloydstation.dmm;code\modules\urist\uristweapons.dm
+LAST_COMPILE_VERSION: 503.1224
+DIR: code code\__HELPERS code\controllers code\game code\game\gamemodes\traitor code\game\objects code\game\objects\effects\decals\Cleanable code\game\objects\items code\game\objects\items\weapons code\game\objects\structures code\game\objects\structures\crates_lockers code\modules code\modules\urist maps 
+FILE: maps\Glloydstation.dmm
+LAST_COMPILE_TIME: 1389732770
 AUTO_FILE_DIR: OFF
 */
 // END_INTERNALS

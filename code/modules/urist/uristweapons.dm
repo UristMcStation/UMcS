@@ -36,33 +36,14 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon = 'icons/urist/uristweapons.dmi'
 	icon_state = "senergystun100"
 	item_state = "gun"
-	fire_sound = 'sound/weapons/Taser.ogg'
 	w_class = 1
-	charge_cost = 150 //How much energy is needed to fire.
-	projectile_type = "/obj/item/projectile/energy/electrode"
+	ammo_type = list(/obj/item/ammo_casing/energy/electrode, /obj/item/ammo_casing/energy/laser)
 	origin_tech = "combat=2;magnets=2"
-	modifystate = "senergystun"
-
-	mode = 0 //0 = stun, 1 = kill
-
 
 	attack_self(mob/living/user as mob)
-		switch(mode)
-			if(0)
-				mode = 1
-				charge_cost = 150
-				fire_sound = 'sound/weapons/Laser.ogg'
-				user << "\red [src.name] is now set to kill."
-				projectile_type = "/obj/item/projectile/beam"
-				modifystate = "senergykill"
-			if(1)
-				mode = 0
-				charge_cost = 150
-				fire_sound = 'sound/weapons/Taser.ogg'
-				user << "\red [src.name] is now set to stun."
-				projectile_type = "/obj/item/projectile/energy/electrode"
-				modifystate = "senergystun"
+		select_fire(user)
 		update_icon()
+
 
 	suicide_act(mob/user)
 		viewers(user) << "\red <b>[user] is unloading the [src.name] into their head!</b>"
@@ -92,8 +73,7 @@ the sprite and make my own projectile -Glloyd*/
 	item_state = "gun"
 	fire_sound = 'sound/weapons/Genhit.ogg'
 	w_class = 1
-	charge_cost = 150 //How much energy is needed to fire.
-	projectile_type = "/obj/item/projectile/energy/plasma"
+	ammo_type = list(/obj/item/ammo_casing/energy/plasma)
 	origin_tech = "combat=3;magnets=2"
 	modifystate = "plasmapistol"
 	cell_type = "/obj/item/weapon/cell/crap"
@@ -111,6 +91,12 @@ the sprite and make my own projectile -Glloyd*/
 	damage_type = TOX
 	irradiate = 20
 
+/obj/item/ammo_casing/energy/plasma
+	projectile_type = /obj/item/projectile/energy/plasma
+	e_cost = 150
+	select_name = "plasma"
+	fire_sound = 'sound/weapons/Genhit.ogg'
+
 //Sniper rifle, from BS12. Those guys used spaces instead of tabs. What the actual fuck.
 
 /obj/item/weapon/gun/energy/sniperrifle
@@ -119,11 +105,9 @@ the sprite and make my own projectile -Glloyd*/
 	desc = "A rifle constructed of lightweight materials, fitted with a SMART aiming-system scope."
 	icon = 'icons/urist/uristweapons.dmi'
 	icon_state = "sniper"
-	fire_sound = 'sound/weapons/marauder.ogg'
 	origin_tech = "combat=6;materials=5;powerstorage=4"
-	projectile_type = "/obj/item/projectile/beam/sniper"
+	ammo_type = list(/obj/item/ammo_casing/energy/laser/sniper)
 	slot_flags = SLOT_BACK
-	charge_cost = 250
 	w_class = 4.0
 
 	var/zoom = 0
@@ -149,10 +133,16 @@ the sprite and make my own projectile -Glloyd*/
 		usr.client.view = world.view//world.view - default mob view size
 	return
 
-/obj/item/projectile/beam/sniper
+/obj/item/projectile/energy/laser/sniper
 	name = "sniper beam"
 	icon_state = "xray"
 	damage = 60
 	stun = 5
 	weaken = 5
 	stutter = 5
+
+/obj/item/ammo_casing/energy/laser/sniper
+	projectile_type = /obj/item/projectile/energy/laser/sniper
+	e_cost = 250
+	select_name = "sniper"
+	fire_sound = 'sound/weapons/marauder.ogg'
