@@ -29,21 +29,21 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 //Energy pistol, Energy gun with less shots. Can be put in player's pockets.
 
-/obj/item/weapon/gun/energy/gun/small
+/obj/item/weapon/gun/energy/pistol
 	urist_only = 1
 	name = "energy pistol"
 	desc = "An energy pistol with a wooden handle."
 	icon = 'icons/urist/uristweapons.dmi'
-	icon_state = "senergystun100"
-	item_state = "gun"
+	icon_state = "senergy"
+	item_state = null
 	w_class = 1
 	ammo_type = list(/obj/item/ammo_casing/energy/electrode, /obj/item/ammo_casing/energy/laser)
 	origin_tech = "combat=2;magnets=2"
+	modifystate = 2
 
 	attack_self(mob/living/user as mob)
 		select_fire(user)
 		update_icon()
-
 
 	suicide_act(mob/user)
 		viewers(user) << "\red <b>[user] is unloading the [src.name] into their head!</b>"
@@ -71,11 +71,10 @@ the sprite and make my own projectile -Glloyd*/
 	icon = 'icons/urist/uristweapons.dmi'
 	icon_state = "plasmapistol"
 	item_state = "gun"
-	fire_sound = 'sound/weapons/Genhit.ogg'
 	w_class = 1
 	ammo_type = list(/obj/item/ammo_casing/energy/plasma)
 	origin_tech = "combat=3;magnets=2"
-	modifystate = "plasmapistol"
+	modifystate = 0
 	cell_type = "/obj/item/weapon/cell/crap"
 
 	suicide_act(mob/user)
@@ -93,7 +92,7 @@ the sprite and make my own projectile -Glloyd*/
 
 /obj/item/ammo_casing/energy/plasma
 	projectile_type = /obj/item/projectile/energy/plasma
-	e_cost = 150
+	e_cost = 100
 	select_name = "plasma"
 	fire_sound = 'sound/weapons/Genhit.ogg'
 
