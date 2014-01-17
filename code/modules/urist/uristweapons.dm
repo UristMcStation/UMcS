@@ -29,7 +29,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 //Energy pistol, Energy gun with less shots. Can be put in player's pockets.
 
-/obj/item/weapon/gun/energy/pistol
+/obj/item/weapon/gun/energy/gun/pistol
 	urist_only = 1
 	name = "energy pistol"
 	desc = "An energy pistol with a wooden handle."
@@ -98,7 +98,7 @@ the sprite and make my own projectile -Glloyd*/
 
 //Sniper rifle, from BS12. Those guys used spaces instead of tabs. What the actual fuck.
 
-/obj/item/weapon/gun/energy/sniperrifle
+/obj/item/weapon/gun/energy/laser/sniperrifle
 	urist_only = 1
 	name = "L.W.A.P. Sniper Rifle"
 	desc = "A rifle constructed of lightweight materials, fitted with a SMART aiming-system scope."
@@ -111,11 +111,11 @@ the sprite and make my own projectile -Glloyd*/
 
 	var/zoom = 0
 
-/obj/item/weapon/gun/energy/sniperrifle/dropped(mob/user)
+/obj/item/weapon/gun/energy/laser/sniperrifle/dropped(mob/user)
 	user.client.view = world.view
 	zoom = 0
 
-/obj/item/weapon/gun/energy/sniperrifle/verb/zoom()
+/obj/item/weapon/gun/energy/laser/sniperrifle/verb/zoom()
 	set category = "Special Verbs"
 	set name = "Zoom"
 	set popup_menu = 0
