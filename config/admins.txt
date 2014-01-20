@@ -10,15 +10,11 @@
 
 kg333 = Host
 vactor = Host
-#aklyon = Game Master
 electronics111 = Game Master
 #Electronics
-#aardvarkperson = Game Master
-#Shoesandhats
-#donuts223 = Game Master
 bdthemag = Game Master
 androidsfv = Game Master
-glloyd = Game Master
+glloyd = Head Admin
 Nienhaus2 = Game Master
 hanspanda = Game Master
 greatorder = Moderator
@@ -26,7 +22,7 @@ andreathesecond = Moderator
 jacob_lee = Game Master
 USEC_OFFICER = Game Master
 Ozarck = Moderator
-Rabidgam3r = Moderator
+Rabidgam3r = Trial Admin
 M3hillus = Trial Admin
 CoraiUnki = Game Master
 Kydrasz = Game Master
