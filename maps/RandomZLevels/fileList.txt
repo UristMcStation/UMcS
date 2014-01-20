@@ -14,7 +14,9 @@ maps/RandomZLevels/spacebattle.dmm
 maps/RandomZLevels/beach.dmm
 #maps/RandomZLevels/Academy.dmm
 #maps/RandomZLevels/wildwest.dmm
+
 maps/RandomZLevels/challenge.dmm
 maps/RandomZLevels/listeningpost.dmm
 maps/RandomZLevels/spacehotel.dmm
 maps/RandomZLevels/centcomAway.dmm
+#maps/RandomZLevels/box2550Away.dmm
