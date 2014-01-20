@@ -76,18 +76,7 @@ var/list/ai_list = list()
 		if (istype(L, /datum/ai_laws))
 			laws = L
 	else
-		if(prob(95))
-			laws = new /datum/ai_laws/asimov
-		else
-			switch(rand(1,4))
-				if(1)
-					laws = new /datum/ai_laws/robocop
-				if(2)
-					laws = new /datum/ai_laws/corporate
-				if(3)
-					laws = new /datum/ai_laws/tryant
-				if(4)
-					laws = new /datum/ai_laws/paladin
+		make_laws()
 
 	verbs += /mob/living/silicon/ai/proc/show_laws_verb
 
