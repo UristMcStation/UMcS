@@ -23,6 +23,7 @@ var/const/CMO				=(1<<3)
 var/const/DOCTOR			=(1<<4)
 var/const/GENETICIST		=(1<<5)
 var/const/VIROLOGIST		=(1<<6)
+var/const/PSYCHOLOGIST		=(1<<7)
 
 
 var/const/CIVILIAN			=(1<<2)
@@ -50,6 +51,7 @@ var/list/assistant_occupations = list(
 	"Chaplain",
 	"Lawyer",
 	"Librarian"
+
 )
 
 
@@ -60,6 +62,7 @@ var/list/command_positions = list(
 	"Chief Engineer",
 	"Research Director",
 	"Chief Medical Officer"
+
 )
 
 
@@ -67,6 +70,7 @@ var/list/engineering_positions = list(
 	"Chief Engineer",
 	"Station Engineer",
 	"Atmospheric Technician",
+
 )
 
 
@@ -75,7 +79,9 @@ var/list/medical_positions = list(
 	"Medical Doctor",
 	"Geneticist",	//Part of both medical and science
 	"Virologist",
-	"Chemist"
+	"Chemist",
+	"Psychologist"
+
 )
 
 
@@ -84,6 +90,7 @@ var/list/science_positions = list(
 	"Scientist",
 	"Geneticist",	//Part of both medical and science
 	"Roboticist"
+
 )
 
 
@@ -102,6 +109,7 @@ var/list/civilian_positions = list(
 	"Clown",
 	"Mime",
 	"Assistant"
+
 )
 
 
@@ -110,6 +118,7 @@ var/list/security_positions = list(
 	"Warden",
 	"Detective",
 	"Security Officer"
+
 )
 
 

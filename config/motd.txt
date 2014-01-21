@@ -1,8 +1,7 @@
 <h1>Welcome to Urist McStation! Before you begin...</h1>
 
 <i>This server is running a /tg/station13 Git build with a custom map and features.</i>
-<i>This is a medium roleplay server.  Roleplay is encouraged,
-and please don't be egregiously out of character.</i>
+<i>This is a medium roleplay server.  Roleplay is encouraged, and please don't be egregiously out of character.</i>
 <h2>Server Rules:</h2>
 <b>Click the "Rules" tab at the top of this window and read them!
 If you aren't aware of our rules, you could be warned by

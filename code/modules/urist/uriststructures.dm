@@ -54,3 +54,22 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	new /obj/item/clothing/head/bio_hood/asec(src)
 	new /obj/item/clothing/suit/bio_suit/asec(src)
 
+//Psychologists bed, icon from BS12
+
+/obj/structure/stool/bed/psych
+	name = "psych bed"
+	desc = "For prime comfort during psychiatric evaluations."
+	icon = 'icons/urist/uristicons.dmi'
+	icon_state = "psychbed"
+
+//Psychologists locker
+
+/obj/structure/closet/secure_closet/psychologist
+	name = "Psychologist's Locker"
+	req_access = list(access_psychologist)
+	icon_state = "cabinetdetective_locked"
+	icon_closed = "cabinetdetective"
+	icon_locked = "cabinetdetective_locked"
+	icon_opened = "cabinetdetective_open"
+	icon_broken = "cabinetdetective_broken"
+	icon_off = "cabinetdetective_broken"

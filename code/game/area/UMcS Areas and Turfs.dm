@@ -73,10 +73,18 @@ Basically, if you need to add areas or turfs for UMcS, use this file -Glloyd */
 	name = "\improper Abandoned Satellite"
 	icon_state = "yellow"
 
+/area/medical/lounge
+	name = "\improper Medbay Lounge"
+	icon_state = "medbay2"
+
+/area/medical/psychoffice
+	name = "\improper Psychologist's Office"
+	icon_state = "medbay3"
+
 /*TURFS
 ********I SWEAR, IF ANYONE FUCKS WITH THIS, I WILL KILL YOU. -Glloyd********
 
-Icons for uristturfs from Nienhaus and Lord Slowpoke*/
+Icons for uristturfs from Nienhaus, Glloyd and Lord Slowpoke*/
 
 /turf/simulated/floor/uristturf
 	name = "floor"
