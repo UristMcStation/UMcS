@@ -6,6 +6,10 @@
 
 // BEGIN_FILE_DIR
 #define FILE_DIR .
+#define FILE_DIR "code"
+#define FILE_DIR "code/modules"
+#define FILE_DIR "code/modules/awaymissions"
+#define FILE_DIR "code/modules/awaymissions/mission_code"
 #define FILE_DIR "html"
 #define FILE_DIR "icons"
 #define FILE_DIR "icons/ass"
@@ -29,10 +33,7 @@
 #define FILE_DIR "icons/turf"
 #define FILE_DIR "icons/urist"
 #define FILE_DIR "icons/uristmob"
-#define FILE_DIR "icons/uristmob/New folder"
 #define FILE_DIR "icons/vending_icons"
-#define FILE_DIR "maps"
-#define FILE_DIR "maps/RandomZLevels"
 #define FILE_DIR "nano"
 #define FILE_DIR "nano/images"
 #define FILE_DIR "sound"
@@ -60,6 +61,7 @@
 // END_PREFERENCES
 
 // BEGIN_INCLUDE
+#include "_maps\glloydstation.dm"
 #include "code\_compile_options.dm"
 #include "code\hub.dm"
 #include "code\world.dm"
@@ -349,6 +351,7 @@
 #include "code\game\machinery\deployable.dm"
 #include "code\game\machinery\door_control.dm"
 #include "code\game\machinery\doppler_array.dm"
+#include "code\game\machinery\drying_rack.dm"
 #include "code\game\machinery\flasher.dm"
 #include "code\game\machinery\Freezer.dm"
 #include "code\game\machinery\hologram.dm"
@@ -785,6 +788,13 @@
 #include "code\modules\awaymissions\maploader\reader.dm"
 #include "code\modules\awaymissions\maploader\swapmaps.dm"
 #include "code\modules\awaymissions\maploader\writer.dm"
+#include "code\modules\awaymissions\mission_code\Academy.dm"
+#include "code\modules\awaymissions\mission_code\blackmarketpackers.dm"
+#include "code\modules\awaymissions\mission_code\centcomAway.dm"
+#include "code\modules\awaymissions\mission_code\challenge.dm"
+#include "code\modules\awaymissions\mission_code\spacebattle.dm"
+#include "code\modules\awaymissions\mission_code\stationCollision.dm"
+#include "code\modules\awaymissions\mission_code\wildwest.dm"
 #include "code\modules\client\client defines.dm"
 #include "code\modules\client\client procs.dm"
 #include "code\modules\client\preferences.dm"
@@ -1264,13 +1274,4 @@
 #include "interface\interface.dm"
 #include "interface\stylesheet.dm"
 #include "interface\skin.dmf"
-#include "maps\Glloydstation.dmm"
-#include "maps\RandomZLevels\Academy.dm"
-#include "maps\RandomZLevels\blackmarketpackers.dm"
-#include "maps\RandomZLevels\box2550Away.dm"
-#include "maps\RandomZLevels\centcomAway.dm"
-#include "maps\RandomZLevels\challenge.dm"
-#include "maps\RandomZLevels\spacebattle.dm"
-#include "maps\RandomZLevels\stationCollision.dm"
-#include "maps\RandomZLevels\wildwest.dm"
 // END_INCLUDE

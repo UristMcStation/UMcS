@@ -21,7 +21,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	attack_verb = list("cleaved", "slashed", "sliced", "torn", "ripped", "diced", "cut")
 
 	suicide_act(mob/user)
-		viewers(user) << "\red <b>[user] is slitting \his stomach open with the [src.name]! It looks like \he's trying to commit suicide.</b>"
+		viewers(user) << "<span class='suicide'>[user] is slitting \his stomach open with the [src.name]! It looks like \he's trying to commit suicide.</b>"
 		return(BRUTELOSS)
 
 /obj/item/weapon/machete/IsShield()
@@ -46,7 +46,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 		update_icon()
 
 	suicide_act(mob/user)
-		viewers(user) << "\red <b>[user] is unloading the [src.name] into their head!</b>"
+		viewers(user) << "<span class='suicide'>[user] is unloading the [src.name] into their head!</b>"
 		return(BRUTELOSS)
 
 /*plasma pistol. does toxic damage. I want to add this to research soonish. icons by Susan from BS12, editing and projectile by Glloyd
@@ -68,8 +68,8 @@ the sprite and make my own projectile -Glloyd*/
 	cell_type = "/obj/item/weapon/cell/crap"
 
 	suicide_act(mob/user)
-		viewers(user) << "\red <b>[user] is unloading the [src.name] into their head! Their skin turns purple and starts to melt!</b>"
-		return(BRUTELOSS)
+		viewers(user) << "<span class='suicide'>[user] is unloading the [src.name] into their head! Their skin turns purple and starts to melt!</b>"
+		return(BRUTELOSS|TOXLOSS)
 
 /obj/item/projectile/energy/plasma
 	urist_only = 1

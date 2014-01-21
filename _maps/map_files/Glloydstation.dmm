@@ -8885,7 +8885,7 @@
 "doS" = (/obj/structure/table,/obj/item/weapon/dice/d20,/turf/unsimulated/floor{icon_state = "freezerfloor"; dir = 2},/area/centcom/holding)
 "doT" = (/obj/structure/stool{pixel_y = 8},/obj/item/clothing/head/bandana{pixel_y = -10},/obj/item/clothing/glasses/sunglasses,/turf/unsimulated/beach/sand,/area/centcom/holding)
 "doU" = (/obj/structure/stool{pixel_y = 8},/turf/unsimulated/beach/sand,/area/centcom/holding)
-"doV" = (/obj/structure/rack,/obj/item/clothing/head/that,/obj/item/clothing/under/suit_jacket,/obj/item/clothing/suit/wcoat,/turf/unsimulated/floor{icon_state = "cafeteria"; dir = 2},/area/centcom/holding)
+"doV" = (/obj/structure/rack,/obj/item/clothing/head/that,/obj/item/clothing/under/suit_jacket,/obj/item/clothing/tie/waistcoat,/turf/unsimulated/floor{icon_state = "cafeteria"; dir = 2},/area/centcom/holding)
 "doW" = (/obj/item/weapon/beach_ball,/turf/unsimulated/beach/sand,/area/centcom/holding)
 "doX" = (/obj/structure/rack,/obj/item/weapon/storage/fancy/crayons,/turf/unsimulated/floor{icon_state = "cafeteria"; dir = 2},/area/centcom/holding)
 "doY" = (/obj/structure/window/reinforced{dir = 4},/turf/unsimulated/floor{icon_state = "cafeteria"; dir = 2},/area/centcom/holding)
