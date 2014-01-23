@@ -135,3 +135,73 @@ the sprite and make my own projectile -Glloyd*/
 	e_cost = 250
 	select_name = "sniper"
 	fire_sound = 'sound/weapons/marauder.ogg'
+
+//S-COM projectiles. Eat your heart out Corai
+
+/obj/item/ammo_casing/energy/laser/sniper/SCOM
+	projectile_type = /obj/item/projectile/energy/laser/sniper
+	e_cost = 10
+	select_name = "sniper"
+	fire_sound = 'sound/weapons/marauder.ogg'
+
+/obj/item/ammo_casing/energy/xray/SCOM
+	projectile_type = /obj/item/projectile/beam/xray
+	e_cost = 5
+	fire_sound = 'sound/weapons/laser3.ogg'
+
+//Alien guns and projectiles for S-COM. I refuse to call these plasma guns. PLASMA IS PURPLE.
+
+/obj/item/weapon/gun/energy/alien
+	urist_only = 1
+	icon = 'icons/urist/uristweapons.dmi'
+	desc = "A strange alien weapon that fires green bolts... There are engravings on the side that mean nothing to you."
+
+/obj/item/weapon/gun/energy/alien/pistol
+	name = "alien pistol"
+	icon_state = "alienpistol"
+	item_state = "gun"
+	w_class = 1
+	ammo_type = list(/obj/item/ammo_casing/energy/alien/alien1)
+
+/obj/item/weapon/gun/energy/alien/lightrifle
+	name = "light alien rifle"
+	icon_state = "lightalienrifle"
+	item_state = "gun"
+	ammo_type = list(/obj/item/ammo_casing/energy/alien/alien2)
+
+/obj/item/weapon/gun/energy/alien/rifle
+	name = "alien rifle"
+	icon_state = "alienrifle"
+	item_state = "gun"
+	ammo_type = list(/obj/item/ammo_casing/energy/alien/alien3)
+
+/obj/item/projectile/energy/laser/alien
+	urist_only = 1
+	name = "alien beam"
+	icon = 'uristweapons.dmi'
+	icon_state = "alienprojectile"
+
+/obj/item/projectile/energy/laser/alien1
+	damage = 15
+
+/obj/item/projectile/energy/laser/alien2
+	damage = 25
+
+/obj/item/projectile/energy/laser/alien3
+	damage = 30
+	stun = 5
+	weaken = 5
+	stutter = 5
+
+/obj/item/ammo_casing/energy/alien
+	e_cost = 0
+	fire_sound = 'sound/weapons/marauder.ogg'
+
+/obj/item/ammo_casing/energy/alien/alien1
+	projectile_type = /obj/item/projectile/energy/laser/alien1
+
+/obj/item/ammo_casing/energy/alien/alien2
+	projectile_type = /obj/item/projectile/energy/laser/alien2
+
+/obj/item/ammo_casing/energy/alien/alien3
+	projectile_type = /obj/item/projectile/energy/laser/alien3
