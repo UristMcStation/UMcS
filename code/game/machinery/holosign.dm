@@ -64,10 +64,8 @@ obj/machinery/holosign_switch/attack_paw(mob/user as mob)
 	use_power(5)
 
 	active = !active
-	if(active)
-		icon_state = "light1"
-	else
-		icon_state = "light0"
+	flick("doorctrl1",src)
+
 
 	for(var/obj/machinery/holosign/M in world)
 		if (M.id == src.id)
