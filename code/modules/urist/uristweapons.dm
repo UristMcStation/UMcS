@@ -151,26 +151,28 @@ the sprite and make my own projectile -Glloyd*/
 
 //Alien guns and projectiles for S-COM. I refuse to call these plasma guns. PLASMA IS PURPLE.
 
-/obj/item/weapon/gun/energy/alien
+obj/item/weapon/gun/energy/laser/alien
 	urist_only = 1
 	icon = 'icons/urist/uristweapons.dmi'
-	desc = "A strange alien weapon that fires green bolts... There are engravings on the side that mean nothing to you."
 
-/obj/item/weapon/gun/energy/alien/pistol
+/obj/item/weapon/gun/energy/laser/alien/pistol
 	name = "alien pistol"
+	desc = "A strange alien pistol that fires green bolts... There are engravings on the side that mean nothing to you."
 	icon_state = "alienpistol"
 	item_state = "gun"
 	w_class = 1
 	ammo_type = list(/obj/item/ammo_casing/energy/alien/alien1)
 
-/obj/item/weapon/gun/energy/alien/lightrifle
+/obj/item/weapon/gun/energy/laser/alien/lightrifle
 	name = "light alien rifle"
+	desc = "A strange alien light rifle that fires green bolts... There are engravings on the side that mean nothing to you."
 	icon_state = "lightalienrifle"
 	item_state = "gun"
 	ammo_type = list(/obj/item/ammo_casing/energy/alien/alien2)
 
-/obj/item/weapon/gun/energy/alien/rifle
+/obj/item/weapon/gun/energy/laser/alien/rifle
 	name = "alien rifle"
+	desc = "A strange alien rifle that fires green bolts... There are engravings on the side that mean nothing to you."
 	icon_state = "alienrifle"
 	item_state = "gun"
 	ammo_type = list(/obj/item/ammo_casing/energy/alien/alien3)
@@ -178,16 +180,16 @@ the sprite and make my own projectile -Glloyd*/
 /obj/item/projectile/energy/laser/alien
 	urist_only = 1
 	name = "alien beam"
-	icon = 'uristweapons.dmi'
+	icon = 'icons/urist/uristweapons.dmi'
 	icon_state = "alienprojectile"
 
-/obj/item/projectile/energy/laser/alien1
+/obj/item/projectile/energy/laser/alien/alien1
 	damage = 15
 
-/obj/item/projectile/energy/laser/alien2
+/obj/item/projectile/energy/laser/alien/alien2
 	damage = 25
 
-/obj/item/projectile/energy/laser/alien3
+/obj/item/projectile/energy/laser/alien/alien3
 	damage = 30
 	stun = 5
 	weaken = 5
@@ -198,10 +200,10 @@ the sprite and make my own projectile -Glloyd*/
 	fire_sound = 'sound/weapons/marauder.ogg'
 
 /obj/item/ammo_casing/energy/alien/alien1
-	projectile_type = /obj/item/projectile/energy/laser/alien1
+	projectile_type = /obj/item/projectile/energy/laser/alien/alien1
 
 /obj/item/ammo_casing/energy/alien/alien2
-	projectile_type = /obj/item/projectile/energy/laser/alien2
+	projectile_type = /obj/item/projectile/energy/laser/alien/alien2
 
 /obj/item/ammo_casing/energy/alien/alien3
-	projectile_type = /obj/item/projectile/energy/laser/alien3
+	projectile_type = /obj/item/projectile/energy/laser/alien/alien3
