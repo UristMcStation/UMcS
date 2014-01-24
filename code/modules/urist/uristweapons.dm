@@ -63,7 +63,7 @@ the sprite and make my own projectile -Glloyd*/
 	item_state = "gun"
 	w_class = 1
 	ammo_type = list(/obj/item/ammo_casing/energy/plasma)
-	origin_tech = "combat=3;magnets=2"
+	origin_tech = "combat=4;magnets=2;materials=4;plasmatech=3"
 	modifystate = 0
 	cell_type = "/obj/item/weapon/cell/crap"
 
