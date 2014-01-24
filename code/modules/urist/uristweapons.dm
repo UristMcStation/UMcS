@@ -207,3 +207,13 @@ obj/item/weapon/gun/energy/laser/alien
 
 /obj/item/ammo_casing/energy/alien/alien3
 	projectile_type = /obj/item/projectile/energy/laser/alien/alien3
+
+//More special S-COM projectiles
+
+/obj/item/ammo_casing/a12mm/SCOM
+	desc = "A 12mm bullet casing."
+	caliber = "12mm"
+	projectile_type = /obj/item/projectile/bullet/midbullet2
+
+/obj/item/ammo_box/magazine/m12mm/SCOM
+	ammo_type = /obj/item/ammo_casing/a12mm/SCOM

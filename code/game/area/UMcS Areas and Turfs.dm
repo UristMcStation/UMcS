@@ -63,6 +63,9 @@ Basically, if you need to add areas or turfs for UMcS, use this file -Glloyd */
 /area/centcom/scom
 	name = "\improper S-COM Headquarters"
 
+/area/centcom/antag
+	name = "\improper A.N.T.A.G Base"
+
 /area/awaymission/snowventure
 	name = "\improper Snowy Plains"
 	icon_state = "away"
