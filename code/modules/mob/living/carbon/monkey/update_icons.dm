@@ -44,7 +44,7 @@
 			standing = image("icon" = 'icons/mob/monkey.dmi', "icon_state" = "[wear_mask.icon_state]", "layer" = -M_MASK_LAYER)
 		else
 			standing = image("icon" = 'icons/uristmob/monkey.dmi', "icon_state" = "[wear_mask.icon_state]", "layer" = -M_MASK_LAYER)
-		
+
 		if(!istype(wear_mask, /obj/item/clothing/mask/cigarette) && wear_mask.blood_DNA )
 			standing.overlays	+= image("icon" = 'icons/effects/blood.dmi', "icon_state" = "maskblood")
 		overlays_standing[M_MASK_LAYER]	= standing
@@ -99,7 +99,10 @@
 		if(client && hud_used)
 			client.screen += back
 		overlays -= overlays_standing[M_BACK_LAYER]
-		overlays_standing[M_BACK_LAYER]	= image("icon" = 'icons/mob/back.dmi', "icon_state" = "[back.icon_state]", "layer" = -M_BACK_LAYER)
+		if(!back.urist_only)
+			overlays_standing[M_BACK_LAYER]	= image("icon" = 'icons/mob/back.dmi', "icon_state" = "[back.icon_state]", "layer" = -M_BACK_LAYER)
+		else
+			overlays_standing[M_BACK_LAYER]	= image("icon" = 'icons/uristmob/clothes.dmi', "icon_state" = "[back.icon_state]", "layer" = -M_BACK_LAYER)
 		overlays += overlays_standing[M_BACK_LAYER]
 	else
 		overlays -= overlays_standing[M_BACK_LAYER]
