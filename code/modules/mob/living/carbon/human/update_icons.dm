@@ -53,6 +53,8 @@ There are several things that need to be remembered:
 If you have any questions/constructive-comments/bugs-to-report
 Please contact me on #coderbus IRC. ~Carnie x
 //Carn can sometimes be hard to reach now. However IRC is still your best bet for getting help.
+
+//Urist icon path changes by CoZarctan. For help merging any /tg/ changes, find him on the bay12games forums as Karlito
 */
 
 //Human Overlays Indexes/////////
@@ -322,9 +324,9 @@ Please contact me on #coderbus IRC. ~Carnie x
 		if(!t_color)		t_color = icon_state
 		var/image/standing
 		if(!U.urist_only)
-			standing	= image("icon"='icons/mob/uniform.dmi', "icon_state"="[t_color]_s", "layer"=-UNIFORM_LAYER)
+			standing = image("icon"='icons/mob/uniform.dmi', "icon_state"="[t_color]_s", "layer"=-UNIFORM_LAYER)
 		else
-			standing	= image("icon"='icons/uristmob/clothes.dmi', "icon_state"="[t_color]_s", "layer"=-UNIFORM_LAYER)
+			standing = image("icon"='icons/uristmob/clothes.dmi', "icon_state"="[t_color]_s", "layer"=-UNIFORM_LAYER)
 		overlays_standing[UNIFORM_LAYER]	= standing
 
 		var/G = (gender == FEMALE) ? "f" : "m"
@@ -346,7 +348,6 @@ Please contact me on #coderbus IRC. ~Carnie x
 				standing.overlays	+= image("icon"='icons/mob/ties.dmi', "icon_state"="[tie_color]")
 			else
 				standing.overlays	+= image("icon"='icons/uristmob/clothes.dmi', "icon_state"="[tie_color]")
-
 	else
 		// Automatically drop anything in store / id / belt if you're not wearing a uniform.	//CHECK IF NECESARRY
 		for(var/obj/item/thing in list(r_store, l_store, wear_id, belt))						//
@@ -378,9 +379,9 @@ Please contact me on #coderbus IRC. ~Carnie x
 		if(!t_state)	t_state = gloves.icon_state
 		var/image/standing
 		if(!gloves.urist_only)
-			standing	= image("icon"='icons/mob/hands.dmi', "icon_state"="[t_state]", "layer"=-GLOVES_LAYER)
+			standing = image("icon"='icons/mob/hands.dmi', "icon_state"="[t_state]", "layer"=-GLOVES_LAYER)
 		else
-			standing	= image("icon"='icons/uristmob/clothes.dmi', "icon_state"="[t_state]", "layer"=-GLOVES_LAYER)
+			standing = image("icon"='icons/uristmob/clothes.dmi', "icon_state"="[t_state]", "layer"=-GLOVES_LAYER)
 		overlays_standing[GLOVES_LAYER]	= standing
 
 		if(gloves.blood_DNA)
@@ -400,7 +401,6 @@ Please contact me on #coderbus IRC. ~Carnie x
 		if(client && hud_used && hud_used.hud_shown && hud_used.inventory_shown)
 			glasses.screen_loc = ui_glasses
 			client.screen += glasses
-
 		if(!glasses.urist_only)
 			overlays_standing[GLASSES_LAYER]	= image("icon"='icons/mob/eyes.dmi', "icon_state"="[glasses.icon_state]", "layer"=-GLASSES_LAYER)
 		else
@@ -416,7 +416,6 @@ Please contact me on #coderbus IRC. ~Carnie x
 		if(client && hud_used && hud_used.hud_shown && hud_used.inventory_shown)
 			ears.screen_loc = ui_ears
 			client.screen += ears
-
 		if(!ears.urist_only)
 			overlays_standing[EARS_LAYER] = image("icon"='icons/mob/ears.dmi', "icon_state"="[ears.icon_state]", "layer"=-EARS_LAYER)
 		else
@@ -435,9 +434,9 @@ Please contact me on #coderbus IRC. ~Carnie x
 
 		var/image/standing
 		if(!shoes.urist_only)
-			standing	= image("icon"='icons/mob/feet.dmi', "icon_state"="[shoes.icon_state]", "layer"=-SHOES_LAYER)
+			standing = image("icon"='icons/mob/feet.dmi', "icon_state"="[shoes.icon_state]", "layer"=-SHOES_LAYER)
 		else
-			standing	= image("icon"='icons/uristmob/clothes.dmi', "icon_state"="[shoes.icon_state]", "layer"=-SHOES_LAYER)
+			standing = image("icon"='icons/uristmob/clothes.dmi', "icon_state"="[shoes.icon_state]", "layer"=-SHOES_LAYER)
 
 		overlays_standing[SHOES_LAYER]	= standing
 
@@ -457,7 +456,6 @@ Please contact me on #coderbus IRC. ~Carnie x
 
 		var/t_state = s_store.item_state
 		if(!t_state)	t_state = s_store.icon_state
-
 		if(!s_store.urist_only)
 			overlays_standing[SUIT_STORE_LAYER]	= image("icon"='icons/mob/belt_mirror.dmi', "icon_state"="[t_state]", "layer"=-SUIT_STORE_LAYER)
 		else
@@ -475,13 +473,11 @@ Please contact me on #coderbus IRC. ~Carnie x
 			head.screen_loc = ui_head		//TODO
 			client.screen += head
 
-		var/image/standing = image("icon"='icons/mob/head.dmi', "icon_state"="[head.icon_state]", "layer"=-HEAD_LAYER)
+		var/image/standing
 		if(!head.urist_only)
-			lying		= image("icon"='icons/mob/head.dmi', "icon_state"="[head.icon_state]2", "layer"=-HEAD_LAYER)
-			standing	= image("icon"='icons/mob/head.dmi', "icon_state"="[head.icon_state]", "layer"=-HEAD_LAYER)
+			standing = image("icon"='icons/mob/head.dmi', "icon_state"="[head.icon_state]", "layer"=-HEAD_LAYER)
 		else
-			lying		= image("icon"='icons/uristmob/clothes.dmi', "icon_state"="[head.icon_state]2", "layer"=-HEAD_LAYER)
-			standing	= image("icon"='icons/uristmob/clothes.dmi', "icon_state"="[head.icon_state]", "layer"=-HEAD_LAYER)
+			standing = image("icon"='icons/uristmob/clothes.dmi', "icon_state"="[head.icon_state]", "layer"=-HEAD_LAYER)
 
 		overlays_standing[HEAD_LAYER]	= standing
 
@@ -501,7 +497,6 @@ Please contact me on #coderbus IRC. ~Carnie x
 
 		var/t_state = belt.item_state
 		if(!t_state)	t_state = belt.icon_state
-
 		if(!belt.urist_only)
 			overlays_standing[BELT_LAYER]	= image("icon"='icons/mob/belt.dmi', "icon_state"="[t_state]", "layer"=-BELT_LAYER)
 		else
@@ -521,9 +516,9 @@ Please contact me on #coderbus IRC. ~Carnie x
 
 		var/image/standing
 		if(!wear_suit.urist_only)
-			standing	= image("icon"='icons/mob/suit.dmi', "icon_state"="[wear_suit.icon_state]", "layer"=-SUIT_LAYER)
+			standing = image("icon"='icons/mob/suit.dmi', "icon_state"="[wear_suit.icon_state]", "layer"=-SUIT_LAYER)
 		else
-			standing	= image("icon"='icons/uristmob/clothes.dmi', "icon_state"="[wear_suit.icon_state]", "layer"=-SUIT_LAYER)
+			standing = image("icon"='icons/uristmob/clothes.dmi', "icon_state"="[wear_suit.icon_state]", "layer"=-SUIT_LAYER)
 
 		overlays_standing[SUIT_LAYER]	= standing
 
@@ -560,9 +555,9 @@ Please contact me on #coderbus IRC. ~Carnie x
 
 		var/image/standing
 		if(!wear_mask.urist_only)
-			standing	= image("icon"='icons/mob/mask.dmi', "icon_state"="[wear_mask.icon_state]", "layer"=-FACEMASK_LAYER)
+			standing = image("icon"='icons/mob/mask.dmi', "icon_state"="[wear_mask.icon_state]", "layer"=-FACEMASK_LAYER)
 		else
-			standing	= image("icon"='icons/uristmob/clothes.dmi', "icon_state"="[wear_mask.icon_state]", "layer"=-FACEMASK_LAYER)
+			standing = image("icon"='icons/uristmob/clothes.dmi', "icon_state"="[wear_mask.icon_state]", "layer"=-FACEMASK_LAYER)
 
 		overlays_standing[FACEMASK_LAYER]	= standing
 
@@ -581,7 +576,6 @@ Please contact me on #coderbus IRC. ~Carnie x
 		if(client && hud_used && hud_used.hud_shown)
 			back.screen_loc = ui_back	//TODO
 			client.screen += back
-
 		if(!back.urist_only)
 			overlays_standing[BACK_LAYER]	= image("icon"='icons/mob/back.dmi', "icon_state"="[back.icon_state]", "layer"=-BACK_LAYER)
 		else

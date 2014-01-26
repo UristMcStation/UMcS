@@ -1268,6 +1268,7 @@
 #include "code\modules\urist\uristclothes.dm"
 #include "code\modules\urist\uristpapers.dm"
 #include "code\modules\urist\uristpills.dm"
+#include "code\modules\urist\uristscience.dm"
 #include "code\modules\urist\uriststructures.dm"
 #include "code\modules\urist\uristweapons.dm"
 #include "code\WorkInProgress\buildmode.dm"

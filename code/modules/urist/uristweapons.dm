@@ -63,7 +63,7 @@ the sprite and make my own projectile -Glloyd*/
 	item_state = "gun"
 	w_class = 1
 	ammo_type = list(/obj/item/ammo_casing/energy/plasma)
-	origin_tech = "combat=3;magnets=2"
+	origin_tech = "combat=4;magnets=2;materials=4;plasmatech=3"
 	modifystate = 0
 	cell_type = "/obj/item/weapon/cell/crap"
 
@@ -135,3 +135,85 @@ the sprite and make my own projectile -Glloyd*/
 	e_cost = 250
 	select_name = "sniper"
 	fire_sound = 'sound/weapons/marauder.ogg'
+
+//S-COM projectiles. Eat your heart out Corai
+
+/obj/item/ammo_casing/energy/laser/sniper/SCOM
+	projectile_type = /obj/item/projectile/energy/laser/sniper
+	e_cost = 10
+	select_name = "sniper"
+	fire_sound = 'sound/weapons/marauder.ogg'
+
+/obj/item/ammo_casing/energy/xray/SCOM
+	projectile_type = /obj/item/projectile/beam/xray
+	e_cost = 5
+	fire_sound = 'sound/weapons/laser3.ogg'
+
+//Alien guns and projectiles for S-COM. I refuse to call these plasma guns. PLASMA IS PURPLE.
+
+obj/item/weapon/gun/energy/laser/alien
+	urist_only = 1
+	icon = 'icons/urist/uristweapons.dmi'
+
+/obj/item/weapon/gun/energy/laser/alien/pistol
+	name = "alien pistol"
+	desc = "A strange alien pistol that fires green bolts... There are engravings on the side that mean nothing to you."
+	icon_state = "alienpistol"
+	item_state = "gun"
+	w_class = 1
+	ammo_type = list(/obj/item/ammo_casing/energy/alien/alien1)
+
+/obj/item/weapon/gun/energy/laser/alien/lightrifle
+	name = "light alien rifle"
+	desc = "A strange alien light rifle that fires green bolts... There are engravings on the side that mean nothing to you."
+	icon_state = "lightalienrifle"
+	item_state = "gun"
+	ammo_type = list(/obj/item/ammo_casing/energy/alien/alien2)
+
+/obj/item/weapon/gun/energy/laser/alien/rifle
+	name = "alien rifle"
+	desc = "A strange alien rifle that fires green bolts... There are engravings on the side that mean nothing to you."
+	icon_state = "alienrifle"
+	item_state = "gun"
+	ammo_type = list(/obj/item/ammo_casing/energy/alien/alien3)
+
+/obj/item/projectile/energy/laser/alien
+	urist_only = 1
+	name = "alien beam"
+	icon = 'icons/urist/uristweapons.dmi'
+	icon_state = "alienprojectile"
+
+/obj/item/projectile/energy/laser/alien/alien1
+	damage = 15
+
+/obj/item/projectile/energy/laser/alien/alien2
+	damage = 25
+
+/obj/item/projectile/energy/laser/alien/alien3
+	damage = 30
+	stun = 5
+	weaken = 5
+	stutter = 5
+
+/obj/item/ammo_casing/energy/alien
+	e_cost = 0
+	fire_sound = 'sound/weapons/marauder.ogg'
+
+/obj/item/ammo_casing/energy/alien/alien1
+	projectile_type = /obj/item/projectile/energy/laser/alien/alien1
+
+/obj/item/ammo_casing/energy/alien/alien2
+	projectile_type = /obj/item/projectile/energy/laser/alien/alien2
+
+/obj/item/ammo_casing/energy/alien/alien3
+	projectile_type = /obj/item/projectile/energy/laser/alien/alien3
+
+//More special S-COM projectiles
+
+/obj/item/ammo_casing/a12mm/SCOM
+	desc = "A 12mm bullet casing."
+	caliber = "12mm"
+	projectile_type = /obj/item/projectile/bullet/midbullet2
+
+/obj/item/ammo_box/magazine/m12mm/SCOM
+	ammo_type = /obj/item/ammo_casing/a12mm/SCOM

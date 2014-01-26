@@ -16,7 +16,7 @@
 	melee_damage_upper = 10
 	attacktext = "slashes"
 	attack_sound = 'sound/weapons/slash.ogg'
-	faction = "creature"
+	faction = "alien" //luv u corai. scom 5eva
 	min_oxy = 0
 	max_oxy = 0
 	min_tox = 0
