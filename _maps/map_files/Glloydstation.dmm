@@ -5106,7 +5106,7 @@
 "bUj" = (/obj/structure/closet/crate,/turf/simulated/floor,/area/assembly/chargebay)
 "bUk" = (/obj/machinery/door_control{id = "roboticsdesk"; name = "Robotics Desk Shutters"; pixel_x = -26; pixel_y = 5},/obj/machinery/door_control{id = "mechbay"; name = "Mech Bay Shutters"; pixel_x = -26; pixel_y = -5},/obj/machinery/requests_console{department = "Robotics"; departmentType = 4; pixel_y = -29},/turf/simulated/floor,/area/assembly/robotics)
 "bUl" = (/obj/machinery/light,/turf/simulated/floor,/area/assembly/robotics)
-"bUm" = (/obj/structure/stool,/turf/simulated/floor,/area/assembly/robotics)
+"bUm" = (/obj/structure/stool,/obj/effect/landmark/start{name = "Roboticist"},/turf/simulated/floor,/area/assembly/robotics)
 "bUn" = (/obj/structure/table,/obj/item/stack/sheet/metal{amount = 50},/obj/item/stack/sheet/metal{amount = 50},/obj/item/stack/sheet/metal{amount = 50},/obj/item/stack/sheet/metal{amount = 50},/obj/item/stack/sheet/metal{amount = 50},/obj/item/stack/sheet/metal{amount = 50},/obj/item/stack/sheet/glass{amount = 30},/obj/machinery/atmospherics/pipe/simple/supply/hidden,/turf/simulated/floor{dir = 4; icon_state = "warning"},/area/assembly/robotics)
 "bUo" = (/obj/structure/window/reinforced{dir = 8},/obj/machinery/computer/rdconsole/robotics,/obj/structure/disposalpipe/segment,/turf/simulated/floor{icon_state = "white"},/area/assembly/robotics)
 "bUp" = (/obj/machinery/light_switch{pixel_x = 6; pixel_y = -26},/turf/simulated/floor{icon_state = "white"},/area/assembly/robotics)
