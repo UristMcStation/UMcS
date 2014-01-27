@@ -254,18 +254,62 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	fitted = 0
 
 //Tactical Webbing. Icons are /tg/, there's just no def.
+//Redone 26/01/2014 to make it a tie and such. Moves off of the fucked coat storage code. Also adds combat vests which, again, go under armour.
 
-/obj/item/clothing/suit/storage/webbing
-
+/obj/item/clothing/tie/storage
 	urist_only = 1
-	name = "tactical webbing"
+	name = "load bearing equipment"
+	desc = "Used to hold things when you don't have enough hands for that."
 	icon = 'icons/urist/uristclothes.dmi'
 	icon_state = "webbing"
-	item_state = "webbing"
-	desc = "Badass tactical webbing. Lots of handy pockets for storing things."
-	allowed = list(/obj/item/weapon/gun,/obj/item/ammo_box,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy/sword,/obj/item/weapon/handcuffs,/obj/item/weapon/tank/emergency_oxygen,/obj/item/weapon/hand_tele)
-	body_parts_covered = CHEST|GROIN
-	armor = list(melee = 5, bullet = 5, laser = 5,energy = 0, bomb = 0, bio = 0, rad = 0)
+	item_color = "webbing"
+	var/slots = 3
+	var/obj/item/weapon/storage/pockets/hold
+
+/obj/item/clothing/tie/storage/New()
+	hold = new /obj/item/weapon/storage/pockets(src)
+	hold.master_item = src
+	hold.storage_slots = slots
+
+/obj/item/clothing/tie/storage/attack_self(mob/user as mob)
+	user << "<span class='notice'>You empty [src].</span>"
+	var/turf/T = get_turf(src)
+	hold.hide_from(usr)
+	for(var/obj/item/I in hold.contents)
+		hold.remove_from_storage(I, T)
+	src.add_fingerprint(user)
+
+/obj/item/clothing/tie/storage/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	hold.attackby(W,user)
+	src.add_fingerprint(user)
+
+/obj/item/weapon/storage/pockets
+	name = "storage"
+	var/master_item		//item it belongs to
+
+/obj/item/weapon/storage/pockets/close(mob/user as mob)
+	..()
+	loc = master_item
+
+/obj/item/clothing/tie/storage/webbing
+	name = "webbing"
+	desc = "Sturdy mess of synthcotton belts and buckles, ready to share your burden." //because nonsynth cotton is for chumps.
+	icon_state = "webbing"
+	item_color = "webbing"
+
+/obj/item/clothing/tie/storage/black_vest
+	name = "black webbing vest"
+	desc = "Robust black synthcotton vest with lots of pockets to hold whatever you need, but cannot hold in hands."
+	icon_state = "vest_black"
+	item_color = "vest_black"
+	slots = 5
+
+/obj/item/clothing/tie/storage/brown_vest
+	name = "brown webbing vest"
+	desc = "Worn brownish synthcotton vest with lots of pockets to unload your hands."
+	icon_state = "vest_brown"
+	item_color = "vest_brown"
+	slots = 5
 
 //Naval Commando Helmet and Suit
 
@@ -383,3 +427,14 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 				usr << "You attempt to button-up the velcro on your [src], before promptly realising how retarded you are."
 				return
 		usr.update_inv_wear_suit()	//so our overlays update
+
+//More love for the detective. A shoulder holster
+
+/obj/item/clothing/tie/holster
+	urist_only = 1
+	name = "shoulder holster"
+	desc = "A handgun holster."
+	icon = 'icons/urist/uristclothes.dmi'
+	icon_state = "holster"
+	item_color = "holster"
+	var/obj/item/weapon/gun/holstered = null
