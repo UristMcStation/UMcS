@@ -1,6 +1,7 @@
-<h1>Welcome to Urist McStation! Before you begin...</h1>
+<h1>Welcome to Testing Before you begin...</h1>
 
 <i>This server is running a /tg/station13 Git build with a custom map and features.</i>
+<i>The custom map and build is curently based off of the UristMcstation <a href="http://www.bay12forums.com/smf/index.php?topic=123140.0">
 <i>This is a medium roleplay server.  Roleplay is encouraged, and please don't be egregiously out of character.</i>
 <h2>Server Rules:</h2>
 <b>Click the "Rules" tab at the top of this window and read them!

@@ -16,7 +16,7 @@ PORT 3306
 FEEDBACK_DATABASE feedback
 
 ## Username/Login used to access the database.
-FEEDBACK_LOGIN AndroidSFV
+FEEDBACK_LOGIN ss13
 
 ## Password used to access the database.
-FEEDBACK_PASSWORD droid500
+FEEDBACK_PASSWORD martin13
