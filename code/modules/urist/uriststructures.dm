@@ -73,3 +73,25 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon_opened = "cabinetdetective_open"
 	icon_broken = "cabinetdetective_broken"
 	icon_off = "cabinetdetective_broken"
+
+//Department signs, icons based off the ones from Para station
+
+/obj/structure/sign/deptsigns
+	name = "departmental sign"
+	icon = 'icons/urist/uristicons.dmi'
+
+/obj/structure/sign/deptsigns/sec
+	desc = "A sign leading to Security."
+	icon_state = "sec"
+
+/obj/structure/sign/deptsigns/sci
+	desc = "A sign leading to Research."
+	icon_state = "sci"
+
+/obj/structure/sign/deptsigns/eng
+	desc = "A sign leading to Engineering."
+	icon_state = "eng"
+
+/obj/structure/sign/deptsigns/med
+	desc = "A sign leading to Medbay."
+	icon_state = "med"
