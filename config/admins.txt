@@ -8,21 +8,4 @@
 # NOTE: syntax was changed to allow hyphenation of ranknames, since spaces are stripped.      #
 ###############################################################################################
 
-kg333 = Host
-vactor = Host
-electronics111 = Game Master
-#Electronics
-bdthemag = Game Master
-androidsfv = Game Master
-glloyd = Head Admin
-Nienhaus2 = Game Master
-hanspanda = Game Master
-greatorder = Moderator
-andreathesecond = Moderator
-jacob_lee = Game Master
-USEC_OFFICER = Game Master
-Ozarck = Moderator
-Rabidgam3r = Game Master
-M3hillus = Trial Admin
-CoraiUnki = Game Master
-Kydrasz = Game Master
+nycro = Host
