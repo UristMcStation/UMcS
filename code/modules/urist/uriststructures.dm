@@ -95,3 +95,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/structure/sign/deptsigns/med
 	desc = "A sign leading to Medbay."
 	icon_state = "med"
+
+/obj/structure/sign/deptsigns/esc
+	desc = "A sign leading to Escape."
+	icon_state = "esc"
