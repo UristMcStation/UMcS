@@ -439,3 +439,37 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	icon_state = "holster"
 	item_color = "holster"
 	var/obj/item/weapon/gun/holstered = null
+
+//Terran Confederacy Trader outfit
+
+/obj/item/clothing/under/terran
+	urist_only = 1
+	icon = 'icons/urist/uristclothes.dmi'
+
+/obj/item/clothing/suit/terran
+	urist_only = 1
+	icon = 'icons/urist/uristclothes.dmi'
+
+/obj/item/clothing/head/terran
+	urist_only = 1
+	icon = 'icons/urist/uristclothes.dmi'
+
+/obj/item/clothing/under/terran/trader
+	name = "Terran Confederacy trader's outfit"
+	desc = "An opulant outfit worn by a Terran Confederacy trader"
+	icon_state = "TCToutfit"
+	item_state = "TCToutfit"
+	item_color = "TCToutfit"
+
+/obj/item/clothing/suit/terran/trader
+	name = "Terran Confederacy trader's cloak"
+	desc = "An opulant cloak worn by a Terran Confederacy trader"
+	icon_state = "TCTRobes"
+	item_state = "TCTRobes"
+	body_parts_covered = CHEST|GROIN|ARMS
+
+/obj/item/clothing/head/terran/trader
+	name = "Terran Confederacy trader's hat"
+	desc = "An opulant hat worn by a Terran Confederacy trader"
+	icon_state = "TCTHat"
+	item_state = "TCTHat"
