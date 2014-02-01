@@ -149,6 +149,9 @@ the sprite and make my own projectile -Glloyd*/
 	e_cost = 5
 	fire_sound = 'sound/weapons/laser3.ogg'
 
+obj/item/ammo_casing/energy/laser/heavy/SCOM
+	e_cost = 10
+
 //Alien guns and projectiles for S-COM. I refuse to call these plasma guns. PLASMA IS PURPLE.
 
 obj/item/weapon/gun/energy/laser/alien
