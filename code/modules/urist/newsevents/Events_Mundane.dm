@@ -2,7 +2,7 @@
 	name = "Mundane News"
 	typepath = /datum/round_event/mundane_news
 	max_occurrences = 30
-	weight = 120
+	weight = 100
 
 /datum/round_event/mundane_news
 	endWhen = 10
@@ -137,10 +137,10 @@
 		NEWSCASTER.newsAlert("Tau Ceti Daily")
 
 /datum/round_event_control/trivial_news
-	name = "Tricial News"
+	name = "Trivial News"
 	typepath = /datum/round_event/trivial_news
 	max_occurrences = 30
-	weight = 100
+	weight = 80
 
 /datum/round_event/trivial_news
 	endWhen = 10

@@ -2,7 +2,7 @@
 	name = "Economic Event"
 	typepath = /datum/round_event/economic_event
 	max_occurrences = 30
-	weight = 75
+	weight = 60
 
 /datum/round_event/economic_event
 	endWhen = 50			//this will be set randomly, later
