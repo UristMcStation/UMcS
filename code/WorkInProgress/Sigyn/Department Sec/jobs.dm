@@ -41,8 +41,8 @@ var/list/sec_departments = list("engineering", "supply", "medical", "science")
 						var/turf/T
 						var/safety = 0
 						while(safety < 25)
-							T = pick(get_area_turfs(destination))
-							if(!H.Move(T))
+							T = safepick(get_area_turfs(destination))
+							if(T && !H.Move(T))
 								safety += 1
 								continue
 							else
@@ -87,7 +87,6 @@ var/list/sec_departments = list("engineering", "supply", "medical", "science")
 		L.implanted = 1
 		return 1
 
-/*
 /obj/item/device/radio/headset/headset_sec/department/New()
 	wires = new(src)
 	secure_radio_connections = new
@@ -95,48 +94,31 @@ var/list/sec_departments = list("engineering", "supply", "medical", "science")
 	if(radio_controller)
 		initialize()
 	recalculateChannels()
-*/
 
 /obj/item/device/radio/headset/headset_sec/department/engi
-	New()
-		..()
-		keyslot1 = new /obj/item/device/encryptionkey/headset_sec
-		keyslot2 = new /obj/item/device/encryptionkey/headset_eng
-		recalculateChannels()
+	keyslot1 = new /obj/item/device/encryptionkey/headset_sec
+	keyslot2 = new /obj/item/device/encryptionkey/headset_eng
 
 /obj/item/device/radio/headset/headset_sec/department/supply
-	New()
-		..()
-		keyslot1 = new /obj/item/device/encryptionkey/headset_sec
-		keyslot2 = new /obj/item/device/encryptionkey/headset_cargo
-		recalculateChannels()
+	keyslot1 = new /obj/item/device/encryptionkey/headset_sec
+	keyslot2 = new /obj/item/device/encryptionkey/headset_cargo
 
 /obj/item/device/radio/headset/headset_sec/department/med
-	New()
-		..()
-		keyslot1 = new /obj/item/device/encryptionkey/headset_sec
-		keyslot2 = new /obj/item/device/encryptionkey/headset_med
-		recalculateChannels()
+	keyslot1 = new /obj/item/device/encryptionkey/headset_sec
+	keyslot2 = new /obj/item/device/encryptionkey/headset_med
 
 /obj/item/device/radio/headset/headset_sec/department/sci
-	New()
-		..()
-		keyslot1 = new /obj/item/device/encryptionkey/headset_sec
-		keyslot2 = new /obj/item/device/encryptionkey/headset_sci
-		recalculateChannels()
+	keyslot1 = new /obj/item/device/encryptionkey/headset_sec
+	keyslot2 = new /obj/item/device/encryptionkey/headset_sci
 
 /obj/item/clothing/under/rank/security/cargo/New()
-	var/obj/item/clothing/tie/armband/cargo/A		= new /obj/item/clothing/tie/armband/cargo
-	hastie = A
+	attachTie(new /obj/item/clothing/tie/armband/cargo)
 
 /obj/item/clothing/under/rank/security/engine/New()
-	var/obj/item/clothing/tie/armband/engine/A		= new /obj/item/clothing/tie/armband/engine
-	hastie = A
+	attachTie(new /obj/item/clothing/tie/armband/engine)
 
 /obj/item/clothing/under/rank/security/science/New()
-	var/obj/item/clothing/tie/armband/science/A		= new /obj/item/clothing/tie/armband/science
-	hastie = A
+	attachTie(new /obj/item/clothing/tie/armband/science)
 
 /obj/item/clothing/under/rank/security/med/New()
-	var/obj/item/clothing/tie/armband/medgreen/A	= new /obj/item/clothing/tie/armband/medgreen
-	hastie = A
+	attachTie(new /obj/item/clothing/tie/armband/medgreen)

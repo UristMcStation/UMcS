@@ -25,4 +25,7 @@ Ozarck = Moderator
 Rabidgam3r = Game Master
 M3hillus = Trial Admin
 CoraiUnki = Game Master
+#Corai
 Kydrasz = Game Master
+Donuts = Moderator
+MisterTeeth = Moderator
