@@ -253,6 +253,7 @@
 
 		var/mob/living/carbon/human/character = create_character()	//creates the human and transfers vars and mind
 		job_master.EquipRank(character, rank, 1)					//equips the human
+		character.roll_disorder() //roll for mental disorders; see modules/urist/mental.dm
 		character.loc = pick(latejoin)
 		character.lastarea = get_area(loc)
 
