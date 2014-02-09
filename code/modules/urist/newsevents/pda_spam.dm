@@ -1,8 +1,8 @@
 /datum/round_event_control/pda_spam
 	name = "PDA Spam"
 	typepath = /datum/round_event/pda_spam
-	max_occurrences = 30
-	weight = 100
+	max_occurrences = 16
+	weight = 60
 
 /datum/round_event/pda_spam
 	endWhen = 6000
