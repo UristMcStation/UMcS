@@ -472,4 +472,26 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 	name = "Terran Confederacy trader's hat"
 	desc = "An opulent hat worn by a Terran Confederacy trader"
 	icon_state = "TCTHat"
-	item_state = "TCTHat"	
+	item_state = "TCTHat"
+
+//Alternate space wizard outfits. I hope to see more than just the necromancer's robes here one day.
+
+/obj/item/clothing/suit/wizrobe/urist
+	icon = 'icons/urist/uristclothes.dmi'
+	urist_only = 1
+
+/obj/item/clothing/head/wizard/urist
+	icon = 'icons/urist/uristclothes.dmi'
+	urist_only = 1
+
+/obj/item/clothing/suit/wizrobe/urist/necro
+	name = "necromancer's robes"
+	desc = "A set of charcoal-black robes worn only by those practicing the darkest of arts. A variety of bones hang from it."
+	icon_state = "necro"
+	item_state = "necro"
+
+/obj/item/clothing/head/wizard/urist/necro
+	name = "necromancer's hood"
+	desc = "A charcoal-black hood worn by the masters of life and death. Simply putting it on sharpens your senses."
+	icon_state = "necrohood"
+	item_state = "necrohood"
