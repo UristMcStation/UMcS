@@ -1,3 +1,5 @@
+/obj/item/var/health = null
+
 /obj/item/ashtray
 	icon = 'icons/obj/ashtray.dmi'
 	var/
