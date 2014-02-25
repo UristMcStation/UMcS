@@ -120,8 +120,8 @@ var/global/datum/controller/gameticker/ticker
 	create_characters() //Create player characters and transfer them
 	collect_minds()
 	equip_characters()
-	assign_disorders() //Rolls mental disorders for all characters. See modules/urist/mental.dm
 	data_core.manifest()
+	assign_disorders() //Rolls mental disorders for all characters. See modules/urist/mental.dm
 	current_state = GAME_STATE_PLAYING
 
 	spawn(0)//Forking here so we dont have to wait for this to finish
