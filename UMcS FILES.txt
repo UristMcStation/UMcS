@@ -1,7 +1,8 @@
-SS13
+UMcS
 
 
 FILES
+
 
 code/game/objects/storage/coat.dm 
 
@@ -17,7 +18,7 @@ code/game/objects/structures/barsign.dm
 
 code/game/objects/structures/hoverseg.dm  
 
-code/game/objects/ashtray.dm 
+code/game/objects/items/ashtray.dm 
 
 code/game/machinery/holosign.dm  
 
@@ -73,7 +74,7 @@ code/modules/admin/verbs/debug.dm
 
 code/modules/clothing/suits/jobs.dm 
 
-code/__DEFINES.dm 
+code/__DEFINES/admin.dm 
 
 code/__HELPERS/type2type.dm
 
