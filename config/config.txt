@@ -114,7 +114,7 @@ FORUMURL http://www.bay12forums.com/smf/index.php?topic=123140.0
 # WIKIURL http://www.nanotrasen.com/wiki/index.php
 
 ## Ban appeals URL - usually for a forum or wherever people should go to contact your admins.
-BANAPPEALS http://www.bay12forums.com/smf/index.php?action=pm;sa=send;u=17215
+BANAPPEALS http://www.bay12forums.com/smf/index.php?action=pm;sa=send;u=74225
 
 ## In-game features
 ##Toggle for having jobs load up from the .txt
