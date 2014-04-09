@@ -158,3 +158,12 @@ Please keep it tidy, by which I mean put comments describing the item before the
 		new /obj/item/weapon/reagent_containers/pill/methylphenidate( src )
 		new /obj/item/weapon/reagent_containers/pill/methylphenidate( src )
 
+//Empty pill bottles for crew that spawn with a mental disorder
+//This is kind of hacky, since pill bottles can't normally hold paper, so think of something better!
+/obj/item/weapon/storage/pill_bottle/prescription
+	name = "bottle of prescribed pills"
+	desc = "Contains pills issued to crew members to treat chronic conditions."
+
+	New()
+		..()
+		new /obj/item/weapon/paper/prescriptionreminder( src )

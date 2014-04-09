@@ -253,11 +253,13 @@
 
 		var/mob/living/carbon/human/character = create_character()	//creates the human and transfers vars and mind
 		job_master.EquipRank(character, rank, 1)					//equips the human
+
 		character.loc = pick(latejoin)
 		character.lastarea = get_area(loc)
 
 		if(character.mind.assigned_role != "Cyborg")
 			data_core.manifest_inject(character)
+			character.roll_disorder() //roll for mental disorders; see modules/urist/mental.dm
 			ticker.minds += character.mind//Cyborgs and AIs handle this in the transform proc.	//TODO!!!!! ~Carn
 			AnnounceArrival(character, rank)
 		else

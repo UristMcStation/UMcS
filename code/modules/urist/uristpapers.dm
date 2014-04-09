@@ -15,6 +15,11 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	name = "'Psychologist Medicine (READ THIS)'"
 	info = "<center>So You Want To Be A Psychologist? Part Two: Pills</center><Br><Br> <small>An important part of your job is prescribing the proper medication for a patient's mind. One pill should do the trick in most cases, but how do you know what pill to use? You have also been given Chemistry access in case those chemists turn out to be your patients, and will need to know how to make these drugs. This handy guide will help you do just that! <Br><Br>Methylphenidate<Br>Methylphenidate is a drug that will help improve a patient's concentration if they are having trouble focusing on their job. <Br>Made with 1 part mindbreaker and 1 part hydrogen. <Br><Br>Citalopram<Br>Citalopram is a mild anti-depressant that will also help stablilize a patient's mind. <Br>Made with 1 part mindbreaker and 1 part carbon. <Br><Br>Paroxetine<Br>Paroxetine is a strong anti-depressent that will also be very effective at stabilizing your patient's mind. However, the drug itself is unstable, and can lead to an extremely deterioated mental state and hallucinations. Use with caution. <Br>Made with 1 part mindbreaker, 1 part oxygen and 1 part inaprovaline.</small>"
 
+//Note for crew that spawn with a mental illness
+/obj/item/weapon/paper/prescriptionreminder
+	name = "Note to Self"
+	info = "Remember to get this prescription refilled."
+
 //S-COM pamphlet
 
 obj/item/weapon/paper/pamphlet/SCOM
